@@ -987,12 +987,12 @@ No olvides que
 <li>Chunk que entrega el resultado en formato directo</li>
 </ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">#```{r, results=&#39;asis&#39;}
-# stargazer(cars, type=&#34;html&#34;)
+# stargazer(datos, type=&#34;html&#34;)
 #```
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">stargazer</span>(cars, type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;html&#34;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">stargazer<span style="color:#f92672">::</span><span style="color:#a6e22e">stargazer</span>(datos, type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;html&#34;</span>)
 </code></pre></div><table style="text-align:center"><tr><td colspan="8" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Statistic</td><td>N</td><td>Mean</td><td>St. Dev.</td><td>Min</td><td>Pctl(25)</td><td>Pctl(75)</td><td>Max</td></tr>
-<tr><td colspan="8" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">speed</td><td>50</td><td>15.400</td><td>5.288</td><td>4</td><td>12</td><td>19</td><td>25</td></tr>
-<tr><td style="text-align:left">dist</td><td>50</td><td>42.980</td><td>25.769</td><td>2</td><td>26</td><td>56</td><td>120</td></tr>
+<tr><td colspan="8" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">g47_monto</td><td>942</td><td>679,414.700</td><td>836,325.700</td><td>0.000</td><td>250,000.000</td><td>700,000.000</td><td>12,000,000.000</td></tr>
+<tr><td style="text-align:left">g14a_horas</td><td>688</td><td>30.158</td><td>21.079</td><td>0.000</td><td>9.000</td><td>45.000</td><td>112.000</td></tr>
 <tr><td colspan="8" style="border-bottom: 1px solid black"></td></tr></table>
 <h3 id="las-opciones-principales-son">Las opciones principales son:</h3>
 <ul>
@@ -1012,16 +1012,16 @@ No olvides que
 <h4 id="gráfico-1">Gráfico 1</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">#```{r, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
- plot_grpfrq(cars$speed, cars$dist,
+ plot_grpfrq(datos$f1, datos$sexo,
             title = &#34;Gráfico 1&#34;,
             type = &#34;box&#34;)
 #```
-</code></pre></div><p><img src="/example/02-practico_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+</code></pre></div><p><img src="/example/02-practico_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <h4 id="gráfico-2">Gráfico 2</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">#```{r echo=FALSE, message=FALSE, warning=FALSE, results=&#39;asis&#39;}
- plot_scatter(cars, speed, dist)
+ plot_scatter(datos, g14a_horas, g47_monto)
 #```
-</code></pre></div><p><img src="/example/02-practico_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</code></pre></div><p><img src="/example/02-practico_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>Para continuar practicando ir a <a href="https://www.markdowntutorial.com/es/" target="_blank" rel="noopener">Tutorial de Markdown</a></p>
 <h2 id="tarea-1">Tarea 1</h2>
 <p>Envie un archivo Rmarkdown creado por usted con 1 ejemplo de cada uno de los ejercicios hechos en el práctico</p>
