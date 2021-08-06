@@ -11,15 +11,10 @@ toc: true
 editor_options:
   chunk_output_type: console
 ---
-```{r include=FALSE}
-library (stargazer) 
-library (sjPlot)
+```{r, setup, include=FALSE}
 
-library (sjPlot)
-
+load("C:/Users/dafne/Dropbox/Mi PC (LAPTOP-S31LO2T3)/Desktop/GitHub/www-learn-R-uah/static/data/datos.RData")
 ```
-
-
 
 ## 1. Markdown
 
@@ -261,14 +256,16 @@ Este es el chunk por defecto
 
 6. Chunk que entrega el resultado en formato directo 
 
+
 ````
 #```{r, results='asis'}
-# stargazer(cars, type="html")
+# stargazer(datos, type="html")
 #```
 ````
 
 ```{r, results='asis'}
-stargazer(cars, type="html")
+
+stargazer::stargazer(datos, type="html")
 ```
 
 ### Las opciones principales son:
@@ -297,7 +294,7 @@ stargazer(cars, type="html")
 ````
 #```{r, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
- plot_grpfrq(cars$speed, cars$dist,
+ plot_grpfrq(datos$f1, datos$sexo,
             title = "Gráfico 1",
             type = "box")
 #```
@@ -305,7 +302,7 @@ stargazer(cars, type="html")
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
-plot_grpfrq(cars$speed, cars$dist,
+sjPlot::plot_grpfrq(datos$f1, datos$sexo,
             title = "Gráfico 1",
             type = "box")
 ```
@@ -314,13 +311,13 @@ plot_grpfrq(cars$speed, cars$dist,
 #### Gráfico 2
 ````
 #```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
- plot_scatter(cars, speed, dist)
+ plot_scatter(datos, g14a_horas, g47_monto)
 #```
 ````
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
 
-plot_scatter(cars, speed, dist)
+sjPlot::plot_scatter(datos, g14a_horas, g47_monto)
 
 ```
 

@@ -13,8 +13,6 @@ editor_options:
 ---
 
 
-
-
 ## 1. Markdown
 
 Markdown es una forma de escritura, sencilla visualizada en una sintaxis de formato para la creación de documentos HTML. Este lenguaje universal en texto plano que busca ser fácil y legible.  
@@ -255,21 +253,22 @@ Este es el chunk por defecto
 
 6. Chunk que entrega el resultado en formato directo 
 
+
 ````
 #```{r, results='asis'}
-# stargazer(cars, type="html")
+# stargazer(datos, type="html")
 #```
 ````
 
 
 ```r
-stargazer(cars, type="html")
+stargazer::stargazer(datos, type="html")
 ```
 
 
 <table style="text-align:center"><tr><td colspan="8" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Statistic</td><td>N</td><td>Mean</td><td>St. Dev.</td><td>Min</td><td>Pctl(25)</td><td>Pctl(75)</td><td>Max</td></tr>
-<tr><td colspan="8" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">speed</td><td>50</td><td>15.400</td><td>5.288</td><td>4</td><td>12</td><td>19</td><td>25</td></tr>
-<tr><td style="text-align:left">dist</td><td>50</td><td>42.980</td><td>25.769</td><td>2</td><td>26</td><td>56</td><td>120</td></tr>
+<tr><td colspan="8" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">g47_monto</td><td>942</td><td>679,414.700</td><td>836,325.700</td><td>0.000</td><td>250,000.000</td><td>700,000.000</td><td>12,000,000.000</td></tr>
+<tr><td style="text-align:left">g14a_horas</td><td>688</td><td>30.158</td><td>21.079</td><td>0.000</td><td>9.000</td><td>45.000</td><td>112.000</td></tr>
 <tr><td colspan="8" style="border-bottom: 1px solid black"></td></tr></table>
 
 ### Las opciones principales son:
@@ -296,23 +295,23 @@ stargazer(cars, type="html")
 ````
 #```{r, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
- plot_grpfrq(cars$speed, cars$dist,
+ plot_grpfrq(datos$f1, datos$sexo,
             title = "Gráfico 1",
             type = "box")
 #```
 ````
 
-<img src="/example/02-practico_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+<img src="/example/02-practico_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 
 
 #### Gráfico 2
 ````
 #```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
- plot_scatter(cars, speed, dist)
+ plot_scatter(datos, g14a_horas, g47_monto)
 #```
 ````
 
-<img src="/example/02-practico_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+<img src="/example/02-practico_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 
 Para continuar practicando ir a [Tutorial de Markdown](https://www.markdowntutorial.com/es/)
 
