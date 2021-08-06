@@ -3663,397 +3663,231 @@ mosquito_nets &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &
       <link>/example/02-practico/</link>
       <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
       <guid>/example/02-practico/</guid>
-      <description>&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/lightable/lightable.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;p&gt;If you want to follow along with this example, you can download the data below:&lt;/p&gt;
+      <description>&lt;h2 id=&#34;1-markdown&#34;&gt;1. Markdown&lt;/h2&gt;
+&lt;p&gt;Markdown es una forma de escritura, sencilla visualizada en una sintaxis de formato para la creación de documentos HTML. Este lenguaje universal en texto plano que busca ser fácil y legible.&lt;/p&gt;
+&lt;h2 id=&#34;2-rmarkdown&#34;&gt;2. RMarkdown&lt;/h2&gt;
+&lt;p&gt;Es un documento de R con formato Markdown&lt;/p&gt;
+&lt;p&gt;Ventajas:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;/projects/regression-example/data/sat_gpa.csv&#34;&gt;&lt;i class=&#34;fas fa-table&#34;&gt;&lt;/i&gt; &lt;code&gt;sat_gpa.csv&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Los documentos de R Markdown son completamente reproducibles.&lt;/li&gt;
+&lt;li&gt;Es gratuito y de código abierto.&lt;/li&gt;
+&lt;li&gt;Se puede utilizar varios lenguajes, incluidos R, Python y SQL.&lt;/li&gt;
+&lt;li&gt;R Markdown admite docenas de formatos de salida estáticos y dinámicos, incluidos HTML , PDF , MS Word , diapositivas, libros, sitios web y más.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;You can also download a complete &lt;code&gt;.zip&lt;/code&gt; file with a finished R Markdown file that you can knit and play with on your own:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;/projects/regression-example.zip&#34;&gt;&lt;i class=&#34;fas fa-file-archive&#34;&gt;&lt;/i&gt; &lt;code&gt;regression-example.zip&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;live-coding-example&#34;&gt;Live coding example&lt;/h2&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;https://www.youtube.com/embed/E-Zz5S5NOUo&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;h2 id=&#34;complete-code&#34;&gt;Complete code&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;(This is a heavily cleaned up and annotated version of the code from the video.)&lt;/em&gt;&lt;/p&gt;
-&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
-&lt;p&gt;SAT scores have long been a major factor in college admissions, under the assumption that students with higher test scores will perform better in college and receive a higher GPA. The SAT&amp;rsquo;s popularity &lt;a href=&#34;https://www.washingtonpost.com/news/answer-sheet/wp/2017/04/12/the-list-of-test-optional-colleges-and-universities-keeps-growing-despite-college-boards-latest-jab/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;has dropped in recent years&lt;/a&gt;, though, and this summer, the &lt;a href=&#34;http://www.chicagotribune.com/news/local/breaking/ct-university-chicago-sat-act-20180614-story.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;University of Chicago announced that it would stop requiring SAT scores for all prospective undergraduates&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Educational Testing Service (ETS), the creator of the SAT, collected SAT scores, high school GPAs, and freshman-year-college GPAs for 1,000 students at an unnamed university.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;p&gt;You are a university admissions officer and you are curious if SAT scores really do predict college performance. You&amp;rsquo;re also interested in other factors that could influence student performance.&lt;/p&gt;
-&lt;p&gt;The data contains 6 variables:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;sex&lt;/code&gt;: The sex of the student (male or female; female is the base case)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sat_verbal&lt;/code&gt;: The student&amp;rsquo;s &lt;em&gt;percentile&lt;/em&gt; score in the verbal section of the SAT&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sat_math&lt;/code&gt;: The student&amp;rsquo;s &lt;em&gt;percentile&lt;/em&gt; score in the math section of the SAT&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sat_total&lt;/code&gt;: &lt;code&gt;sat_verbal&lt;/code&gt; + &lt;code&gt;sat_math&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;gpa_hs&lt;/code&gt;: The student&amp;rsquo;s GPA in high school at graduation&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;gpa_fy&lt;/code&gt;: The student&amp;rsquo;s GPA at the end of their freshman year&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# First we load the libraries and data&lt;/span&gt;
-&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(tidyverse)     &lt;span style=&#34;color:#75715e&#34;&gt;# This lets you create plots with ggplot, manipulate data, etc.&lt;/span&gt;
-&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(broom)         &lt;span style=&#34;color:#75715e&#34;&gt;# This lets you convert regression models into nice tables&lt;/span&gt;
-&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(modelsummary)  &lt;span style=&#34;color:#75715e&#34;&gt;# This lets you combine multiple regression models into a single table&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Load the data.&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# It&amp;#39;d be a good idea to click on the &amp;#34;sat_gpa&amp;#34; object in the Environment panel&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# in RStudio to see what the data looks like after you load it.&lt;/span&gt;
-sat_gpa &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;read_csv&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;data/sat_gpa.csv&amp;#34;&lt;/span&gt;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;exploratory-questions&#34;&gt;Exploratory questions&lt;/h3&gt;
-&lt;h4 id=&#34;how-well-do-sat-scores-correlate-with-freshman-gpa&#34;&gt;How well do SAT scores correlate with freshman GPA?&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Note the syntax here with the $. That lets you access columns. The general&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# pattern is name_of_data_set$name_of_column&lt;/span&gt;
-&lt;span style=&#34;color:#a6e22e&#34;&gt;cor&lt;/span&gt;(sat_gpa&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;gpa_fy, sat_gpa&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;sat_total)
-&lt;span style=&#34;color:#75715e&#34;&gt;## [1] 0.46&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;SAT scores and first-year college GPA are moderately positively correlated (r = 0.46). As one goes up, the other also tends to go up.&lt;/p&gt;
-&lt;p&gt;Here&amp;rsquo;s what that relationship looks like:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ggplot&lt;/span&gt;(sat_gpa, &lt;span style=&#34;color:#a6e22e&#34;&gt;aes&lt;/span&gt;(x &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sat_total, y &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; gpa_fy)) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;geom_point&lt;/span&gt;(size &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.5&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;geom_smooth&lt;/span&gt;(method &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;lm&amp;#34;&lt;/span&gt;, se &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;FALSE&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;labs&lt;/span&gt;(x &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Total SAT score&amp;#34;&lt;/span&gt;, y &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Freshman GPA&amp;#34;&lt;/span&gt;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/example/02-practico_files/figure-html/plot-sat-gpa-correlation-1.png&#34; width=&#34;576&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;h4 id=&#34;how-well-does-high-school-gpa-correlate-with-freshman-gpa&#34;&gt;How well does high school GPA correlate with freshman GPA?&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;cor&lt;/span&gt;(sat_gpa&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;gpa_fy, sat_gpa&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;gpa_hs)
-&lt;span style=&#34;color:#75715e&#34;&gt;## [1] 0.54&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;High school and freshman GPAs are also moderately correlated (r = 0.54), but with a slightly stronger relationship.&lt;/p&gt;
-&lt;p&gt;Here&amp;rsquo;s what that relationship looks like:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ggplot&lt;/span&gt;(sat_gpa, &lt;span style=&#34;color:#a6e22e&#34;&gt;aes&lt;/span&gt;(x &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; gpa_hs, y &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; gpa_fy)) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;geom_point&lt;/span&gt;(size &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.5&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;geom_smooth&lt;/span&gt;(method &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;lm&amp;#34;&lt;/span&gt;, se &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;FALSE&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;labs&lt;/span&gt;(x &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;High school GPA&amp;#34;&lt;/span&gt;, y &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Freshman GPA&amp;#34;&lt;/span&gt;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/example/02-practico_files/figure-html/plot-hs-gpa-correlation-1.png&#34; width=&#34;576&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;h4 id=&#34;is-the-correlation-between-sat-scores-and-freshman-gpa-stronger-for-men-or-for-women&#34;&gt;Is the correlation between SAT scores and freshman GPA stronger for men or for women?&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# We can calculate the correlation for subgroups within the data with slightly&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# different syntax. Notice how this uses the pipe (%&amp;gt;%), which makes it read&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# like English. We can say &amp;#34;Take the sat_gpa data set, split it into groups&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# based on sex, and calculate the correlation between sat_total and gpa_fy in&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# each of the groups&lt;/span&gt;
-sat_gpa &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt;
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;group_by&lt;/span&gt;(sex) &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt;
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;summarize&lt;/span&gt;(correlation &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;cor&lt;/span&gt;(sat_total, gpa_fy))
-&lt;span style=&#34;color:#75715e&#34;&gt;## # A tibble: 2 x 2&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##   sex    correlation&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##   &amp;lt;chr&amp;gt;        &amp;lt;dbl&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;## 1 Female       0.493&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;## 2 Male         0.481&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We can calculate the correlation between SAT scores and freshman GPA for both sexes to see if there are any differences. The correlation is slightly stronger for women, but it&amp;rsquo;s hardly noticeable (r = 0.49 for females, r = 0.48 for males)&lt;/p&gt;
-&lt;p&gt;This is apparent visually if we include a trendline for each sex. The lines are essentially parallel:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# The only difference between this graph and the earlier two is that it is&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# coloring by sex&lt;/span&gt;
-&lt;span style=&#34;color:#a6e22e&#34;&gt;ggplot&lt;/span&gt;(sat_gpa, &lt;span style=&#34;color:#a6e22e&#34;&gt;aes&lt;/span&gt;(x &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; gpa_hs, y &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; gpa_fy, color &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sex)) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;geom_point&lt;/span&gt;(size &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.5&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;geom_smooth&lt;/span&gt;(method &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;lm&amp;#34;&lt;/span&gt;, se &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;FALSE&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;labs&lt;/span&gt;(x &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;High school GPA&amp;#34;&lt;/span&gt;, y &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Freshman GPA&amp;#34;&lt;/span&gt;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/example/02-practico_files/figure-html/plot-sat-gpa-correlation-sex-1.png&#34; width=&#34;576&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;h4 id=&#34;is-the-correlation-between-high-school-gpa-and-freshman-gpa-stronger-for-men-or-for-women&#34;&gt;Is the correlation between high school GPA and freshman GPA stronger for men or for women?&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;sat_gpa &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt;
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;group_by&lt;/span&gt;(sex) &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt;
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;summarize&lt;/span&gt;(correlation &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;cor&lt;/span&gt;(gpa_hs, gpa_fy))
-&lt;span style=&#34;color:#75715e&#34;&gt;## # A tibble: 2 x 2&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##   sex    correlation&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##   &amp;lt;chr&amp;gt;        &amp;lt;dbl&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;## 1 Female       0.597&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;## 2 Male         0.483&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;There is a noticeable difference between men and women in the correlation between high school and college GPA. For men, the two are moderately correlated (r = 0.48), while for women the relationship is much stronger (r = 0.60). High school grades might be a better predictor of college grades for women than for men.&lt;/p&gt;
-&lt;h3 id=&#34;models&#34;&gt;Models&lt;/h3&gt;
-&lt;h4 id=&#34;do-sat-scores-predict-freshman-gpas&#34;&gt;Do SAT scores predict freshman GPAs?&lt;/h4&gt;
-&lt;p&gt;We can build a model that predicts college GPAs (our outcome variable, or dependent variable) using SAT scores (our main explanatory variable):&lt;/p&gt;
-&lt;p&gt;$$
-\text{freshman GPA} = \beta_0 + \beta_1 \text{SAT total} + \epsilon
-$$&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;model_sat_gpa &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lm&lt;/span&gt;(gpa_fy &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; sat_total, data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sat_gpa)
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Look at the model results and include confidence intervals for the coefficients&lt;/span&gt;
-&lt;span style=&#34;color:#a6e22e&#34;&gt;tidy&lt;/span&gt;(model_sat_gpa, conf.int &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TRUE&lt;/span&gt;)
-&lt;span style=&#34;color:#75715e&#34;&gt;## # A tibble: 2 x 7&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##   term        estimate std.error statistic  p.value conf.low conf.high&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##   &amp;lt;chr&amp;gt;          &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;## 1 (Intercept)  0.00193   0.152      0.0127 9.90e- 1  -0.296     0.300 &lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;## 2 sat_total    0.0239    0.00146   16.4    1.39e-53   0.0210    0.0267&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here&amp;rsquo;s what these coefficients mean:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;The intercept (or &lt;code&gt;\(\beta_0\)&lt;/code&gt;) is 0.002, which means that the average freshman GPA will be 0.002 when the total SAT percentile score is 0. This is a pretty nonsensical number (nobody has a score that low), so we can ignore it.&lt;/li&gt;
-&lt;li&gt;The slope of &lt;code&gt;sat_total&lt;/code&gt; (or &lt;code&gt;\(\beta_1\)&lt;/code&gt;) is 0.024, which means that a 1 percentile increase in SAT score is associated with a 0.024 point increase in GPA, on average.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;We can look at the summary table of the regression to check the &lt;code&gt;\(R^2\)&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;glance&lt;/span&gt;(model_sat_gpa)
-&lt;span style=&#34;color:#75715e&#34;&gt;## # A tibble: 1 x 12&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##   r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC deviance df.residual  nobs&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##       &amp;lt;dbl&amp;gt;         &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;       &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;## 1     0.212         0.211 0.658      268. 1.39e-53     1  -999. 2005. 2019.     432.         998  1000&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;code&gt;\(R^2\)&lt;/code&gt; here is 0.212, which means that SAT scores explain 21% of the variation in freshman GPA. It&amp;rsquo;s not a fantastic model, but it explains some stuff.&lt;/p&gt;
-&lt;h4 id=&#34;does-a-certain-type-of-sat-score-have-a-larger-effect-on-freshman-gpas&#34;&gt;Does a certain type of SAT score have a larger effect on freshman GPAs?&lt;/h4&gt;
-&lt;p&gt;The &lt;code&gt;sat_total&lt;/code&gt; variable combines both &lt;code&gt;sat_math&lt;/code&gt; and &lt;code&gt;sat_verbal&lt;/code&gt;. We can disaggregate the total score to see the effect of each portion of the test on freshman GPA, using the following model:&lt;/p&gt;
-&lt;p&gt;$$
-\text{freshman GPA} = \beta_0 + \beta_1 \text{SAT verbal} + \beta_2 \text{SAT math} + \epsilon
-$$&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;model_sat_gpa_types &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lm&lt;/span&gt;(gpa_fy &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; sat_verbal &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; sat_math, data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sat_gpa)
-
-&lt;span style=&#34;color:#a6e22e&#34;&gt;tidy&lt;/span&gt;(model_sat_gpa_types, conf.int &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TRUE&lt;/span&gt;)
-&lt;span style=&#34;color:#75715e&#34;&gt;## # A tibble: 3 x 7&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##   term        estimate std.error statistic  p.value conf.low conf.high&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##   &amp;lt;chr&amp;gt;          &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;## 1 (Intercept)  0.00737   0.152      0.0484 9.61e- 1  -0.291     0.306 &lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;## 2 sat_verbal   0.0254    0.00286    8.88   3.07e-18   0.0198    0.0310&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;## 3 sat_math     0.0224    0.00279    8.04   2.58e-15   0.0169    0.0279&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Again, the intercept is meaningless since no student has a zero on both the verbal and the math test. The slope for &lt;code&gt;sat_verbal&lt;/code&gt; (or &lt;code&gt;\(\beta_1\)&lt;/code&gt;) is 0.025, so a one percentile point increase in the verbal SAT is associated with a 0.025 point increase in GPA, on average, controlling for math scores. Meanwhile, a one percentile point increase in the math SAT ($\beta_2$) is associated with a 0.022 point increase in GPA, on average, controlling for verbal scores. These are essentially the same, so at first glance, it doesn&amp;rsquo;t seem like the type of test has substantial bearing on college GPAs.&lt;/p&gt;
-&lt;p&gt;The adjusted &lt;code&gt;\(R^2\)&lt;/code&gt; (which we need to look at because we&amp;rsquo;re using more than one explanatory variable) is 0.211, which means that this model explains 21% of the variation in college GPA. Like before, this isn&amp;rsquo;t great, but it tells us a little bit about the importance of SAT scores.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;glance&lt;/span&gt;(model_sat_gpa_types)
-&lt;span style=&#34;color:#75715e&#34;&gt;## # A tibble: 1 x 12&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##   r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC deviance df.residual  nobs&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##       &amp;lt;dbl&amp;gt;         &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;       &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;## 1     0.212         0.211 0.658      134. 2.36e-52     2  -999. 2006. 2026.     432.         997  1000&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;do-high-school-gpas-predict-freshman-gpas&#34;&gt;Do high school GPAs predict freshman GPAs?&lt;/h4&gt;
-&lt;p&gt;We can also use high school GPA to predict freshman GPA, using the following model:&lt;/p&gt;
-&lt;p&gt;$$
-\text{freshman GPA} = \beta_0 + \beta_1 \text{high school GPA} + \epsilon
-$$&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;model_sat_gpa_hs &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lm&lt;/span&gt;(gpa_fy &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; gpa_hs, data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sat_gpa)
-
-&lt;span style=&#34;color:#a6e22e&#34;&gt;tidy&lt;/span&gt;(model_sat_gpa_hs)
-&lt;span style=&#34;color:#75715e&#34;&gt;## # A tibble: 2 x 5&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##   term        estimate std.error statistic  p.value&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##   &amp;lt;chr&amp;gt;          &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;## 1 (Intercept)   0.0913    0.118      0.775 4.39e- 1&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;## 2 gpa_hs        0.743     0.0363    20.4   6.93e-78&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The intercept here ($\beta_0$) is 0.091, which means that a student with a high school GPA of zero would have a predicted freshman GPA of 0.091, on average. This is nonsensical, so we can ignore it. The slope for &lt;code&gt;gpa_hs&lt;/code&gt; ($\beta_1$), on the other hand, is helpful. For every 1 point increase in GPA (i.e. moving from 2.0 to 3.0, or 3.0 to 4.0), there&amp;rsquo;s an associated increase in college GPA of 0.743 points, on average.&lt;/p&gt;
-&lt;p&gt;The &lt;code&gt;\(R^2\)&lt;/code&gt; value is 0.295, which means that nearly 30% of the variation in college GPA can be explained by high school GPA. Neat.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;glance&lt;/span&gt;(model_sat_gpa_hs)
-&lt;span style=&#34;color:#75715e&#34;&gt;## # A tibble: 1 x 12&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##   r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC deviance df.residual  nobs&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##       &amp;lt;dbl&amp;gt;         &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;       &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;## 1     0.295         0.295 0.622      418. 6.93e-78     1  -943. 1893. 1908.     386.         998  1000&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;college-gpa--sat--sex&#34;&gt;College GPA ~ SAT + sex&lt;/h4&gt;
-&lt;p&gt;Next, we can see how both SAT scores and sex affect variation in college GPA with the following model:&lt;/p&gt;
-&lt;p&gt;$$
-\text{freshman GPA} = \beta_0 + \beta_1 \text{SAT total} + \beta_2 \text{sex} + \epsilon
-$$&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;model_sat_sex &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lm&lt;/span&gt;(gpa_fy &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; sat_total &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; sex, data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sat_gpa)
-
-&lt;span style=&#34;color:#a6e22e&#34;&gt;tidy&lt;/span&gt;(model_sat_sex, conf.int &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TRUE&lt;/span&gt;)
-&lt;span style=&#34;color:#75715e&#34;&gt;## # A tibble: 3 x 7&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##   term        estimate std.error statistic  p.value conf.low conf.high&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##   &amp;lt;chr&amp;gt;          &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;## 1 (Intercept)  -0.0269   0.149      -0.181 8.57e- 1  -0.319     0.265 &lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;## 2 sat_total     0.0255   0.00145    17.6   1.14e-60   0.0227    0.0284&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;## 3 sexMale      -0.274    0.0414     -6.62  6.05e-11  -0.355    -0.193&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here, stuff gets interesting. The intercept ($\beta_0$) is once again nonsensical—females with a 0 score on their SAT would have a -0.027 college GPA on average. There&amp;rsquo;s a positive effect with our &lt;code&gt;\(\beta_1\)&lt;/code&gt; (or &lt;code&gt;sat_total&lt;/code&gt;), since controlling for sex, a one percentile point increase in SAT scores is associated with a 0.026 point increase in freshman GPA, on average. If we control for SAT scores, males see an average drop of 0.274 points ($\beta_2$) in their college GPAs.&lt;/p&gt;
-&lt;p&gt;The combination of these two variables, however, doesn&amp;rsquo;t boost the model&amp;rsquo;s explanatory power that much. The adjusted &lt;code&gt;\(R^2\)&lt;/code&gt; (which we must look at because we&amp;rsquo;re using more than one explanatory variable) is 0.243, meaning that the model explains a little over 24% of the variation in college GPAs.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;glance&lt;/span&gt;(model_sat_sex)
-&lt;span style=&#34;color:#75715e&#34;&gt;## # A tibble: 1 x 12&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##   r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC deviance df.residual  nobs&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##       &amp;lt;dbl&amp;gt;         &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;       &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;## 1     0.245         0.243 0.644      162. 1.44e-61     2  -978. 1964. 1983.     414.         997  1000&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;college-gpa--sat--high-school-gpa--sex&#34;&gt;College GPA ~ SAT + high school GPA + sex&lt;/h4&gt;
-&lt;p&gt;Finally we can see what the effect of SAT scores, high school GPA, and sex is on college GPAs all at the same time, using the following model:&lt;/p&gt;
-&lt;p&gt;$$
-\text{freshman GPA} = \beta_0 + \beta_1 \text{SAT total} + \beta_2 \text{high school GPA} + \beta_3 \text{sex} + \epsilon
-$$&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;model_sat_hs_sex &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lm&lt;/span&gt;(gpa_fy &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; sat_total &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; gpa_hs &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; sex, data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sat_gpa)
-
-&lt;span style=&#34;color:#a6e22e&#34;&gt;tidy&lt;/span&gt;(model_sat_hs_sex, conf.int &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TRUE&lt;/span&gt;)
-&lt;span style=&#34;color:#75715e&#34;&gt;## # A tibble: 4 x 7&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##   term        estimate std.error statistic  p.value conf.low conf.high&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##   &amp;lt;chr&amp;gt;          &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;## 1 (Intercept)  -0.836    0.148       -5.63 2.35e- 8  -1.13     -0.544 &lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;## 2 sat_total     0.0158   0.00150     10.5  9.72e-25   0.0129    0.0188&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;## 3 gpa_hs        0.545    0.0394      13.8  6.61e-40   0.467     0.622 &lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;## 4 sexMale      -0.143    0.0391      -3.66 2.66e- 4  -0.220    -0.0664&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We can say the following things about these results:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Yet again, the intercept ($\beta_0$) can be safely ignored. Here it means that a female with a 0.0 high school GPA and an SAT score of 0 would have a college GPA of -0.84, on average. That&amp;rsquo;s pretty impossible.&lt;/li&gt;
-&lt;li&gt;The &lt;code&gt;\(\beta_1\)&lt;/code&gt; coefficient for &lt;code&gt;sat_total&lt;/code&gt; indicates that taking into account high school GPA and sex, a one percentile point increase in a student&amp;rsquo;s SAT score is associated with a 0.016 point increase in their college GPA, on average.&lt;/li&gt;
-&lt;li&gt;Controlling for SAT scores and sex, a one point increase in high school GPA is associated with a 0.545 point (this is &lt;code&gt;\(\beta_2\)&lt;/code&gt;) increase in college GPA, on average. This coefficient is lower than the 0.74 point coefficient we found previously. That&amp;rsquo;s because SAT scores and sex soaked up some of high school GPA&amp;rsquo;s explanatory power.&lt;/li&gt;
-&lt;li&gt;Taking SAT scores and high school GPAs into account, males have a 0.143 point lower GPA in college, on average (this is &lt;code&gt;\(\beta_3\)&lt;/code&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;As always, the adjusted &lt;code&gt;\(R^2\)&lt;/code&gt; shows us how well the model fits overall (again, we have to look at the adjusted &lt;code&gt;\(R^2\)&lt;/code&gt; because we have more than one explanatory variable). In this case, the model explains 36.5% of the variation in college GPA, which is higher than any of the previous models (but not phenomenal, in the end).&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;glance&lt;/span&gt;(model_sat_hs_sex)
-&lt;span style=&#34;color:#75715e&#34;&gt;## # A tibble: 1 x 12&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##   r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC deviance df.residual  nobs&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;##       &amp;lt;dbl&amp;gt;         &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;       &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;## 1     0.367         0.365 0.590      192. 2.67e-98     3  -890. 1790. 1815.     347.         996  1000&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;which-model-best-predicts-freshman-gpa-how-do-you-know&#34;&gt;Which model best predicts freshman GPA? How do you know?&lt;/h4&gt;
-&lt;p&gt;As you&amp;rsquo;ve learned in previous stats classes, adjusted &lt;code&gt;\(R^2\)&lt;/code&gt; generally shows the strength of a model&amp;rsquo;s fit, or how well the model will predict future values of the outcome variable. If we compare the adjusted &lt;code&gt;\(R^2\)&lt;/code&gt; for each of the models, we see that the &amp;ldquo;best&amp;rdquo; model is the last one.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# The modelsummary() function takes a bunch of different regression models and&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# puts them in a neat side-by-side table. In a normal report or analysis, you&amp;#39;d&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# include all of these once instead of going one by one like we did above.&lt;/span&gt;
-&lt;span style=&#34;color:#a6e22e&#34;&gt;modelsummary&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;list&lt;/span&gt;(model_sat_gpa, model_sat_gpa_types, model_sat_gpa_hs,
-                  model_sat_sex, model_sat_hs_sex))
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table class=&#34;table&#34; style=&#34;width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th style=&#34;text-align:left;&#34;&gt;   &lt;/th&gt;
-   &lt;th style=&#34;text-align:center;&#34;&gt; Model 1 &lt;/th&gt;
-   &lt;th style=&#34;text-align:center;&#34;&gt; Model 2 &lt;/th&gt;
-   &lt;th style=&#34;text-align:center;&#34;&gt; Model 3 &lt;/th&gt;
-   &lt;th style=&#34;text-align:center;&#34;&gt; Model 4 &lt;/th&gt;
-   &lt;th style=&#34;text-align:center;&#34;&gt; Model 5 &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style=&#34;text-align:left;&#34;&gt; (Intercept) &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 0.002 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 0.007 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 0.091 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; -0.027 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; -0.836 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style=&#34;text-align:left;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; (0.152) &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; (0.152) &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; (0.118) &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; (0.149) &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; (0.148) &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style=&#34;text-align:left;&#34;&gt; sat_total &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 0.024 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 0.026 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 0.016 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style=&#34;text-align:left;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; (0.001) &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; (0.001) &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; (0.002) &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style=&#34;text-align:left;&#34;&gt; sat_verbal &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 0.025 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style=&#34;text-align:left;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; (0.003) &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style=&#34;text-align:left;&#34;&gt; sat_math &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 0.022 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style=&#34;text-align:left;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; (0.003) &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style=&#34;text-align:left;&#34;&gt; gpa_hs &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 0.743 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 0.545 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style=&#34;text-align:left;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; (0.036) &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; (0.039) &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style=&#34;text-align:left;&#34;&gt; sexMale &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; -0.274 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; -0.143 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style=&#34;text-align:left;box-shadow: 0px 1px&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;box-shadow: 0px 1px&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;box-shadow: 0px 1px&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;box-shadow: 0px 1px&#34;&gt;  &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;box-shadow: 0px 1px&#34;&gt; (0.041) &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;box-shadow: 0px 1px&#34;&gt; (0.039) &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style=&#34;text-align:left;&#34;&gt; Num.Obs. &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 1000 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 1000 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 1000 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 1000 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 1000 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style=&#34;text-align:left;&#34;&gt; R2 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 0.212 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 0.212 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 0.295 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 0.245 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 0.367 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style=&#34;text-align:left;&#34;&gt; R2 Adj. &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 0.211 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 0.211 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 0.295 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 0.243 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 0.365 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style=&#34;text-align:left;&#34;&gt; AIC &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 2004.8 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 2006.4 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 1893.0 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 1963.8 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 1790.2 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style=&#34;text-align:left;&#34;&gt; BIC &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 2019.5 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 2026.0 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 1907.7 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 1983.4 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 1814.8 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style=&#34;text-align:left;&#34;&gt; Log.Lik. &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; -999.382 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; -999.189 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; -943.477 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; -977.904 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; -890.108 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style=&#34;text-align:left;&#34;&gt; F &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 268.270 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 134.244 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 418.071 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 161.762 &lt;/td&gt;
-   &lt;td style=&#34;text-align:center;&#34;&gt; 192.141 &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
-&lt;hr&gt;
+&lt;h3 id=&#34;cómo-abrir-un-rmarkdown&#34;&gt;Cómo abrir un Rmarkdown&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;This is real data about real students, &lt;a href=&#34;https://www.dartmouth.edu/~chance/course/Syllabi/Princeton96/Class12.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;compiled and cleaned by a professor at Dartmouth.&lt;/a&gt; &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;Lo primero que debes hacer es asegurarte que tienes el paquete descargado&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/section&gt;
+&lt;p&gt;install.packages(&amp;ldquo;rmarkdown&amp;rdquo;)&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Una vez listo deberás tener en consideración lo siguiente&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Knit&lt;/strong&gt;  es un boton que generará un documento que incluye tanto el contenido como la salida de cualquier trozo de código R incrustado en el documento. (Asegurese de tener instalado el paquete). Este boton combina (teje) texto y código en una misma hoja, facilitando diferentes opciones de formato de salida (html, pdf, word)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Una vez listo debe dirigirse al boton para crear un nuevo script y aceptar la opción RMarkdown o en File &amp;gt; New File &amp;gt; R Markdown&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;../www-learn-R-uah/static/img/example/open_rmark_file.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Luego deben darle un título, poner su nombre y especificar un &lt;em&gt;formato de salida&lt;/em&gt; ya sea en &lt;strong&gt;HTML&lt;/strong&gt;, &lt;strong&gt;PDF&lt;/strong&gt; o &lt;strong&gt;Word&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;../www-learn-R-uah/static/img/example/open_rmark_file2.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Les creará un archivo con un &lt;strong&gt;&lt;em&gt;YAML&lt;/em&gt;&lt;/strong&gt;, que tendrá la información general del documento y un &lt;strong&gt;&lt;em&gt;chunk&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;../www-learn-R-uah/static/img/example/open_rmark_file2.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;3aspectos-claves&#34;&gt;3.Aspectos claves&lt;/h2&gt;
+&lt;h3 id=&#34;títulos-o-encabezados&#34;&gt;Títulos o encabezados&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;# Título 1
+
+## Título 2
+
+### Título 3
+
+#### Título 4
+
+##### Título 5
+
+###### Título 6
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;título-1&#34;&gt;Título 1&lt;/h1&gt;
+&lt;h2 id=&#34;título-2&#34;&gt;Título 2&lt;/h2&gt;
+&lt;h3 id=&#34;título-3&#34;&gt;Título 3&lt;/h3&gt;
+&lt;h4 id=&#34;título-4&#34;&gt;Título 4&lt;/h4&gt;
+&lt;h5 id=&#34;título-5&#34;&gt;Título 5&lt;/h5&gt;
+&lt;h6 id=&#34;título-6&#34;&gt;Título 6&lt;/h6&gt;
+&lt;h3 id=&#34;cursiva-y-negrita&#34;&gt;Cursiva y negrita&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;_cursiva_
+
+**negrita**
+
+_**Cursiva y negrita**_
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;cursiva&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;negrita&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Cursiva y negrita&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;enlaces&#34;&gt;Enlaces&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;[Página del curso](https://learn-r-uah.netlify.app/)
+
+[**Página del curso en negrita**](https://learn-r-uah.netlify.app/)
+
+[**_Página del curso en negrita y cursiva_**](https://learn-r-uah.netlify.app/)
+
+### [**_Página del curso en negrita, cursiva y de título 3_**](https://learn-r-uah.netlify.app/)
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://learn-r-uah.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Página del curso&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://learn-r-uah.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Página del curso en negrita&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://learn-r-uah.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;&lt;em&gt;Página del curso en negrita y cursiva&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;_página-del-curso-en-negrita-cursiva-y-de-título-3_httpslearn-r-uahnetlifyapp&#34;&gt;&lt;a href=&#34;https://learn-r-uah.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;&lt;em&gt;Página del curso en negrita, cursiva y de título 3&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;imágenes&#34;&gt;Imágenes&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;#imágen de internet
+![](url de imágen)
+
+#imágen de carpeta local
+![](dirección de la carpeta)
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://ih1.redbubble.net/image.512529969.7087/st,small,507x507-pad,600x600,f8f8f8.u7.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;citas&#34;&gt;Citas&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&amp;gt;  Puedes dejar una línea como cita o
+
+Recuerda que también
+
+&amp;gt; Puede ser un párrafo completo
+&amp;gt;
+&amp;gt; Solo asegurate de poner &amp;gt; en cada espacio
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Puedes dejar una línea como cita o&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Recuerda que también&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Puede ser un párrafo completo&lt;/p&gt;
+&lt;p&gt;Solo asegurate de poner &amp;gt; en cada espacio&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;listas&#34;&gt;Listas&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;1. Puedes tener una lista numerando así
+1. Porque automáticamente se numerara 
+1. Así misma
+
+Recuerda que
+
+1. Tambien puedes numerar con un orden predeterminado
+2. Sólo asegurate de llevarlo de forma ordenada
+3. Para no tener una numeración repetida
+
+No olvides que
+
+* Además puedes numerar de esta forma
+  * Inclusive ser más específic-
+  * Luego podras volver
+* Al formato anterior
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
+&lt;li&gt;Puedes tener una lista numerando así&lt;/li&gt;
+&lt;li&gt;Porque automáticamente se numerara&lt;/li&gt;
+&lt;li&gt;Así misma&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Recuerda que&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Tambien puedes numerar con un orden predeterminado&lt;/li&gt;
+&lt;li&gt;Sólo asegurate de llevarlo de forma ordenada&lt;/li&gt;
+&lt;li&gt;Para no tener una numeración repetida&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;No olvides que&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Además puedes numerar de esta forma
+&lt;ul&gt;
+&lt;li&gt;Inclusive ser más específic-&lt;/li&gt;
+&lt;li&gt;Luego podras volver&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Al formato anterior&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;4-insertar-chunks&#34;&gt;4. Insertar chunks&lt;/h2&gt;
+&lt;p&gt;Los chunks son pedazos de códigos insertados en el texto.Se crean con una linea inicial &lt;em&gt;&lt;strong&gt;&lt;code&gt;{r}**_ , y se cierra con _**&lt;/code&gt;&lt;/strong&gt;&lt;/em&gt;. Tambien en Code &amp;gt; Insert Chunk o, con Ctrl + Alt + i&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../www-learn-R-uah/static/img/example/open_rmark_file2.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;opciones-de-chunks&#34;&gt;Opciones de chunks&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Chunk que muestra código y resultado&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;
+```r
+5*8
+```
+
+```
+## [1] 40
+```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Este es el chunk por defecto&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Chunk que muestra solo el código&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;
+```r
+5 * 8
+```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Chunk que muestra solo el resultado&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;
+```
+## [1] 40
+```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Chunk que no muestra ni código ni resultado&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;# ```{r echo=FALSE, results=&amp;#39;hide&amp;#39;}
+  5 * 8
+# ```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Chunk que muestra el código sin ejecutarlo&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;
+```r
+5 * 8
+```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;Chunk que entrega el resultado en formato directo&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;#```{r, results=&amp;#39;asis&amp;#39;}
+# stargazer(cars, type=&amp;#34;html&amp;#34;)
+#```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;stargazer&lt;/span&gt;(cars, type&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;html&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table style=&#34;text-align:center&#34;&gt;&lt;tr&gt;&lt;td colspan=&#34;8&#34; style=&#34;border-bottom: 1px solid black&#34;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&#34;text-align:left&#34;&gt;Statistic&lt;/td&gt;&lt;td&gt;N&lt;/td&gt;&lt;td&gt;Mean&lt;/td&gt;&lt;td&gt;St. Dev.&lt;/td&gt;&lt;td&gt;Min&lt;/td&gt;&lt;td&gt;Pctl(25)&lt;/td&gt;&lt;td&gt;Pctl(75)&lt;/td&gt;&lt;td&gt;Max&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td colspan=&#34;8&#34; style=&#34;border-bottom: 1px solid black&#34;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&#34;text-align:left&#34;&gt;speed&lt;/td&gt;&lt;td&gt;50&lt;/td&gt;&lt;td&gt;15.400&lt;/td&gt;&lt;td&gt;5.288&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;12&lt;/td&gt;&lt;td&gt;19&lt;/td&gt;&lt;td&gt;25&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style=&#34;text-align:left&#34;&gt;dist&lt;/td&gt;&lt;td&gt;50&lt;/td&gt;&lt;td&gt;42.980&lt;/td&gt;&lt;td&gt;25.769&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;26&lt;/td&gt;&lt;td&gt;56&lt;/td&gt;&lt;td&gt;120&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td colspan=&#34;8&#34; style=&#34;border-bottom: 1px solid black&#34;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;h3 id=&#34;las-opciones-principales-son&#34;&gt;Las opciones principales son:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;mostrar código {r echo=TRUE/FALSE}&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;mostrar resultado {r results=&amp;lsquo;markup&amp;rsquo;/&amp;lsquo;hide&amp;rsquo;}&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;imagenes-en-chunks&#34;&gt;Imagenes en chunks&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;#```{r, echo=FALSE, out.width=&amp;#34;60%&amp;#34;}
+    knitr::include_graphics(&amp;#34;ruta de la carpeta/imagen.png&amp;#34;, error = FALSE)
+#```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;../www-learn-R-uah/static/img/example/logo.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;gráficos-en-r&#34;&gt;Gráficos en R&lt;/h3&gt;
+&lt;h4 id=&#34;gráfico-1&#34;&gt;Gráfico 1&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;#```{r, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+ plot_grpfrq(cars$speed, cars$dist,
+            title = &amp;#34;Gráfico 1&amp;#34;,
+            type = &amp;#34;box&amp;#34;)
+#```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/example/02-practico_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;gráfico-2&#34;&gt;Gráfico 2&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;#```{r echo=FALSE, message=FALSE, warning=FALSE, results=&amp;#39;asis&amp;#39;}
+ plot_scatter(cars, speed, dist)
+#```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/example/02-practico_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Para continuar practicando ir a &lt;a href=&#34;https://www.markdowntutorial.com/es/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tutorial de Markdown&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tarea-1&#34;&gt;Tarea 1&lt;/h2&gt;
+&lt;p&gt;Envie un archivo Rmarkdown creado por usted con 1 ejemplo de cada uno de los ejercicios hechos en el práctico&lt;/p&gt;
 </description>
     </item>
     
@@ -4062,93 +3896,187 @@ $$&lt;/p&gt;
       <link>/example/01-practico/</link>
       <pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate>
       <guid>/example/01-practico/</guid>
-      <description>&lt;h2 id=&#34;part-1-the-basics-of-r-and-dplyr&#34;&gt;Part 1: The basics of R and dplyr&lt;/h2&gt;
-&lt;p&gt;For this week&amp;rsquo;s problem set, you need to work through a few of RStudio&amp;rsquo;s introductory primers. You&amp;rsquo;ll do these in your browser and type code and see results there.&lt;/p&gt;
-&lt;p&gt;You&amp;rsquo;ll learn some of the basics of R, as well as some powerful methods for manipulating data with the &lt;strong&gt;dplyr&lt;/strong&gt; package.&lt;/p&gt;
-&lt;p&gt;Complete these primers. It seems like there are a lot, but they&amp;rsquo;re short and go fairly quickly (especially as you get the hang of the syntax). Also, &lt;strong&gt;I have no way of seeing what you do or what you get wrong or right&lt;/strong&gt;, and that&amp;rsquo;s totally fine! If you get stuck and want to skip some (or if it gets too easy), go right ahead and skip them!&lt;/p&gt;
+      <description>&lt;h2 id=&#34;1-github&#34;&gt;1. Github&lt;/h2&gt;
+&lt;p&gt;Es un sistema de control de versiones en línea que rastrea los cambios de códigos, facilita la colaboración y el acceso abierto. En este curso será un programa esencial para el desarrollo tanto de clases como prácticos, por lo que en este práctico vamos a aprender a utilizarlo repasando aspectos básicos. Esto además será profundizado y detallado en clases.&lt;/p&gt;
+&lt;h3 id=&#34;ventajas&#34;&gt;Ventajas:&lt;/h3&gt;
+&lt;p&gt;Las principales ventajas son:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;The Basics&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/1.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Visualization Basics&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/1.2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Programming Basics&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;
+&lt;p&gt;Facilita el flujo del trabajo y la colaboración entre usuarios&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Work with Data&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/2.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Working with Tibbles&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/2.2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Isolating Data with dplyr&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/2.3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Deriving Information with dplyr&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;
+&lt;p&gt;Es de acceso abierto&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Visualize Data&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/3.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Exploratory Data Analysis&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/3.2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bar Charts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/3.3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Histograms&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/3.4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Boxplots and Counts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/3.5&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Scatterplots&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/3.6&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Line plots&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/3.7&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Overplotting and Big Data&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/3.8&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Customize Your Plots&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;
+&lt;p&gt;Permite hacer seguimiento a los errores&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Tidy Your Data&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/4.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Reshape Data&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;
+&lt;p&gt;Tiene variedades de funciones y plataformas&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;Pero la plataforma central en el curso será &lt;strong&gt;GitHub Classroom&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;2-github-classroom&#34;&gt;2. Github Classroom&lt;/h2&gt;
+&lt;p&gt;Es una plataforma de Github que facilita la interacción y aprendizaje entre estudiantes y profesores. Esta plataforma la usaremos a lo largo del curso, principalmente porque permite estudiantes trabajen individual y colectivamente usando los repositorios de github. En esta plataforma entregarán sus trabajos, recibirán comentarios y retroalimentaciones pudiendo trabajar colaborativamente.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pasos para ingresar a Github classroom&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;Crear cuenta:&lt;/li&gt;
+&lt;li&gt;Dirigirse al &lt;a href=&#34;https://n9.cl/954ne&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Link&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;../www-learn-R-uah/static/img/example/create.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Clickear en “Crea una cuenta”&lt;/li&gt;
+&lt;li&gt;Introduce tu correo electrónico&lt;/li&gt;
+&lt;li&gt;Crea una contraseña&lt;/li&gt;
+&lt;li&gt;Introduce el nombre de usuario (similar a su nombre)&lt;/li&gt;
+&lt;li&gt;Clickear en Crear una cuenta&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;../www-learn-R-uah/static/img/example/capt.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Ve al correo electrónico que pusiste anteriormente&lt;/li&gt;
+&lt;li&gt;Copia el código e introdúcelo en la página&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div class=&#34;note&#34;&gt;
-Recent versions of &lt;strong&gt;tidyr&lt;/strong&gt; have renamed these core functions: &lt;code&gt;gather()&lt;/code&gt; is now &lt;code&gt;pivot_longer()&lt;/code&gt; and &lt;code&gt;spread()&lt;/code&gt; is now &lt;code&gt;pivot_wider()&lt;/code&gt;. The syntax for these &lt;code&gt;pivot_*()&lt;/code&gt; functions is &lt;em&gt;slightly&lt;/em&gt; different from what it was in &lt;code&gt;gather()&lt;/code&gt; and &lt;code&gt;spread()&lt;/code&gt;, so you can&amp;rsquo;t just replace the names. Fortunately, both &lt;code&gt;gather()&lt;/code&gt; and &lt;code&gt;spread()&lt;/code&gt; still work and won&amp;rsquo;t go away for a while, so you can still use them as you learn about reshaping and tidying data. It would be worth learning how the newer &lt;code&gt;pivot_*()&lt;/code&gt; functions work, eventually, though (&lt;a href=&#34;https://tidyr.tidyverse.org/articles/pivot.html&#34;&gt;see here for examples&lt;/a&gt;).
+Recuerda que el correo que uses debe ser el mismo correo que usaste en pasos anteriores. &lt;a href=&#34;https://youtu.be/9YD-F6-ktes&#34;&gt;Ver tutorial 1&lt;/a&gt;.
 &lt;/div&gt;
 
-&lt;p&gt;The content from these primers comes from the (free and online!) book &lt;a href=&#34;https://r4ds.had.co.nz/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;R for Data Science&lt;/em&gt; by Garrett Grolemund and Hadley Wickham&lt;/a&gt;. I highly recommend the book as a reference and for continuing to learn and use R in the future.&lt;/p&gt;
-&lt;h2 id=&#34;part-2-getting-familiar-with-rstudio&#34;&gt;Part 2: Getting familiar with RStudio&lt;/h2&gt;
-&lt;p&gt;The RStudio primers you just worked through are a great introduction to writing and running R code, but you typically won&amp;rsquo;t type code in a browser when you work with R. Instead, you&amp;rsquo;ll use a nicer programming environment like RStudio, which lets you type and save code in scripts, run code from those scripts, and see the output of that code, all in the same program.&lt;/p&gt;
-&lt;p&gt;To get familiar with RStudio, watch this video (it&amp;rsquo;s from PMAP 8921, but the content still applies here):&lt;/p&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;https://www.youtube.com/embed/cnQ-v1UUWyE&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;h2 id=&#34;part-3-rstudio-projects&#34;&gt;Part 3: RStudio Projects&lt;/h2&gt;
-&lt;p&gt;One of the most powerful and useful aspects of RStudio is its ability to manage projects.&lt;/p&gt;
-&lt;p&gt;When you first open R, it is &amp;ldquo;pointed&amp;rdquo; at some folder on your computer, and anything you do will be relative to that folder. The technical term for this is a &amp;ldquo;working directory.&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;When you first open RStudio, look in the area right at the top of the Console pane to see your current working directory. Most likely you&amp;rsquo;ll see something cryptic: &lt;code&gt;~/&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/example/working-directory.png&#34; width=&#34;50%&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;That tilde sign (&lt;code&gt;~&lt;/code&gt;) is a shortcut that stands for your user directory. On Windows this is &lt;code&gt;C:\Users\your_user_name\&lt;/code&gt;; on macOS this is &lt;code&gt;/Users/your_user_name/&lt;/code&gt;. With the working directory set to &lt;code&gt;~/&lt;/code&gt;, R is &amp;ldquo;pointed&amp;rdquo; at that folder, and anything you save will end up in that folder, and R will expect any data that you load to be there too.&lt;/p&gt;
-&lt;p&gt;It&amp;rsquo;s always best to point R at some other directory. If you don&amp;rsquo;t use RStudio, you need to manually set the working directory to where you want it with &lt;code&gt;setwd()&lt;/code&gt;, and many R scripts in the wild include something like &lt;code&gt;setwd(&amp;quot;C:\\Users\\bill\\Desktop\\Important research project&amp;quot;)&lt;/code&gt; at the beginning to change the directory. &lt;strong&gt;THIS IS BAD THOUGH&lt;/strong&gt; (&lt;a href=&#34;https://www.tidyverse.org/blog/2017/12/workflow-vs-script/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;see here for an explanation&lt;/a&gt;). If you ever move that directory somewhere else, or run the script on a different computer, or share the project with someone, the path will be wrong and nothing will run and you will be sad.&lt;/p&gt;
-&lt;p&gt;The best way to deal with working directories with RStudio is to use RStudio Projects. These are special files that RStudio creates for you that end in a &lt;code&gt;.Rproj&lt;/code&gt; extension. When you open one of these special files, a new RStudio instance will open up and be pointed at the correct directory automatically. If you move the folder later or open it on a different computer, it will work just fine and you will not be sad.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://r4ds.had.co.nz/workflow-projects.html#rstudio-projects&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read this super short chapter on RStudio projects to learn how to create and use them&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;In general, you can create a new project by going to File &amp;gt; New Project &amp;gt; New Directory &amp;gt; Empty Project, which will create a new folder on your computer that is empty except for a single &lt;code&gt;.Rproj&lt;/code&gt; file. Double click on that file to open an RStudio instance that is pointed at the correct folder.&lt;/p&gt;
-&lt;h2 id=&#34;part-4-getting-familiar-with-r-markdown&#34;&gt;Part 4: Getting familiar with R Markdown&lt;/h2&gt;
-&lt;p&gt;To ensure that the analysis and graphics you make are reproducible, you&amp;rsquo;ll do the majority of your work in this class using &lt;strong&gt;R Markdown&lt;/strong&gt; files.&lt;/p&gt;
-&lt;p&gt;Do the following things:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Watch this video:&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;https://player.vimeo.com/video/178485416?color=428bca&#34; frameborder=&#34;0&#34;  allow=&#34;autoplay; fullscreen&#34; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;p&gt; &lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;
-&lt;p&gt;Skim through the content at these pages:&lt;/p&gt;
+&lt;h2 id=&#34;3-github-desktop&#34;&gt;3. Github Desktop&lt;/h2&gt;
+&lt;p&gt;Esta aplicación es una versión de Github que puede ser instalada tanto en windows como en mac. Facilitando el uso de Github a través de la coordinación de los cambios locales y la plataforma.&lt;/p&gt;
+&lt;p&gt;a. Instalar Github Desktop&lt;/p&gt;
+&lt;p&gt;b. Dirigirse a &lt;a href=&#34;https://desktop.github.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Link&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../www-learn-R-uah/static/img/example/deskdown.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;c. Crea una carpeta para los contenidos del curso&lt;/p&gt;
+&lt;p&gt;d. Vincula la dirección de la carpeta&lt;/p&gt;
+&lt;div class=&#34;note&#34;&gt;
+&lt;h4 id=&#34;para-windows&#34;&gt;Para Windows&lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;/resource/markdown/&#34;&gt;Using Markdown&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/resource/rmarkdown/&#34;&gt;Using R Markdown&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://rmarkdown.rstudio.com/lesson-2.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;How it Works&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://rmarkdown.rstudio.com/lesson-3.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Code Chunks&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://rmarkdown.rstudio.com/lesson-4.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Inline Code&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://rmarkdown.rstudio.com/lesson-8.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Markdown Basics&lt;/a&gt; (The &lt;a href=&#34;https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R Markdown Reference Guide&lt;/a&gt; is super useful here.)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://rmarkdown.rstudio.com/lesson-9.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Output Formats&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;
+&lt;p&gt;Clickear en Download for Windows (64bit)&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Watch this video (again, it&amp;rsquo;s from PMAP 8921, but the content works for this class):&lt;/p&gt;
- &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
- &lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;https://www.youtube.com/embed/fT5xI1cmE2c&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
- &lt;/div&gt;
+&lt;p&gt;Ejecutar el archivo descargado&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Introduce tu usuario y contraseña&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;para-mac&#34;&gt;Para Mac&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Clickear en Download for macOS&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ejecutar el archivo descargado&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Introduce tu usuario y contraseña&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&#34;4-botones-principales-en-github-desktop&#34;&gt;4. Botones principales en GitHub Desktop:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Clone repository&lt;/strong&gt;: Copia un repositorio a tu computador&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Create new repository&lt;/strong&gt;: crea un nuevo repositorio&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Add existing repository&lt;/strong&gt;: incorpora un repositorio existente&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;../www-learn-R-uah/static/img/example/con1desk.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Open the repository in Rstudio&lt;/strong&gt;: Abre todo el proyecto en Rstudio&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;View the files of your repository in explorer&lt;/strong&gt;: Muestra los archivos en la carpeta que se encuentra&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Open the repository on Github&lt;/strong&gt;: abre el repositorio en la página&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Commit to master&lt;/strong&gt;: forma de guardar los cambios&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Push origin&lt;/strong&gt;: manda los cambios al repositorio en línea&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;../www-learn-R-uah/static/img/example/con2desk.jpg&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;5-conceptos-claves-de-github&#34;&gt;5. Conceptos claves de Github&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Repositorios&lt;/strong&gt;: Es donde se alberga el trabajo, como una carpeta que contiene todos los archivos y el historial de cambios realizados. Estos se almacenan en la nube&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Cloning&lt;/strong&gt;: Los repositorios pueden clonarse creando copias locales que extraen toda la información y antiguas versiones del repositorio. Después se puede ir subiendo los cambios para sincronizar la copia local y la copia de github.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Commit&lt;/strong&gt;: Es la forma de guardar el estado de tu proyecto, como una captura en la que se deja un mensaje informativo&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Push&lt;/strong&gt;: Esta es la forma en la que se puede agregar ( &lt;em&gt;subir&lt;/em&gt; ) los cambios locales al repositorio de Github.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;README&lt;/strong&gt;: Se utiliza a modo de presentación o introducción de los repositorios.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Pull&lt;/strong&gt;: Esta es la forma en la que se puede agregar ( &lt;em&gt;bajar&lt;/em&gt; ) los cambios del repositorio de Github al repositorio local.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;flujo-de-trabajo-colectivo-y-de-acceso-abierto&#34;&gt;Flujo de trabajo colectivo y de acceso abierto&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Forks&lt;/strong&gt;: Es otra forma de copiar un repositorio, permitiendo hacer cambios sin afectar al proyecto original.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Pull requests&lt;/strong&gt;: Es una forma de solicitar que sean incorporados los cambios que has hecho desde un repositorio local, al repositorio original.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;../www-learn-R-uah/static/img/example/concepclav.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;5-learn-r-uah&#34;&gt;5. Learn-R-UAH&lt;/h2&gt;
+&lt;h3 id=&#34;pasos-para-las-dinámicas-del-curso&#34;&gt;Pasos para las dinámicas del curso&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Recibir una tarea&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ingresa el &lt;a href=&#34;https://classroom.github.com/classrooms/86887318-learn-r-uah-2021&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;a. El link contiene la tarea, ustedes deben aceptar la tarea la cual creará un &lt;em&gt;&lt;strong&gt;repositorio&lt;/strong&gt;&lt;/em&gt; que contendrá la &lt;em&gt;información&lt;/em&gt; y las &lt;em&gt;instrucciones&lt;/em&gt; de la tarea.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../www-learn-R-uah/static/img/example/ingrestarea.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;b. Para eso deben ir a &lt;em&gt;&lt;strong&gt;GitHub Desktop&lt;/strong&gt;&lt;/em&gt;, &lt;em&gt;&lt;strong&gt;clonar&lt;/strong&gt; el respositiorio desde internet&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../www-learn-R-uah/static/img/example/paso2tarea.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;c. Luego deben escoger el repositorio de la tarea, escoger la carpeta en la que se encontrará y clonarlo&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../www-learn-R-uah/static/img/example/paso3tarea.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;d. Después deben abrir el repositorio creado a través de &lt;em&gt;&lt;strong&gt;RStudio&lt;/strong&gt;&lt;/em&gt;, ahí verán el mismo contenido pero en un archivo &lt;em&gt;&lt;strong&gt;.md&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../www-learn-R-uah/static/img/example/paso4tarea.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Resolver una tarea&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;a. La tarea se encuentra en un archivo llamado &lt;code&gt;*README*&lt;/code&gt; con información de los conceptos básicos y el flujo de GitHub, deben leerlo detalladamente.&lt;/p&gt;
+&lt;p&gt;b. Una vez leido deberán ir a Tarea 0 y responder las preguntas correspondientes&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../www-learn-R-uah/static/img/example/paso5tarea.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Subir una tarea&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;a. Una vez listo, deberán &lt;em&gt;&lt;strong&gt;subir&lt;/strong&gt;&lt;/em&gt; la tarea al repositorio remoto a través de GitHub Desktop&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../www-learn-R-uah/static/img/example/paso6tarea.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Recibir comentarios&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;a. Les llegará un correo con los comentarios y retroalimentación de su tarea&lt;/p&gt;
+&lt;h2 id=&#34;6-learn-r-youtube&#34;&gt;6. Learn R Youtube&lt;/h2&gt;
+&lt;p&gt;Recuerden que el &lt;a href=&#34;https://www.youtube.com/watch?v=Zj8yL-nx9vM&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;video de asociado a este práctico&lt;/a&gt; y muchos más podrán encontrarlos en el &lt;a href=&#34;https://www.youtube.com/channel/UCqBUeqBttVjS6h8fawK8sWg&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;canal de youtube del curso&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;https://www.youtube.com/watch?v=Zj8yL-nx9vM&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;7-reporte-de-progreso&#34;&gt;7. Reporte de progreso&lt;/h2&gt;
 </description>
     </item>
     
