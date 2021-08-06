@@ -49,7 +49,7 @@ Las principales ventajas son:
 Para descargar **R**, deben dirigirse al siguiente [link](https://cran.dcc.uchile.cl), y seguir los pasos de instalación según su sistema operativo. Para el caso de *Windows* y *macOS*, se debe descargar el instalador de R, ejecutarlo, y proseguir con la instalación. Lo recomendado es instalarlo en español, y mantener las opciones de instalación que vienen por defecto.
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/r-versions-os.png")
+    include_graphics("static/img/install/r-versions-os.png", error = F)
 ```
 
 A continuación, se presentan imágenes del proceso de instalación de R en *Windows*
@@ -57,43 +57,43 @@ A continuación, se presentan imágenes del proceso de instalación de R en *Win
 Se aceptan las condiciones de uso
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/r-windows3.png")
+    include_graphics("static/img/install/r-windows3.png", error = F)
 ```
 
 Se define la carpeta de instalación. Pueden escoger donde deseen realizar la instalación clickeando en *examinar*; no obstante, se recomienda mantener la ruta predeterminada, en *Archivos de programa*
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/r-windows4.png")
+    include_graphics("static/img/install/r-windows4.png", error = F)
 ```
 
 Se recomienda seleccionar la *Instalación de usuario*
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/r-windows5.png")
+    include_graphics("static/img/install/r-windows5.png", error = F)
 ```
 
 Asimismo, también es recomendable no especificar las opciones de configuración
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/r-windows6.png")
+    include_graphics("static/img/install/r-windows6.png", error = F)
 ```
 
 Si se desea, se pueden crear *accesos directos*. Lo que sí es importante, es *guardar el número de versión en el registro*, y *asociar archivos .RData con R* (lo análogo a asociar archivos .sav con SPSS, o archivos .dta con STATA)
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/r-windows7.png")
+    include_graphics("static/img/install/r-windows7.png", error = F)
 ```
 
 Particularmente para el caso de *macOS*, es indispensable la instalación de **XQuartz**, pues este software nos permitirá visualizar, por ejemplo, los gráficos que elaboremos en R. Para ello, debemos dirigirnos al siguiente [enlace](https://www.xquartz.org), descargar la última versión disponible del software, y seguir el proceso de instalación. Tal como en el caso de R, lo recomendado es mantener la configuración predeterminada.
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/xquartz.png")
+    include_graphics("static/img/install/xquartz.png", error = F)
 ```
 
 Para el caso de *Ubuntu*, la versión 4.1 de R (que es la actual) viene incluida para gran parte de las versiones de Ubuntu. Para poder ejecutarlas, deben abrir el **terminal** y ejecutar los siguientes códigos (disponibles en el mirror de Ubuntu):
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/r-ubuntu.png")
+    include_graphics("static/img/install/r-ubuntu.png", error = F)
 ```
 
 Siguiendo los pasos anteriores, la instalación de R está *finalizada*.
@@ -107,7 +107,7 @@ Es un ambiente integrado de desarrollo para R (y Python, otro lenguaje de progra
 Para instalarlo, deben dirigirse a la [siguiente página web](https://www.rstudio.com/products/rstudio/download/#download). Allí, en la sección **All Installers**, seleccionar el instalador correspondiente a su sistema operativo. 
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/rstudio-installers.png")
+    include_graphics("static/img/install/rstudio-installers.png", error = F)
 ```
 
 El proceso de instalación es el mismo que para *R*. Simplemente, se recomienda mantener todo en predeterminado. 
@@ -119,7 +119,7 @@ Sin embargo, también está la opción de trabajar en **RStudio Cloud**, en caso
 Entonces, debemos dirigirnos a la página de [GitHub](https://github.com). Allí, debemos hacer click en **Sign up**.
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/github-signup1.png")
+    include_graphics("static/img/install/github-signup1.png", error = F)
 ```
 
 Una vez allí, debemos ingresar nuestro correo electrónico, y luego seguir los pasos que se encuentran en el correo de confirmación. Es recomendable que creen la cuenta con la dirección de correo electrónico **que usen cotidianamente**.
@@ -127,73 +127,73 @@ Una vez allí, debemos ingresar nuestro correo electrónico, y luego seguir los 
 Posteriormente, nos dirigimos a la página de [RStudio Cloud](https://rstudio.cloud), y hacemos click en **Sign Up**.
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/cloud-signup1.png")
+    include_graphics("static/img/install/cloud-signup1.png", error = F)
 ```
 
 Volvemos a hacer click en **Sign Up**
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/cloud-signup2.png")
+    include_graphics("static/img/install/cloud-signup2.png", error = F)
 ```
 
 Luego, hacemos click en **Sign Up with GitHub**
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/cloud-signup3.png")
+    include_graphics("static/img/install/cloud-signup3.png", error = F)
 ```
 
 Se nos redirigirá a la página de **GitHub**, donde debemos ingresar los datos del usuario de GitHub que creamos en pasos anteriores. 
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/cloud-signup4.png")
+    include_graphics("static/img/install/cloud-signup4.png", error = F)
 ```
 
 Una vez realizado todo lo anterior, ingresaremos a **RStudio Cloud**. Allí, encontraremos nuestro espacio de trabajo (*Your Workspace*), donde podremos encontrar nuestros **proyectos**.
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/cloud1.png")
+    include_graphics("static/img/install/cloud1.png", error = F)
 ```
 
 Haciendo click en la pestaña *Projects*, situada en la pestaña superior, aparecerá el botón **New Project**. Al pulsarlo, podremos crear un nuevo proyecto. 
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/cloud2.png")
+    include_graphics("static/img/install/cloud2.png", error = F)
 ```
 
 Luego, se generará el nuevo proyecto. Es importante que **renombremos el nuevo proyecto**, haciendo click en el recuadro que se encuentra en la sección superior (en este caso, el proyecto se nombró como *Proyecto 1*).
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/cloud4.png")
+    include_graphics("static/img/install/cloud4.png", error = F)
 ```
 
 Para cargar archivos (como bases de datos, o archivos .R), debemos hacer click en el botón **Upload**, situado en la sección *Files* situada en la esquina inferior derecha. Aparecerá una ventana emergente, y debemos hacer click en **Seleccionar archivo**, para explorar en nuestra computadora los archivos que necesitemos para trabajar. 
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/cloud5.png")
+    include_graphics("static/img/install/cloud5.png", error = F)
 ```
 
 También podemos exportar el proyecto (con todos sus archivos asociados), haciendo click en el botón **More** (al lado del *engranaje*). Es importante que hagamos click en las casillas situadas a la izquierda de todos los archivos que deseemos descargar. 
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/cloud6.png")
+    include_graphics("static/img/install/cloud6.png", error = F)
 ```
 
 En la sección superior derecha, encontraremos un *engranaje*. En la pestaña *Info* encontraremos la información general del proyecto; además, podremos agregar una descripción general de este. 
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/cloud7.png")
+    include_graphics("static/img/install/cloud7.png", error = F)
 ```
 
 A la derecha de *Info*, encontraremos la pestaña *Access*. Allí, podremos cambiar quiénes pueden ver el proyecto. Por defecto, solamente quien creó el proyecto puede verlo; sin embargo, podemos permitir que cualquiera (Everyone) pueda hacerlo.
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/cloud8.png")
+    include_graphics("static/img/install/cloud8.png", error = F)
 ```
 
 Para poder compartir nuestros proyectos, debemos hacer click en los *tres puntos* situados a la derecha del engranaje, y luego hacer click en **Share Project Link**. Aparecerá una ventana emergente, donde podemos agregar las direcciones de correo electrónico de todas las personas que queramos invitar al proyecto. También podemos agregar un mensaje a la invitación. 
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/cloud9.png")
+    include_graphics("static/img/install/cloud9.png", error = F)
 ```
 
 ## 3. Slack
@@ -209,7 +209,7 @@ Primero, debemos descargar el instalador de **Slack**, dependiendo de nuestro si
 En la siguiente imagen, está el ejemplo de *Windows* (64 bits)
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/slack1.png")
+    include_graphics("static/img/install/slack1.png", error = F)
 ```
 
 Una vez descargado el archivo, debemos ejecutarlo, y seguir el proceso de instalación. Tal como en el resto de los software instalados, recomendamos mantener todas las opciones de instalación *por defecto*.
@@ -217,55 +217,55 @@ Una vez descargado el archivo, debemos ejecutarlo, y seguir el proceso de instal
 Luego, debemos crear una *cuenta de Slack*, dirigiéndose a la [siguiente página web](https://slack.com/get-started#/create). Se recomienda usar la *dirección de correo que usen de forma cotidiana*, a modo de estar al tanto de la actividad en el canal de Slack. 
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/slack2.png")
+    include_graphics("static/img/install/slack2.png", error = F)
 ```
 
 Posteriormente, deben confirmar su correo electrónico y, por último, han de hacer click en el link **Unirse a slack de curso**, presente en el apartado *Syllabus* de la página web. Ello redireccionará a la aplicación, abriendo allí el espacio de trabajo del curso. 
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/slack3.png")
+    include_graphics("static/img/install/slack3.png", error = F)
 ```
 
 Una vez realizado aquello, debemos permitir que la página web abra la aplicación de Slack, y se nos redirigirá al **espacio de trabajo** del curso. 
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/slack4.png")
+    include_graphics("static/img/install/slack4.png", error = F)
 ```
 
 A la izquierda, encontraremos los diversos *canales* asignados para distintas actividades. Aquellos que tengan a la izquierda un **#**, son canales abiertos a todas y todos quienes integren el espacio de trabajo; mientras que aquellos que tengan un **candado** a su izquierda son canales privados. Haciendo click en **añadir canales**, podemos crear *nuevos canales* (lo cual pueden hacer cuando, en el futuro, utilicen Slack para sus trabajos personales).
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/slack5.png")
+    include_graphics("static/img/install/slack5.png", error = F)
 ```
 
 Bajo los canales encontraremos la sección de **mensajes directos**, donde podremos enviar mensajes privados a cualquier persona que integre el espacio de trabajo. No olviden que pueden comunicarnos todas sus dudas, inquietudes y sugerencias respecto del curso. 
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/slack6.png")
+    include_graphics("static/img/install/slack6.png", error = F)
 ```
 
 En la sección superior derecha encontraremos nuestro usuario.
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/slack7.png")
+    include_graphics("static/img/install/slack7.png", error = F)
 ```
 
 Si hacemos click, se abrirá una pestaña emergente, donde podremos acceder a diversas configuraciones.
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/slack8.png")
+    include_graphics("static/img/install/slack8.png", error = F)
 ```
 
 En **Modificar tu perfil**, podemos cambiar nuestro nombre, describir a qué nos dedicamos, definir nuestros pronombres, entre otros elementos. También, podemos seleccionar una foto de perfil, para que el resto de las personas que integren el espacio de trabajo puedan (re)conocernos. 
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/slack9.png")
+    include_graphics("static/img/install/slack9.png", error = F)
 ```
 
 En la sección de **Preferencias**, podremos establecer diferentes configuraciones referentes, por ejemplo, a las *notificaciones*, la *barra lateral*, o seleccionar distintos *temas*, para personalizar la apariencia de nuestro espacio de trabajo. 
 
 ```{r, echo=FALSE, out.width="60%"}
-    include_graphics("../../static/img/install/slack10.png")
+    include_graphics("static/img/install/slack10.png", error = F)
 ```
 
 ### Una vez realizado todo lo anterior ¡Ya estamos listas y listos para empezar a trabajar en el curso!
@@ -275,5 +275,4 @@ En la sección de **Preferencias**, podremos establecer diferentes configuracion
 Recuerden que el [video de asociado a este práctico](https://www.youtube.com/watch?v=9YD-F6-ktes) y muchos más podrán encontrarlos en el [canal de youtube del curso](https://www.youtube.com/channel/UCqBUeqBttVjS6h8fawK8sWg)
 
 
-## 5. Reporte de progreso
 
