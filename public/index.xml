@@ -5,7 +5,7 @@
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>Course materials</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><lastBuildDate>Mon, 09 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><lastBuildDate>Mon, 30 Aug 2021 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/media/logo_hu02bc8dfe7cae86b2ee03430b67caeaf2_22353_300x300_fit_lanczos_2.png</url>
       <title>Course materials</title>
@@ -127,12 +127,577 @@
     </item>
     
     <item>
+      <title>Transformar y seleccionar variables</title>
+      <link>/example/04-practico/</link>
+      <pubDate>Mon, 30 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>/example/04-practico/</guid>
+      <description>&lt;h2 id=&#34;0-objetivo-de-la-práctica&#34;&gt;0. Objetivo de la práctica&lt;/h2&gt;
+&lt;p&gt;El objetivo del práctico, es avanzar en el procesamiento de los datos a través de la transformación de las variables a utilizar. Para ello revisaremos procedimientos básicos para el manejo de datos con Rstudio.&lt;/p&gt;
+&lt;h2 id=&#34;1-recursos-de-la-práctica&#34;&gt;1. Recursos de la práctica&lt;/h2&gt;
+&lt;p&gt;En este práctico utilizaremos la base de datos de la &lt;a href=&#34;https://www.estudiospnud.cl/bases-de-datos_proc/desigualdades-economicas-y-sociales-desiguales-2016/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Encuesta Desigualdades Económicas y Sociales (Desiguales)(2016)&lt;/strong&gt;&lt;/a&gt;, la cual fue procesada en el &lt;a href=&#34;&#34;&gt;Práctico anterior&lt;/a&gt;.Recuerden siempre consultar el &lt;a href=&#34;https://www.estudiospnud.cl/wp-content/uploads/2020/04/DES_2016_manual-2.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;manual/libro de códigos&lt;/strong&gt;&lt;/a&gt; antes de trabajar una base de datos.&lt;/p&gt;
+&lt;h2 id=&#34;2-librerias-a-utilizar&#34;&gt;2. Librerias a utilizar&lt;/h2&gt;
+&lt;p&gt;En este práctico utilizaremos cuatro paquetes, el primero se llama &lt;strong&gt;pacman&lt;/strong&gt; este facilita y agiliza la lectura de los paquetes a utilizar en R; el segundo es &lt;strong&gt;sjmisc&lt;/strong&gt;, el tercero es &lt;strong&gt;car&lt;/strong&gt; para recodificar y el cuarto es &lt;strong&gt;Tidyverse&lt;/strong&gt;, este es una colección de paquetes de código abierto. De este último utilizaremos &lt;strong&gt;Dplyr y Forcast&lt;/strong&gt;, si quieres averiguar más puedes ir &lt;a href=&#34;https://www.tidyverse.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;acá&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Recuerden que previo a cargar la base de datos, se deben cargar los paquetes&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Primero instalamos pacman por unica vez&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;install.packages&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;pacman&amp;#34;&lt;/span&gt;)
+&lt;span style=&#34;color:#a6e22e&#34;&gt;library &lt;/span&gt;(pacman)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Luego cargaremos así los paquetes de R&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;pacman&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;p_load&lt;/span&gt;(tidyverse,
+               car,
+               sjmisc)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;3-cargar-base-de-datos-y-explorarla&#34;&gt;3. Cargar base de datos y explorarla&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;read_sav&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;../Rproject/datos_proc.sav&amp;#34;&lt;/span&gt;) 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;En el panel &lt;strong&gt;Environment&lt;/strong&gt;, visualizamos el nuevo objeto, que posee 2.613 observaciones (o filas), y 329 variables (o columnas). También podemos explorar la base de datos con los siguientes comandos&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;dim&lt;/span&gt;(datos) &lt;span style=&#34;color:#75715e&#34;&gt;# nos entrega las dimensiones, es decir el numero de observaciones y el número de variables&lt;/span&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;view&lt;/span&gt;(datos) &lt;span style=&#34;color:#75715e&#34;&gt;# se usa para visualizar la base de datos&lt;/span&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;find_var&lt;/span&gt;() &lt;span style=&#34;color:#75715e&#34;&gt;# se utiliza para encontrar variables&lt;/span&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;names&lt;/span&gt;(datos) &lt;span style=&#34;color:#75715e&#34;&gt;# entrega los nombres de las variables que componen el dataset&lt;/span&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;head&lt;/span&gt;(datos) &lt;span style=&#34;color:#75715e&#34;&gt;# muestra las primeras filas presentes en el marco de datos&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;4-aspectos-claves-antes-de-comenzar&#34;&gt;4. Aspectos claves antes de comenzar&lt;/h2&gt;
+&lt;p&gt;Previo a trabajar con la base de datos, debemos conocer aspectos claves que facilitaran el uso y entendimiento de Rstudio&lt;/p&gt;
+&lt;h3 id=&#34;operador-pipeline-&#34;&gt;Operador pipeline %&amp;gt;%&lt;/h3&gt;
+&lt;p&gt;El operador pipe %&amp;gt;% es útil para concatenar múltiples operaciones, el comando para usarlo es &lt;strong&gt;Ctrl + shift + M&lt;/strong&gt; o &lt;strong&gt;Cmd + shift + M&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;boolaenos-y-operadores-lógicos&#34;&gt;boolaenos y operadores lógicos&lt;/h3&gt;
+&lt;p&gt;Estos son símbolos lógicos que son utilizados en R para designar funciones.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;En primer lugar están los &lt;strong&gt;operadores relacionales&lt;/strong&gt;, estos se usan para hacer comparaciones&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;		Este signo se usa para designar que un valor es menor que otro
+&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;		Este es para designar que un valor es mayor que otro
+&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;		Con este se señala que un valor es igual que otro
+&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt;		La composición de estos dos símbolos se usa para decir que un valor es menor o igual que otro
+&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt;		Esta para decir que un valor es mayor o igual que otro
+&lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt;		Este para decir que el valor es diferente que otro
+&lt;span style=&#34;color:#f92672&#34;&gt;%in%&lt;/span&gt;		Este significa que un valor pertenece al conjunto designado
+is.na		Este es para asignar un valor como pérdido o &lt;span style=&#34;color:#66d9ef&#34;&gt;NA&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;is.na		Este para decir que un valor no es &lt;span style=&#34;color:#66d9ef&#34;&gt;NA&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;En segundo lugar, están los &lt;strong&gt;operadores aritméticos&lt;/strong&gt;, los cuales realizan operaciones, como la suma, resta, división, entre otros.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;En tercer lugar, los &lt;strong&gt;operadores de asignación&lt;/strong&gt;, es decir que están encargados de asignar valores a objetos&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Finalmente, los &lt;strong&gt;operadores booleanos&lt;/strong&gt;, los cuales describen relaciones lógicas, como:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;		Este operador es la condición y, es decir si se cumplen todas condiciones mencionadas
+&lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;		Este es la condición o, es decir si se cumple una condición u otra mencionada
+&lt;span style=&#34;color:#a6e22e&#34;&gt;xor&lt;/span&gt;()		Este excluye o saca la condición mencionada
+&lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;		Significa que no es la condición que se menciona
+any		Significa que ninguna de las condiciones serán utilizadas
+all 		Significa que todas las condiciones serán utilizadas
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;../www-learn-R-uah/static/img/example/operad.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;5-transformación-y-selección-de-variables-con-tidyversedplyr&#34;&gt;5. Transformación y selección de variables con tidyverse:Dplyr&lt;/h2&gt;
+&lt;p&gt;Dplyr proporciona una gramática de manipulación de datos, proporcionando un conjunto consistente de verbos que ayudan a resolver desafíos de manipulación de datos más comunes. Este posee diversas funciones, en estre práctico veremos las principales:&lt;/p&gt;
+&lt;h3 id=&#34;51-select&#34;&gt;5.1 select()&lt;/h3&gt;
+&lt;p&gt;Nuestra función select escoge variables basándose en sus nombres o funciones&lt;/p&gt;
+&lt;h4 id=&#34;selección-de-las-variables-en-la-base-de-datos-a-utilizar&#34;&gt;selección de las variables en la base de datos a utilizar&lt;/h4&gt;
+&lt;p&gt;Como lo vieron en el &lt;a href=&#34;&#34;&gt;Práctico anterior&lt;/a&gt; se deben seleccionar las variables a utilizar, para ello usaremos la funcion select, sin embargo en este práctico profundizaremos sobre su uso.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; datos &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# se crea un nuevo objeto llamado datos_proc_proc a partir de la base de datos_proc cargada, esto más el operador pipe&lt;/span&gt;
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(edad &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; V6,     &lt;span style=&#34;color:#75715e&#34;&gt;# Con esta función se seleccionan las variables a utilizar en el práctico, asignándoles con &amp;#34;=&amp;#34; el nuevo nombre que llevará&lt;/span&gt;
+         sexo &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; V2,   
+         garan_min_vid &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; V146,
+         clase_sub &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; V70,
+         just_pago_educ &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; V117)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Se seleccionaron las variables&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Edad&lt;/li&gt;
+&lt;li&gt;Sexo&lt;/li&gt;
+&lt;li&gt;Rol Gobierno: garantizar minimo vida&lt;/li&gt;
+&lt;li&gt;¿En que clase social ubicaría a la gente como usted?&lt;/li&gt;
+&lt;li&gt;Justo: mas pago, mejor educacion&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;note&#34;&gt;
+Forcats de Tidyverse proporciona un conjunto de herramientas útiles que resuelven problemas comunes con factores. R usa factores para manejar variables categóricas, variables que tienen un conjunto fijo y conocido de valores posibles. Para eso asignaremos valores a las varibales que estan codificadas de forma numerica, pero son factores.
+&lt;/div&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;as_factor &lt;/span&gt;(datos_proc&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;sexo) 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;selección-de-las-variables-por-indexación&#34;&gt;selección de las variables por &lt;em&gt;indexación&lt;/em&gt;&lt;/h4&gt;
+&lt;p&gt;Además, se puede seleccionar variables, donde a partir de los datos_proc procesados se seleccionarán los casos que estén entre 1 y 2 de la variable &lt;em&gt;&amp;lsquo;garan_min_vid&amp;rsquo;&lt;/em&gt;, que tiene como categoría de respuesta&lt;/p&gt;
+&lt;p&gt;1 Muy de acuerdo&lt;/p&gt;
+&lt;p&gt;2 De acuerdo&lt;/p&gt;
+&lt;p&gt;3 Ni de acuerdo ni en desacuerdo&lt;/p&gt;
+&lt;p&gt;4 En desacuerdo&lt;/p&gt;
+&lt;p&gt;5 Muy en desacuerdo&lt;/p&gt;
+&lt;p&gt;Para ello seleccionaremos sólo a las personas que estan de acuerdo de que el gobierno garantice un mínimo de vida.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, garan_min_vid) &lt;span style=&#34;color:#75715e&#34;&gt;# seleccionan las categorias de respuesta y luego la variable de donde lo seleccionarán&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## # A tibble: 2,613 x 3&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;##    edad       sexo      garan_min_vid&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;##   &amp;lt;dbl&amp;gt;  &amp;lt;dbl+lbl&amp;gt;          &amp;lt;dbl+lbl&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 1    40 1 [Hombre] 1 [Muy de acuerdo]&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 2    18 1 [Hombre] 1 [Muy de acuerdo]&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 3    66 2 [Mujer]  1 [Muy de acuerdo]&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 4    56 2 [Mujer]  2 [De acuerdo]    &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 5    63 1 [Hombre] 1 [Muy de acuerdo]&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 6    62 2 [Mujer]  1 [Muy de acuerdo]&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 7    54 1 [Hombre] 2 [De acuerdo]    &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 8    75 2 [Mujer]  2 [De acuerdo]    &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 9    36 2 [Mujer]  2 [De acuerdo]    &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;##10    40 2 [Mujer]  2 [De acuerdo]    &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## # ... with 2,603 more rows&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;En este caso seleccionamos todo según los datos de la variable garan_min_vid, con &lt;strong&gt;everything()&lt;/strong&gt;. Que selecciona todas las columnas o las columnas que quedan después de aplicar las funciones de selección. Es decir las personas que estan de acuerdo con que el gobienro garantice un mínimo de vida.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(garan_min_vid, &lt;span style=&#34;color:#a6e22e&#34;&gt;everything&lt;/span&gt;())
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 2,613 x 5
+##        garan_min_vid  edad      sexo        clase_sub             just_pago_educ
+##            &amp;lt;dbl+lbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;        &amp;lt;dbl+lbl&amp;gt;                  &amp;lt;dbl+lbl&amp;gt;
+##  1 1 [Muy de acuerd~    40 1 [Hombr~ 4 [Clase media ~ 4 [En desacuerdo]         
+##  2 1 [Muy de acuerd~    18 1 [Hombr~ 3 [Clase media]  3 [Ni de acuerdo ni en de~
+##  3 1 [Muy de acuerd~    66 2 [Mujer] 3 [Clase media]  4 [En desacuerdo]         
+##  4 2 [De acuerdo]       56 2 [Mujer] 5 [Clase baja]   4 [En desacuerdo]         
+##  5 1 [Muy de acuerd~    63 1 [Hombr~ 5 [Clase baja]   4 [En desacuerdo]         
+##  6 1 [Muy de acuerd~    62 2 [Mujer] 4 [Clase media ~ 1 [Muy de acuerdo]        
+##  7 2 [De acuerdo]       54 1 [Hombr~ 4 [Clase media ~ 2 [De acuerdo]            
+##  8 2 [De acuerdo]       75 2 [Mujer] 5 [Clase baja]   4 [En desacuerdo]         
+##  9 2 [De acuerdo]       36 2 [Mujer] 4 [Clase media ~ 4 [En desacuerdo]         
+## 10 2 [De acuerdo]       40 2 [Mujer] 5 [Clase baja]   4 [En desacuerdo]         
+## # ... with 2,603 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;selección-y-renombrar&#34;&gt;Selección y renombrar&lt;/h4&gt;
+&lt;p&gt;También podemos &lt;em&gt;seleccionar y renombrar&lt;/em&gt;, es decir, seleccionar según &lt;em&gt;garan_min_vid&lt;/em&gt; y renombrar la variable cómo &lt;em&gt;acuerdo_garan_min_vid&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(garan_min_vid, acuerdo_garan_min_vid &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; garan_min_vid ,&lt;span style=&#34;color:#a6e22e&#34;&gt;everything&lt;/span&gt;())
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 2,613 x 5
+##    acuerdo_garan_min_~  edad      sexo       clase_sub            just_pago_educ
+##              &amp;lt;dbl+lbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;       &amp;lt;dbl+lbl&amp;gt;                 &amp;lt;dbl+lbl&amp;gt;
+##  1  1 [Muy de acuerdo]    40 1 [Hombr~ 4 [Clase media~ 4 [En desacuerdo]        
+##  2  1 [Muy de acuerdo]    18 1 [Hombr~ 3 [Clase media] 3 [Ni de acuerdo ni en d~
+##  3  1 [Muy de acuerdo]    66 2 [Mujer] 3 [Clase media] 4 [En desacuerdo]        
+##  4  2 [De acuerdo]        56 2 [Mujer] 5 [Clase baja]  4 [En desacuerdo]        
+##  5  1 [Muy de acuerdo]    63 1 [Hombr~ 5 [Clase baja]  4 [En desacuerdo]        
+##  6  1 [Muy de acuerdo]    62 2 [Mujer] 4 [Clase media~ 1 [Muy de acuerdo]       
+##  7  2 [De acuerdo]        54 1 [Hombr~ 4 [Clase media~ 2 [De acuerdo]           
+##  8  2 [De acuerdo]        75 2 [Mujer] 5 [Clase baja]  4 [En desacuerdo]        
+##  9  2 [De acuerdo]        36 2 [Mujer] 4 [Clase media~ 4 [En desacuerdo]        
+## 10  2 [De acuerdo]        40 2 [Mujer] 5 [Clase baja]  4 [En desacuerdo]        
+## # ... with 2,603 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;selección-que-inicia-con-prefijos-starts_with-y-termina-con-sufijos-ends_with&#34;&gt;Selección que inicia con prefijos (starts_with) y termina con sufijos (ends_with)&lt;/h4&gt;
+&lt;p&gt;El primer ejemplo muestra la selección de casos que inicien con la variable edad y que terminen con sexo&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;starts_with&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;edad&amp;#34;&lt;/span&gt;), &lt;span style=&#34;color:#a6e22e&#34;&gt;ends_with&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;sexo&amp;#34;&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 2,613 x 2
+##     edad       sexo
+##    &amp;lt;dbl&amp;gt;  &amp;lt;dbl+lbl&amp;gt;
+##  1    40 1 [Hombre]
+##  2    18 1 [Hombre]
+##  3    66 2 [Mujer] 
+##  4    56 2 [Mujer] 
+##  5    63 1 [Hombre]
+##  6    62 2 [Mujer] 
+##  7    54 1 [Hombre]
+##  8    75 2 [Mujer] 
+##  9    36 2 [Mujer] 
+## 10    40 2 [Mujer] 
+## # ... with 2,603 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;selección-que-contiene-cadenas-contains&#34;&gt;Selección que contiene cadenas (contains)&lt;/h4&gt;
+&lt;p&gt;El segundo selecciona los casos que contienen una letra m &lt;strong&gt;o&lt;/strong&gt; los que contienen una letra y&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;contains&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;m&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;contains&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;y&amp;#34;&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 2,613 x 1
+##         garan_min_vid
+##             &amp;lt;dbl+lbl&amp;gt;
+##  1 1 [Muy de acuerdo]
+##  2 1 [Muy de acuerdo]
+##  3 1 [Muy de acuerdo]
+##  4 2 [De acuerdo]    
+##  5 1 [Muy de acuerdo]
+##  6 1 [Muy de acuerdo]
+##  7 2 [De acuerdo]    
+##  8 2 [De acuerdo]    
+##  9 2 [De acuerdo]    
+## 10 2 [De acuerdo]    
+## # ... with 2,603 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;selección-con-expresiones-matches&#34;&gt;Selección con expresiones (matches)&lt;/h4&gt;
+&lt;p&gt;El último ejemplo, selecciona las variables que contengan el nombre sexo&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;matches&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;sexo&amp;#34;&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 2,613 x 1
+##          sexo
+##     &amp;lt;dbl+lbl&amp;gt;
+##  1 1 [Hombre]
+##  2 1 [Hombre]
+##  3 2 [Mujer] 
+##  4 2 [Mujer] 
+##  5 1 [Hombre]
+##  6 2 [Mujer] 
+##  7 1 [Hombre]
+##  8 2 [Mujer] 
+##  9 2 [Mujer] 
+## 10 2 [Mujer] 
+## # ... with 2,603 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;selección-y-función-where&#34;&gt;Selección y función where&lt;/h4&gt;
+&lt;p&gt;La función select puede combinarse con la función where, es decir selecciona con la condición cuando, en este caso selecciona cuando el valor es numérico.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;where&lt;/span&gt;(is.numeric))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 2,613 x 5
+##     edad      sexo     garan_min_vid        clase_sub             just_pago_educ
+##    &amp;lt;dbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;         &amp;lt;dbl+lbl&amp;gt;        &amp;lt;dbl+lbl&amp;gt;                  &amp;lt;dbl+lbl&amp;gt;
+##  1    40 1 [Hombr~ 1 [Muy de acuerd~ 4 [Clase media ~ 4 [En desacuerdo]         
+##  2    18 1 [Hombr~ 1 [Muy de acuerd~ 3 [Clase media]  3 [Ni de acuerdo ni en de~
+##  3    66 2 [Mujer] 1 [Muy de acuerd~ 3 [Clase media]  4 [En desacuerdo]         
+##  4    56 2 [Mujer] 2 [De acuerdo]    5 [Clase baja]   4 [En desacuerdo]         
+##  5    63 1 [Hombr~ 1 [Muy de acuerd~ 5 [Clase baja]   4 [En desacuerdo]         
+##  6    62 2 [Mujer] 1 [Muy de acuerd~ 4 [Clase media ~ 1 [Muy de acuerdo]        
+##  7    54 1 [Hombr~ 2 [De acuerdo]    4 [Clase media ~ 2 [De acuerdo]            
+##  8    75 2 [Mujer] 2 [De acuerdo]    5 [Clase baja]   4 [En desacuerdo]         
+##  9    36 2 [Mujer] 2 [De acuerdo]    4 [Clase media ~ 4 [En desacuerdo]         
+## 10    40 2 [Mujer] 2 [De acuerdo]    5 [Clase baja]   4 [En desacuerdo]         
+## # ... with 2,603 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;52-filter&#34;&gt;5.2 filter()&lt;/h3&gt;
+&lt;p&gt;La función filter de dplyr, escoge o extrae filas basados en sus valores, subdivide un data frame, reteniendo todas las filas que satisfacen sus condiciones.&lt;/p&gt;
+&lt;p&gt;Antes de esto, hay que tener en cuenta que para establecer las condiciones a utilizar en las funciones debemos usar &lt;strong&gt;operadores&lt;/strong&gt;, ya que la estructutra será &lt;strong&gt;filter(data, variable (operador lógico) condición)&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;filtar-según-caracteres&#34;&gt;Filtar según caracteres&lt;/h4&gt;
+&lt;p&gt;A la hora de filtrar según caracteres nuestro primer ejemplo nos muestra cómo filtrar los datos excluyendo el sexo Hombre&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(datos_proc, sexo  &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hombre&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## # A tibble: 1,601 x 5&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;##    edad sexo       garan_min_vid            clase_sub        just_pago_educ&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;##   &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;          &amp;lt;dbl+lbl&amp;gt;            &amp;lt;dbl+lbl&amp;gt;             &amp;lt;dbl+lbl&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 1    66 Mujer 1 [Muy de acuerdo] 3 [Clase media]      4 [En desacuerdo]    &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 2    56 Mujer 2 [De acuerdo]     5 [Clase baja]       4 [En desacuerdo]    &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 3    62 Mujer 1 [Muy de acuerdo] 4 [Clase media baja] 1 [Muy de acuerdo]   &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 4    75 Mujer 2 [De acuerdo]     5 [Clase baja]       4 [En desacuerdo]    &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 5    36 Mujer 2 [De acuerdo]     4 [Clase media baja] 4 [En desacuerdo]    &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 6    40 Mujer 2 [De acuerdo]     5 [Clase baja]       4 [En desacuerdo]    &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 7    29 Mujer 2 [De acuerdo]     2 [Clase media alta] 4 [En desacuerdo]    &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 8    53 Mujer 2 [De acuerdo]     3 [Clase media]      4 [En desacuerdo]    &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 9    31 Mujer 2 [De acuerdo]     5 [Clase baja]       5 [Muy en desacuerdo]&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 10    48 Mujer 2 [De acuerdo]     3 [Clase media]      5 [Muy en desacuerdo]&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## # ... with 1,591 more rows&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Ahora si queremos filtrar y dejar sólo a los hombres, se usa el operador ==&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(datos_proc, sexo &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;hombre&amp;#34;&lt;/span&gt;) 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## # A tibble: 0 x 5&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## # ... with 5 variables: edad &amp;lt;dbl&amp;gt;, sexo &amp;lt;fct&amp;gt;, garan_min_vid &amp;lt;dbl+lbl&amp;gt;, clase_sub &amp;lt;dbl+lbl&amp;gt;, just_pago_educ &amp;lt;dbl+lbl&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;En este caso no sirvio el comando porque no esta escrito correctamente (Sin mayúscula)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(datos_proc, sexo &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hombre&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## # A tibble: 1,012 x 5&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;##    edad sexo                        garan_min_vid            clase_sub                     just_pago_educ&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;##   &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;                           &amp;lt;dbl+lbl&amp;gt;            &amp;lt;dbl+lbl&amp;gt;                          &amp;lt;dbl+lbl&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 1    40 Hombre 1 [Muy de acuerdo]                 4 [Clase media baja] 4 [En desacuerdo]                 &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 2    18 Hombre 1 [Muy de acuerdo]                 3 [Clase media]      3 [Ni de acuerdo ni en desacuerdo]&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 3    63 Hombre 1 [Muy de acuerdo]                 5 [Clase baja]       4 [En desacuerdo]                 &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 4    54 Hombre 2 [De acuerdo]                     4 [Clase media baja] 2 [De acuerdo]                    &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 5    18 Hombre 2 [De acuerdo]                     5 [Clase baja]       4 [En desacuerdo]                 &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 6    20 Hombre 2 [De acuerdo]                     4 [Clase media baja] 3 [Ni de acuerdo ni en desacuerdo]&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 7    23 Hombre 2 [De acuerdo]                     4 [Clase media baja] 3 [Ni de acuerdo ni en desacuerdo]&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 8    26 Hombre 1 [Muy de acuerdo]                 4 [Clase media baja] 3 [Ni de acuerdo ni en desacuerdo]&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 9    27 Hombre 3 [Ni de acuerdo ni en desacuerdo] 4 [Clase media baja] 3 [Ni de acuerdo ni en desacuerdo]&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 10    63 Hombre 2 [De acuerdo]                     3 [Clase media]      2 [De acuerdo]                    &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## # ... with 1,002 more rows&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Finalmente, si queremos filtrar según un conjunto de caracteres, usamos el operador %in% y nos quedamos con mujeres y hombres&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(datos_proc, sexo &lt;span style=&#34;color:#f92672&#34;&gt;%in%&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Mujer&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hombre&amp;#34;&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 0 x 5
+## # ... with 5 variables: edad &amp;lt;dbl&amp;gt;, sexo &amp;lt;dbl+lbl&amp;gt;, garan_min_vid &amp;lt;dbl+lbl&amp;gt;,
+## #   clase_sub &amp;lt;dbl+lbl&amp;gt;, just_pago_educ &amp;lt;dbl+lbl&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;filtar-según-números&#34;&gt;Filtar según números&lt;/h4&gt;
+&lt;p&gt;Ahora filtraremos según datos numéricos&lt;/p&gt;
+&lt;p&gt;En este caso queremos dejar todos los casos que sean de clase media, clase media baja, o clase baja&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(datos_proc, clase_sub &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 1,284 x 5
+##     edad       sexo      garan_min_vid            clase_sub       just_pago_educ
+##    &amp;lt;dbl&amp;gt;  &amp;lt;dbl+lbl&amp;gt;          &amp;lt;dbl+lbl&amp;gt;            &amp;lt;dbl+lbl&amp;gt;            &amp;lt;dbl+lbl&amp;gt;
+##  1    40 1 [Hombre] 1 [Muy de acuerdo] 4 [Clase media baja] 4 [En desacuerdo]   
+##  2    56 2 [Mujer]  2 [De acuerdo]     5 [Clase baja]       4 [En desacuerdo]   
+##  3    63 1 [Hombre] 1 [Muy de acuerdo] 5 [Clase baja]       4 [En desacuerdo]   
+##  4    62 2 [Mujer]  1 [Muy de acuerdo] 4 [Clase media baja] 1 [Muy de acuerdo]  
+##  5    54 1 [Hombre] 2 [De acuerdo]     4 [Clase media baja] 2 [De acuerdo]      
+##  6    75 2 [Mujer]  2 [De acuerdo]     5 [Clase baja]       4 [En desacuerdo]   
+##  7    36 2 [Mujer]  2 [De acuerdo]     4 [Clase media baja] 4 [En desacuerdo]   
+##  8    40 2 [Mujer]  2 [De acuerdo]     5 [Clase baja]       4 [En desacuerdo]   
+##  9    31 2 [Mujer]  2 [De acuerdo]     5 [Clase baja]       5 [Muy en desacuerd~
+## 10    18 1 [Hombre] 2 [De acuerdo]     5 [Clase baja]       4 [En desacuerdo]   
+## # ... with 1,274 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Acá podemos ver que parten desde &lt;em&gt;Clase media baja&lt;/em&gt;, pero si queremos considerar la &lt;strong&gt;Clase media&lt;/strong&gt;, usamos el operador &lt;strong&gt;mayor o igual&lt;/strong&gt;. Además con el operador &amp;amp; nos añadirá también a las mujeres&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(datos_proc, clase_sub &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 2,174 x 5
+##     edad      sexo     garan_min_vid        clase_sub             just_pago_educ
+##    &amp;lt;dbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;         &amp;lt;dbl+lbl&amp;gt;        &amp;lt;dbl+lbl&amp;gt;                  &amp;lt;dbl+lbl&amp;gt;
+##  1    40 1 [Hombr~ 1 [Muy de acuerd~ 4 [Clase media ~ 4 [En desacuerdo]         
+##  2    18 1 [Hombr~ 1 [Muy de acuerd~ 3 [Clase media]  3 [Ni de acuerdo ni en de~
+##  3    66 2 [Mujer] 1 [Muy de acuerd~ 3 [Clase media]  4 [En desacuerdo]         
+##  4    56 2 [Mujer] 2 [De acuerdo]    5 [Clase baja]   4 [En desacuerdo]         
+##  5    63 1 [Hombr~ 1 [Muy de acuerd~ 5 [Clase baja]   4 [En desacuerdo]         
+##  6    62 2 [Mujer] 1 [Muy de acuerd~ 4 [Clase media ~ 1 [Muy de acuerdo]        
+##  7    54 1 [Hombr~ 2 [De acuerdo]    4 [Clase media ~ 2 [De acuerdo]            
+##  8    75 2 [Mujer] 2 [De acuerdo]    5 [Clase baja]   4 [En desacuerdo]         
+##  9    36 2 [Mujer] 2 [De acuerdo]    4 [Clase media ~ 4 [En desacuerdo]         
+## 10    40 2 [Mujer] 2 [De acuerdo]    5 [Clase baja]   4 [En desacuerdo]         
+## # ... with 2,164 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;53-mutate-&#34;&gt;5.3 mutate ()&lt;/h3&gt;
+&lt;p&gt;La función de mutate añade nuevas variables que son funciones de variables existentes, es decir transforma datos existentes de un data frame a nuevas columnas.&lt;/p&gt;
+&lt;h4 id=&#34;creación-de-variable-a-partir-de-cálculos&#34;&gt;creación de variable a partir de cálculos&lt;/h4&gt;
+&lt;p&gt;En nuestro primer ejemplo, crearemos una variable a partir de un cálculo, la llamaremos nueva variable y será la suma de 2 y 3, su estructura será &lt;strong&gt;mutate(datos_proc, nueva_variable = calculo/condicion)&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;mutate&lt;/span&gt;(datos_proc, nueva_variable &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3+2&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 2,613 x 6
+##     edad     sexo   garan_min_vid   clase_sub      just_pago_educ nueva_variable
+##    &amp;lt;dbl&amp;gt; &amp;lt;dbl+lb&amp;gt;       &amp;lt;dbl+lbl&amp;gt;   &amp;lt;dbl+lbl&amp;gt;           &amp;lt;dbl+lbl&amp;gt;          &amp;lt;dbl&amp;gt;
+##  1    40 1 [Homb~ 1 [Muy de acue~ 4 [Clase m~ 4 [En desacuerdo]                5
+##  2    18 1 [Homb~ 1 [Muy de acue~ 3 [Clase m~ 3 [Ni de acuerdo n~              5
+##  3    66 2 [Muje~ 1 [Muy de acue~ 3 [Clase m~ 4 [En desacuerdo]                5
+##  4    56 2 [Muje~ 2 [De acuerdo]  5 [Clase b~ 4 [En desacuerdo]                5
+##  5    63 1 [Homb~ 1 [Muy de acue~ 5 [Clase b~ 4 [En desacuerdo]                5
+##  6    62 2 [Muje~ 1 [Muy de acue~ 4 [Clase m~ 1 [Muy de acuerdo]               5
+##  7    54 1 [Homb~ 2 [De acuerdo]  4 [Clase m~ 2 [De acuerdo]                   5
+##  8    75 2 [Muje~ 2 [De acuerdo]  5 [Clase b~ 4 [En desacuerdo]                5
+##  9    36 2 [Muje~ 2 [De acuerdo]  4 [Clase m~ 4 [En desacuerdo]                5
+## 10    40 2 [Muje~ 2 [De acuerdo]  5 [Clase b~ 4 [En desacuerdo]                5
+## # ... with 2,603 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;mutate-y-filter&#34;&gt;Mutate y filter&lt;/h4&gt;
+&lt;p&gt;Pero ¿Qué pasa si quiero crear una variable y filtrar?, para eso usaremos el operador pipe. Entonces a partir de los datos, unimos las operaciones de filter, que nos extraerá los valores que sean mayores o iguales a 3 (clase media) y que además estén en conjunto de mujeres. Además unimos la operación de mutare que creará una nueva variable que será igual al valor 5&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(clase_sub &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt; sexo &lt;span style=&#34;color:#f92672&#34;&gt;%in%&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Mujer&amp;#34;&lt;/span&gt;)) &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;mutate&lt;/span&gt;(nueva_variable &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3+2&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 0 x 6
+## # ... with 6 variables: edad &amp;lt;dbl&amp;gt;, sexo &amp;lt;dbl+lbl&amp;gt;, garan_min_vid &amp;lt;dbl+lbl&amp;gt;,
+## #   clase_sub &amp;lt;dbl+lbl&amp;gt;, just_pago_educ &amp;lt;dbl+lbl&amp;gt;, nueva_variable &amp;lt;dbl&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;531-recode&#34;&gt;5.3.1 recode()&lt;/h3&gt;
+&lt;p&gt;La función denominada &lt;em&gt;recode&lt;/em&gt; puede reemplazar valores numéricos en base a su posición o su nombre, y valores de caracteres o factores sólo por su nombre.&lt;/p&gt;
+&lt;h4 id=&#34;factors&#34;&gt;Factors&lt;/h4&gt;
+&lt;p&gt;Para reemplazar caracteres o factores en este caso de la variable sexo, transformaremos las categorias de respuestas de Mujer a Femenino y de Hombre a Masculino&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;mutate&lt;/span&gt;(sexo &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;recode&lt;/span&gt;(sexo, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Mujer&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Femenino&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hombre&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Masculino&amp;#34;&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## # A tibble: 2,613 x 5&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;##    edad sexo           garan_min_vid            clase_sub                     just_pago_educ&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;##   &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;              &amp;lt;dbl+lbl&amp;gt;            &amp;lt;dbl+lbl&amp;gt;                          &amp;lt;dbl+lbl&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 1    40 Masculino 1 [Muy de acuerdo] 4 [Clase media baja] 4 [En desacuerdo]                 &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 2    18 Masculino 1 [Muy de acuerdo] 3 [Clase media]      3 [Ni de acuerdo ni en desacuerdo]&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 3    66 Femenino  1 [Muy de acuerdo] 3 [Clase media]      4 [En desacuerdo]                 &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 4    56 Femenino  2 [De acuerdo]     5 [Clase baja]       4 [En desacuerdo]                 &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 5    63 Masculino 1 [Muy de acuerdo] 5 [Clase baja]       4 [En desacuerdo]                 &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 6    62 Femenino  1 [Muy de acuerdo] 4 [Clase media baja] 1 [Muy de acuerdo]                &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 7    54 Masculino 2 [De acuerdo]     4 [Clase media baja] 2 [De acuerdo]                    &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 8    75 Femenino  2 [De acuerdo]     5 [Clase baja]       4 [En desacuerdo]                 &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 9    36 Femenino  2 [De acuerdo]     4 [Clase media baja] 4 [En desacuerdo]                 &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 10    40 Femenino  2 [De acuerdo]     5 [Clase baja]       4 [En desacuerdo]                 &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## # ... with 2,603 more rows&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;numeric&#34;&gt;Numeric&lt;/h4&gt;
+&lt;p&gt;Luego transformaremos las categorias de respuesta de 1 a 5 en el grado de acuerdo o desacuerdo. Previo a esto es necesario recodificar la variable como caracter, en este caso se establece que los numeros que tiene la variable son categorias, es decir 1 es la categoría 1 y no un número. &lt;a href=&#34;&#34;&gt;Ver la diferencia entre character y factor en el práctico anterior&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;just_pago_educ &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;as.character&lt;/span&gt;(datos_proc&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;just_pago_educ) 
+
+datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;mutate&lt;/span&gt;(just_pago_educ &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;recode &lt;/span&gt;(just_pago_educ, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Muy de acuerdo&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;De acuerdo&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;3&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Ni de acuerdo ni en desacuerdo&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;4&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;En desacuerdo&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;5&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Muy en desacuerdo&amp;#34;&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## # A tibble: 2,613 x 5&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;##    edad sexo        garan_min_vid            clase_sub just_pago_educ                &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;##   &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;           &amp;lt;dbl+lbl&amp;gt;            &amp;lt;dbl+lbl&amp;gt; &amp;lt;chr&amp;gt;                         &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 1    40 Hombre 1 [Muy de acuerdo] 4 [Clase media baja] En desacuerdo                 &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 2    18 Hombre 1 [Muy de acuerdo] 3 [Clase media]      Ni de acuerdo ni en desacuerdo&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 3    66 Mujer  1 [Muy de acuerdo] 3 [Clase media]      En desacuerdo                 &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 4    56 Mujer  2 [De acuerdo]     5 [Clase baja]       En desacuerdo                 &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 5    63 Hombre 1 [Muy de acuerdo] 5 [Clase baja]       En desacuerdo                 &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 6    62 Mujer  1 [Muy de acuerdo] 4 [Clase media baja] Muy de acuerdo                &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 7    54 Hombre 2 [De acuerdo]     4 [Clase media baja] De acuerdo                    &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 8    75 Mujer  2 [De acuerdo]     5 [Clase baja]       En desacuerdo                 &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 9    36 Mujer  2 [De acuerdo]     4 [Clase media baja] En desacuerdo                 &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 10    40 Mujer  2 [De acuerdo]     5 [Clase baja]       En desacuerdo                 &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## # ... with 2,603 more rows&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Si bien en este caso más simple usar el comando de Forcast as_factor, en ocasiones la/el investigador puede requerir tener distintos nombres de categorias, por lo que resultaría más útil este procedimiento.&lt;/p&gt;
+&lt;h3 id=&#34;532-if_else&#34;&gt;5.3.2 if_else()&lt;/h3&gt;
+&lt;p&gt;La función if_else comprueba condiciones lógicas en su primer argumento, en este caso queremos crear una nueva variable denominada d_sexo que cumpla la condición que la categoría Mujer sea visualizado como 1 y los demás como 0, su estructura será &lt;strong&gt;if_else(condition, Verdadero, Falso)&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+ 		 &lt;span style=&#34;color:#a6e22e&#34;&gt;mutate&lt;/span&gt;(d_sexo &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;if_else&lt;/span&gt;(sexo &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Mujer&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## # A tibble: 2,613 x 6&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;##    edad sexo        garan_min_vid            clase_sub just_pago_educ d_sexo&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;##   &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;           &amp;lt;dbl+lbl&amp;gt;            &amp;lt;dbl+lbl&amp;gt; &amp;lt;chr&amp;gt;           &amp;lt;dbl&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 1    40 Hombre 1 [Muy de acuerdo] 4 [Clase media baja] 4                   0&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 2    18 Hombre 1 [Muy de acuerdo] 3 [Clase media]      3                   0&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 3    66 Mujer  1 [Muy de acuerdo] 3 [Clase media]      4                   1&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 4    56 Mujer  2 [De acuerdo]     5 [Clase baja]       4                   1&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 5    63 Hombre 1 [Muy de acuerdo] 5 [Clase baja]       4                   0&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 6    62 Mujer  1 [Muy de acuerdo] 4 [Clase media baja] 1                   1&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 7    54 Hombre 2 [De acuerdo]     4 [Clase media baja] 2                   0&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 8    75 Mujer  2 [De acuerdo]     5 [Clase baja]       4                   1&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 9    36 Mujer  2 [De acuerdo]     4 [Clase media baja] 4                   1&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 10    40 Mujer  2 [De acuerdo]     5 [Clase baja]       4                   1&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## # ... with 2,603 more rows&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;En nuestro segundo ejemplo, creamos una variable llamada validador, que si just_pago_educ tiene un caso NA la variable tendrá categoría de respuesta False y sino será True&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;mutate&lt;/span&gt;(validador &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;if_else&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;is.na&lt;/span&gt;(just_pago_educ), &lt;span style=&#34;color:#66d9ef&#34;&gt;FALSE&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;TRUE&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 2,613 x 6
+##     edad      sexo   garan_min_vid     clase_sub        just_pago_educ validador
+##    &amp;lt;dbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;       &amp;lt;dbl+lbl&amp;gt;     &amp;lt;dbl+lbl&amp;gt;             &amp;lt;dbl+lbl&amp;gt; &amp;lt;lgl&amp;gt;    
+##  1    40 1 [Hombr~ 1 [Muy de acue~ 4 [Clase med~ 4 [En desacuerdo]     TRUE     
+##  2    18 1 [Hombr~ 1 [Muy de acue~ 3 [Clase med~ 3 [Ni de acuerdo ni ~ TRUE     
+##  3    66 2 [Mujer] 1 [Muy de acue~ 3 [Clase med~ 4 [En desacuerdo]     TRUE     
+##  4    56 2 [Mujer] 2 [De acuerdo]  5 [Clase baj~ 4 [En desacuerdo]     TRUE     
+##  5    63 1 [Hombr~ 1 [Muy de acue~ 5 [Clase baj~ 4 [En desacuerdo]     TRUE     
+##  6    62 2 [Mujer] 1 [Muy de acue~ 4 [Clase med~ 1 [Muy de acuerdo]    TRUE     
+##  7    54 1 [Hombr~ 2 [De acuerdo]  4 [Clase med~ 2 [De acuerdo]        TRUE     
+##  8    75 2 [Mujer] 2 [De acuerdo]  5 [Clase baj~ 4 [En desacuerdo]     TRUE     
+##  9    36 2 [Mujer] 2 [De acuerdo]  4 [Clase med~ 4 [En desacuerdo]     TRUE     
+## 10    40 2 [Mujer] 2 [De acuerdo]  5 [Clase baj~ 4 [En desacuerdo]     TRUE     
+## # ... with 2,603 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;533-mutate-group_by-n&#34;&gt;5.3.3 mutate group_by n()&lt;/h2&gt;
+&lt;p&gt;La función group_by toma datos existentes y lo convierte en datos agrupados, en nuestro primer ejemplo, los agrupa por la variable sexo y luego crearemos la variable n_sexo&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;group_by&lt;/span&gt;(sexo)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 2,613 x 5
+## # Groups:   sexo [2]
+##     edad      sexo     garan_min_vid        clase_sub             just_pago_educ
+##    &amp;lt;dbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;         &amp;lt;dbl+lbl&amp;gt;        &amp;lt;dbl+lbl&amp;gt;                  &amp;lt;dbl+lbl&amp;gt;
+##  1    40 1 [Hombr~ 1 [Muy de acuerd~ 4 [Clase media ~ 4 [En desacuerdo]         
+##  2    18 1 [Hombr~ 1 [Muy de acuerd~ 3 [Clase media]  3 [Ni de acuerdo ni en de~
+##  3    66 2 [Mujer] 1 [Muy de acuerd~ 3 [Clase media]  4 [En desacuerdo]         
+##  4    56 2 [Mujer] 2 [De acuerdo]    5 [Clase baja]   4 [En desacuerdo]         
+##  5    63 1 [Hombr~ 1 [Muy de acuerd~ 5 [Clase baja]   4 [En desacuerdo]         
+##  6    62 2 [Mujer] 1 [Muy de acuerd~ 4 [Clase media ~ 1 [Muy de acuerdo]        
+##  7    54 1 [Hombr~ 2 [De acuerdo]    4 [Clase media ~ 2 [De acuerdo]            
+##  8    75 2 [Mujer] 2 [De acuerdo]    5 [Clase baja]   4 [En desacuerdo]         
+##  9    36 2 [Mujer] 2 [De acuerdo]    4 [Clase media ~ 4 [En desacuerdo]         
+## 10    40 2 [Mujer] 2 [De acuerdo]    5 [Clase baja]   4 [En desacuerdo]         
+## # ... with 2,603 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;mutate&lt;/span&gt;(n_sexo &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;n&lt;/span&gt;())
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 2,613 x 6
+##     edad      sexo   garan_min_vid      clase_sub          just_pago_educ n_sexo
+##    &amp;lt;dbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;       &amp;lt;dbl+lbl&amp;gt;      &amp;lt;dbl+lbl&amp;gt;               &amp;lt;dbl+lbl&amp;gt;  &amp;lt;int&amp;gt;
+##  1    40 1 [Hombr~ 1 [Muy de acue~ 4 [Clase medi~ 4 [En desacuerdo]         2613
+##  2    18 1 [Hombr~ 1 [Muy de acue~ 3 [Clase medi~ 3 [Ni de acuerdo ni en~   2613
+##  3    66 2 [Mujer] 1 [Muy de acue~ 3 [Clase medi~ 4 [En desacuerdo]         2613
+##  4    56 2 [Mujer] 2 [De acuerdo]  5 [Clase baja] 4 [En desacuerdo]         2613
+##  5    63 1 [Hombr~ 1 [Muy de acue~ 5 [Clase baja] 4 [En desacuerdo]         2613
+##  6    62 2 [Mujer] 1 [Muy de acue~ 4 [Clase medi~ 1 [Muy de acuerdo]        2613
+##  7    54 1 [Hombr~ 2 [De acuerdo]  4 [Clase medi~ 2 [De acuerdo]            2613
+##  8    75 2 [Mujer] 2 [De acuerdo]  5 [Clase baja] 4 [En desacuerdo]         2613
+##  9    36 2 [Mujer] 2 [De acuerdo]  4 [Clase medi~ 4 [En desacuerdo]         2613
+## 10    40 2 [Mujer] 2 [De acuerdo]  5 [Clase baja] 4 [En desacuerdo]         2613
+## # ... with 2,603 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;También podemos hacer ambas operaciones en un sólo comando&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;group_by&lt;/span&gt;(sexo) &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;mutate&lt;/span&gt;(n_sexo &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;n&lt;/span&gt;())
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 2,613 x 6
+## # Groups:   sexo [2]
+##     edad      sexo   garan_min_vid      clase_sub          just_pago_educ n_sexo
+##    &amp;lt;dbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;       &amp;lt;dbl+lbl&amp;gt;      &amp;lt;dbl+lbl&amp;gt;               &amp;lt;dbl+lbl&amp;gt;  &amp;lt;int&amp;gt;
+##  1    40 1 [Hombr~ 1 [Muy de acue~ 4 [Clase medi~ 4 [En desacuerdo]         1012
+##  2    18 1 [Hombr~ 1 [Muy de acue~ 3 [Clase medi~ 3 [Ni de acuerdo ni en~   1012
+##  3    66 2 [Mujer] 1 [Muy de acue~ 3 [Clase medi~ 4 [En desacuerdo]         1601
+##  4    56 2 [Mujer] 2 [De acuerdo]  5 [Clase baja] 4 [En desacuerdo]         1601
+##  5    63 1 [Hombr~ 1 [Muy de acue~ 5 [Clase baja] 4 [En desacuerdo]         1012
+##  6    62 2 [Mujer] 1 [Muy de acue~ 4 [Clase medi~ 1 [Muy de acuerdo]        1601
+##  7    54 1 [Hombr~ 2 [De acuerdo]  4 [Clase medi~ 2 [De acuerdo]            1012
+##  8    75 2 [Mujer] 2 [De acuerdo]  5 [Clase baja] 4 [En desacuerdo]         1601
+##  9    36 2 [Mujer] 2 [De acuerdo]  4 [Clase medi~ 4 [En desacuerdo]         1601
+## 10    40 2 [Mujer] 2 [De acuerdo]  5 [Clase baja] 4 [En desacuerdo]         1601
+## # ... with 2,603 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;54-summarise&#34;&gt;5.4 summarise&lt;/h1&gt;
+&lt;p&gt;La función summarise resume dato a una sola fila de valores, en nuestro primer ejemplo, toma los datos creados anteriormente y los resume a un solo valor&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt;
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;summarise&lt;/span&gt;(n_sexo &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;n&lt;/span&gt;())
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 1 x 1
+##   n_sexo
+##    &amp;lt;int&amp;gt;
+## 1   2613
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;En nuestro segundo ejemplo, creamos una nueva tabla donde nos agrupara los datos según sexo y además resumirá los casos&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;group_by&lt;/span&gt;(sexo) &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;summarise&lt;/span&gt;(n_sexo &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;n&lt;/span&gt;())
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 2 x 2
+##         sexo n_sexo
+##    &amp;lt;dbl+lbl&amp;gt;  &amp;lt;int&amp;gt;
+## 1 1 [Hombre]   1012
+## 2 2 [Mujer]    1601
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;6-resumen-con-procesamiento-de-las-variables&#34;&gt;6. Resumen con procesamiento de las variables&lt;/h2&gt;
+&lt;p&gt;Previo a la manipulación de los datos es necesario conocer como se distribuye esta por eso el paso inicial es un descriptivo de las variables a procesar. Para ello, usaremos la función frq del paquete &lt;strong&gt;sjmisc&lt;/strong&gt;, que  permite analizar la frecuencia las variables que &lt;strong&gt;no sean numericas&lt;/strong&gt;. Para las variables numericas, en cambio, usaremos la función &lt;strong&gt;descr&lt;/strong&gt; del mismo paquete, que nos entregará las &lt;strong&gt;medidas de tendencia central, dispersión y posición&lt;/strong&gt; de la variable. &lt;a href=&#34;&#34;&gt;Ver práctico anterior&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;descr&lt;/span&gt;(datos_proc&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;edad) &lt;span style=&#34;color:#75715e&#34;&gt;#Usar la función descr con la variable edad de los datos datos_proc.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## 
+## ## Basic descriptive statistics
+## 
+##  var    type        label    n NA.prc  mean    sd   se md trimmed      range
+##   dd numeric Edad (anyos) 2613      0 45.54 17.68 0.35 45   44.75 78 (18-96)
+##  iqr skew
+##   29 0.29
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;frq&lt;/span&gt;(datos_proc&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;sexo)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## 
+## Sexo del entrevistado (x) &amp;lt;numeric&amp;gt;
+## # total N=2613  valid N=2613  mean=1.61  sd=0.49
+## 
+## Value |  Label |    N | Raw % | Valid % | Cum. %
+## ------------------------------------------------
+##     1 | Hombre | 1012 | 38.73 |   38.73 |  38.73
+##     2 |  Mujer | 1601 | 61.27 |   61.27 | 100.00
+##  &amp;lt;NA&amp;gt; |   &amp;lt;NA&amp;gt; |    0 |  0.00 |    &amp;lt;NA&amp;gt; |   &amp;lt;NA&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;frq&lt;/span&gt;(datos_proc&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;garan_min_vid)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## 
+## P35 - Rol Gobierno: garantizar minimo vida (x) &amp;lt;numeric&amp;gt;
+## # total N=2613  valid N=2613  mean=2.09  sd=1.24
+## 
+## Value |                          Label |    N | Raw % | Valid % | Cum. %
+## ------------------------------------------------------------------------
+##     1 |                 Muy de acuerdo |  836 | 31.99 |   31.99 |  31.99
+##     2 |                     De acuerdo | 1226 | 46.92 |   46.92 |  78.91
+##     3 | Ni de acuerdo ni en desacuerdo |  285 | 10.91 |   10.91 |  89.82
+##     4 |                  En desacuerdo |  153 |  5.86 |    5.86 |  95.68
+##     5 |              Muy en desacuerdo |   67 |  2.56 |    2.56 |  98.24
+##     8 |                   NS (no leer) |   41 |  1.57 |    1.57 |  99.81
+##     9 |                   NR (no leer) |    5 |  0.19 |    0.19 | 100.00
+##  &amp;lt;NA&amp;gt; |                           &amp;lt;NA&amp;gt; |    0 |  0.00 |    &amp;lt;NA&amp;gt; |   &amp;lt;NA&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;frq&lt;/span&gt;(datos_proc&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;clase_sub)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## 
+## P14 - ¿En qué clase social ubicaría a la gente como usted? (x) &amp;lt;numeric&amp;gt;
+## # total N=2613  valid N=2613  mean=3.47  sd=1.09
+## 
+## Value |            Label |   N | Raw % | Valid % | Cum. %
+## ---------------------------------------------------------
+##     1 |       Clase alta | 119 |  4.55 |    4.55 |   4.55
+##     2 | Clase media alta | 320 | 12.25 |   12.25 |  16.80
+##     3 |      Clase media | 890 | 34.06 |   34.06 |  50.86
+##     4 | Clase media baja | 807 | 30.88 |   30.88 |  81.75
+##     5 |       Clase baja | 468 | 17.91 |   17.91 |  99.66
+##     8 |     NS (no leer) |   9 |  0.34 |    0.34 | 100.00
+##     9 |     NR (no leer) |   0 |  0.00 |    0.00 | 100.00
+##  &amp;lt;NA&amp;gt; |             &amp;lt;NA&amp;gt; |   0 |  0.00 |    &amp;lt;NA&amp;gt; |   &amp;lt;NA&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;frq&lt;/span&gt;(datos_proc&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;just_pago_educ)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## 
+## P25 - Justo: mas pago, mejor educacion (x) &amp;lt;numeric&amp;gt;
+## # total N=2613  valid N=2613  mean=3.50  sd=1.29
+## 
+## Value |                          Label |   N | Raw % | Valid % | Cum. %
+## -----------------------------------------------------------------------
+##     1 |                 Muy de acuerdo | 157 |  6.01 |    6.01 |   6.01
+##     2 |                     De acuerdo | 559 | 21.39 |   21.39 |  27.40
+##     3 | Ni de acuerdo ni en desacuerdo | 346 | 13.24 |   13.24 |  40.64
+##     4 |                  En desacuerdo | 997 | 38.16 |   38.16 |  78.80
+##     5 |              Muy en desacuerdo | 528 | 20.21 |   20.21 |  99.00
+##     8 |                   NS (no leer) |  20 |  0.77 |    0.77 |  99.77
+##     9 |                   NR (no leer) |   6 |  0.23 |    0.23 | 100.00
+##  &amp;lt;NA&amp;gt; |                           &amp;lt;NA&amp;gt; |   0 |  0.00 |    &amp;lt;NA&amp;gt; |   &amp;lt;NA&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Luego debemos recodificar las variables según sean necesario, para ello utilizaremos las librerias car y Dplyr&lt;/p&gt;
+&lt;p&gt;Para la libreria car recodificaremos todas las categorias de respuesta como no sabe (NS) o no responde(NR) en NA&amp;rsquo;s&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;garan_min_vid &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; car&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;recode&lt;/span&gt;(datos_proc&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;garan_min_vid, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;c(8, 9)=NA&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;#acá con :: especificamos qué libreria usar&lt;/span&gt;
+datos_proc&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;clase_sub &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; car&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;recode&lt;/span&gt;(datos_proc&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;clase_sub, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;c(8, 9)=NA&amp;#34;&lt;/span&gt;)
+datos_proc&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;just_pago_educ &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; car&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;recode&lt;/span&gt;(datos_proc&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;just_pago_educ, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;c(8, 9)=NA&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Tambien podemos recodificar para agruparlas&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;just_pago_educ &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; car&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;recode&lt;/span&gt;(datos_proc&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;just_pago_educ, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1:2=1;3=2;4:5=3&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Luego con Dplyr le asignamos nuevos valores&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;mutate&lt;/span&gt;(just_pago_educ &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;recode &lt;/span&gt;(just_pago_educ, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;a favor&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;neutro&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;3&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;en contra&amp;#34;&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## # A tibble: 2,613 x 5&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;##    edad sexo        garan_min_vid            clase_sub just_pago_educ&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;##   &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;           &amp;lt;dbl+lbl&amp;gt;            &amp;lt;dbl+lbl&amp;gt; &amp;lt;chr&amp;gt;         &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 1    40 Hombre 1 [Muy de acuerdo] 4 [Clase media baja] en contra     &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 2    18 Hombre 1 [Muy de acuerdo] 3 [Clase media]      neutro        &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 3    66 Mujer  1 [Muy de acuerdo] 3 [Clase media]      en contra     &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 4    56 Mujer  2 [De acuerdo]     5 [Clase baja]       en contra     &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 5    63 Hombre 1 [Muy de acuerdo] 5 [Clase baja]       en contra     &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 6    62 Mujer  1 [Muy de acuerdo] 4 [Clase media baja] a favor       &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 7    54 Hombre 2 [De acuerdo]     4 [Clase media baja] a favor       &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 8    75 Mujer  2 [De acuerdo]     5 [Clase baja]       en contra     &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 9    36 Mujer  2 [De acuerdo]     4 [Clase media baja] en contra     &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## 10    40 Mujer  2 [De acuerdo]     5 [Clase baja]       en contra      &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;## # ... with 2,603 more rows&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;7-guardar-base-procesada&#34;&gt;7. Guardar base procesada&lt;/h2&gt;
+&lt;p&gt;Para guardar la base de datos procesada, debes dirigir la ruta hacia tu Rproject&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;save&lt;/span&gt;(datos_proc, data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;../Rproject/datos_proc.RData&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;8-reporte-de-progreso&#34;&gt;8. Reporte de progreso&lt;/h2&gt;
+&lt;p&gt;¡Recuerda rellenar tu reporte de progreso! En &lt;a href=&#34;https://learn-r.formr.org/&#34;&gt;https://learn-r.formr.org/&lt;/a&gt;. Te llegó un código único a tu correo electrónico. Mediante él debes acceder para actualizar tu estado de avance del curso.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Tarea 0. Colaborando en GitHub</title>
       <link>/assignment/00-tarea/</link>
       <pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate>
       <guid>/assignment/00-tarea/</guid>
       <description>&lt;h1 id=&#34;instrucciones&#34;&gt;Instrucciones&lt;/h1&gt;
-&lt;p&gt;Esta tarea debe ser resolvida en GitHub Class Room. Para acceder a la &lt;a href=&#34;https://classroom.github.com/a/Mh3me9e0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tarea N°0 hacer click aquí&lt;/a&gt;. Si aún tienes dudas de cómo interactuar con &lt;a href=&#34;../example/01-practico&#34;&gt;GitHub Class Roomm revisa el práctico&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Esta tarea debe ser resolvida en GitHub Class Room. Para acceder a la &lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt;  &lt;a href=&#34;https://classroom.github.com/a/Mh3me9e0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tarea N°0 hacer click aquí&lt;/a&gt;. Si aún tienes dudas de cómo interactuar con &lt;a href=&#34;../example/01-practico&#34;&gt;GitHub Class Roomm revisa el práctico&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;objetivo-de-la-tarea-y-resultados-del-aprendizaje&#34;&gt;Objetivo de la tarea y resultados del aprendizaje&lt;/h2&gt;
 &lt;p&gt;El objetivo de esta tarea es ser una breve introducción a GitHub. Para ello debes leer la siguiente guía y responder algunas preguntas. Luego de responder esas preguntas debes hacer &amp;ldquo;push&amp;rdquo; a tu tarea.&lt;/p&gt;
 &lt;h1 id=&#34;básicos-antes-de-iniciar&#34;&gt;Básicos: antes de iniciar&lt;/h1&gt;
@@ -140,7 +705,7 @@
 &lt;p&gt;Su página de perfil le dice a la gente la historia de su trabajo a través de los repositorios que le interesan, las contribuciones que ha hecho y las conversaciones que ha tenido. No olvides que tu cuenta de GitHub te permite acceder a &lt;em&gt;RStudio Cloud&lt;/em&gt; y a otros beneficios como estudiante.&lt;/p&gt;
 &lt;h2 id=&#34;usando-markdown-en-github-y-pronto-en-r&#34;&gt;Usando markdown en GitHub (¡y pronto en R!)&lt;/h2&gt;
 &lt;p&gt;Sí&amp;hellip; estas escribiendo en algo que parece una consola. Este &lt;em&gt;texto plano&lt;/em&gt; te permite escribir y comunicar sin restricciones de software. Markdown se abre en todos los editores de texto, y no requiere ser pagado (como en Word). También se pueden incorporar imágenes, &lt;strong&gt;remarcar&lt;/strong&gt; palabras o hacerlas &lt;em&gt;cursivas&lt;/em&gt;. Aprenderemos de esto la próxima sesión, pero si te quieres adelantar &lt;a href=&#34;https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;revisa esto&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;1-git-and-github-octocat&#34;&gt;1. Git and GitHub :octocat:&lt;/h2&gt;
+&lt;h2 id=&#34;1-git-and-github-i-classfab-fa-githubi&#34;&gt;1. Git and GitHub &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt;&lt;/h2&gt;
 &lt;p&gt;Git es un &lt;strong&gt;sistema de control de versiones distribuido (VCS)&lt;/strong&gt;, lo que significa que es una herramienta útil para rastrear fácilmente los cambios en su código, colaborar y compartir. Con Git puede realizar un seguimiento de los cambios que realiza en su proyecto para que siempre tenga un registro de lo que ha trabajado y pueda volver fácilmente a una versión anterior si es necesario. También facilita el trabajo con otras personas: ¡varios grupos de personas pueden trabajar juntas en el mismo proyecto y fusionar sus cambios en una fuente final!&lt;/p&gt;
 &lt;p&gt;GitHub es una forma de usar el mismo poder de Git todo en línea con una interfaz fácil de usar. Se utiliza en todo el mundo del software y más allá para colaborar y mantener el historial de proyectos.&lt;/p&gt;
 &lt;h2 id=&#34;2-el-flujo-de-github&#34;&gt;2. El flujo de GitHub&lt;/h2&gt;
@@ -182,15 +747,14 @@
 &lt;/ol&gt;
 &lt;p&gt;R:&lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;¿Cuál es el paso inicial para empezar a trabajar en un proyecto?&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;R:&lt;/p&gt;
-&lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;
 &lt;p&gt;¿Con qué comando puedes &lt;strong&gt;subir&lt;/strong&gt; los cambios del repositorio local al remoto?&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;En este repositorio, deja una imagen de tu sociólogo/a o cientista social preferido/a. Al archivo debes llamarlo &amp;ldquo;sociologo-preferido.jpg&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Crea un .Rproject llamado 00-tarea.Rproject&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;En el repositorio, crea una carpeta llamada &amp;ldquo;imagenes&amp;rdquo;. Dentro de esta carpeta deja una imagen de tu sociólogo/a o cientista social preferido/a. Al archivo debes llamarlo &amp;ldquo;sociologo-preferido.jpg&amp;rdquo;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;recursos&#34;&gt;Recursos&lt;/h2&gt;

@@ -8,12 +8,12 @@
   </url>
   
   <url>
-    <loc>/content/</loc>
-    <lastmod>2021-08-09T00:00:00+00:00</lastmod>
+    <loc>/example/</loc>
+    <lastmod>2021-08-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/example/</loc>
+    <loc>/content/</loc>
     <lastmod>2021-08-09T00:00:00+00:00</lastmod>
   </url>
   
@@ -32,6 +32,16 @@
   </url>
   
   <url>
+    <loc>/example/04-practico/</loc>
+    <lastmod>2021-08-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2021-08-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/assignment/00-tarea/</loc>
     <lastmod>2021-08-09T00:00:00+00:00</lastmod>
   </url>
@@ -43,11 +53,6 @@
   
   <url>
     <loc>/example/01-practico/</loc>
-    <lastmod>2021-08-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
     <lastmod>2021-08-09T00:00:00+00:00</lastmod>
   </url>
   

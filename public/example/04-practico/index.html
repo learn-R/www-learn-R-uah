@@ -29,9 +29,7 @@
   
     
   
-  <meta name="description" content="DAGs with dagitty.net The easiest way to quickly build DAGs and find adjustment sets and testable implications is to use dagitty.net.
-This video shows how to use it:
-DAGs with R, ggdag, and dagitty You can use the ggdag and dagitty packages in R to build and work with DAGs too." />
+  <meta name="description" content="0. Objetivo de la práctica El objetivo del práctico, es avanzar en el procesamiento de los datos a través de la transformación de las variables a utilizar. Para ello revisaremos procedimientos básicos para el manejo de datos con Rstudio." />
 
   
   <link rel="alternate" hreflang="en-us" href="/example/04-practico/" />
@@ -289,10 +287,8 @@ This video shows how to use it:
   
   <meta property="og:site_name" content="Análisis Estadístico en R" />
   <meta property="og:url" content="/example/04-practico/" />
-  <meta property="og:title" content="Tranformar y seleccionar variables | Análisis Estadístico en R" />
-  <meta property="og:description" content="DAGs with dagitty.net The easiest way to quickly build DAGs and find adjustment sets and testable implications is to use dagitty.net.
-This video shows how to use it:
-DAGs with R, ggdag, and dagitty You can use the ggdag and dagitty packages in R to build and work with DAGs too." /><meta property="og:image" content="/media/logo_hu02bc8dfe7cae86b2ee03430b67caeaf2_22353_300x300_fit_lanczos_2.png" />
+  <meta property="og:title" content="Transformar y seleccionar variables | Análisis Estadístico en R" />
+  <meta property="og:description" content="0. Objetivo de la práctica El objetivo del práctico, es avanzar en el procesamiento de los datos a través de la transformación de las variables a utilizar. Para ello revisaremos procedimientos básicos para el manejo de datos con Rstudio." /><meta property="og:image" content="/media/logo_hu02bc8dfe7cae86b2ee03430b67caeaf2_22353_300x300_fit_lanczos_2.png" />
     <meta property="twitter:image" content="/media/logo_hu02bc8dfe7cae86b2ee03430b67caeaf2_22353_300x300_fit_lanczos_2.png" /><meta property="og:locale" content="en-us" />
   
     
@@ -328,7 +324,7 @@ This video shows how to use it:
   <meta name="msapplication-TileImage" content="/img/mstile-144x144.png" />
 
 
-  <title>Tranformar y seleccionar variables | Análisis Estadístico en R</title>
+  <title>Transformar y seleccionar variables | Análisis Estadístico en R</title>
 </head>
 
 
@@ -655,16 +651,7 @@ This video shows how to use it:
   </div>
   
   <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/example/01-datos/">Datos</a>
-    <ul class="nav docs-sidenav">
-      
-      <li >
-        <a href="/example/01-datos/">1: Synthetic data</a>
-      </li>
-
-      
-    </ul>
-    
+    <a class="docs-toc-link" >Datos</a>
 
   </div>
   
@@ -677,48 +664,8 @@ This video shows how to use it:
       </li>
 
       
-      <li >
-        <a href="/example/02-practico/">2: R, RStudio y tidyverse</a>
-      </li>
-
-      
-      <li >
-        <a href="/example/03-practico/">3: Importar, explorar y limpiar datos</a>
-      </li>
-
-      
       <li class="active">
-        <a href="/example/04-practico/">4: Tranformar y seleccionar variables</a>
-      </li>
-
-      
-      <li >
-        <a href="/example/05-practico/">5: Transformación de datos</a>
-      </li>
-
-      
-      <li >
-        <a href="/example/06-practico/">6: Análisis descriptivo</a>
-      </li>
-
-      
-      <li >
-        <a href="/example/07-practico/">7: Muestras complejas</a>
-      </li>
-
-      
-      <li >
-        <a href="/example/09-practico/">9: Regresiones lineales</a>
-      </li>
-
-      
-      <li >
-        <a href="/example/10-practico/">10: Regresiones logísticas</a>
-      </li>
-
-      
-      <li >
-        <a href="/example/11-practico/">11: Calidad de modelos y otras técnicas de estimación</a>
+        <a href="/example/04-practico/">4: Transformar y seleccionar variables</a>
       </li>
 
       
@@ -740,23 +687,57 @@ This video shows how to use it:
 
             <nav id="TableOfContents">
   <ul>
-    <li><a href="#dags-with-dagittynet">DAGs with dagitty.net</a></li>
-    <li><a href="#dags-with-r-ggdag-and-dagitty">DAGs with R, ggdag, and dagitty</a>
+    <li><a href="#0-objetivo-de-la-práctica">0. Objetivo de la práctica</a></li>
+    <li><a href="#1-recursos-de-la-práctica">1. Recursos de la práctica</a></li>
+    <li><a href="#2-librerias-a-utilizar">2. Librerias a utilizar</a></li>
+    <li><a href="#3-cargar-base-de-datos-y-explorarla">3. Cargar base de datos y explorarla</a></li>
+    <li><a href="#4-aspectos-claves-antes-de-comenzar">4. Aspectos claves antes de comenzar</a>
       <ul>
-        <li><a href="#live-coding-example">Live coding example</a></li>
-        <li><a href="#basic-dags">Basic DAGs</a></li>
-        <li><a href="#layouts-and-manual-coordinates">Layouts and manual coordinates</a></li>
-        <li><a href="#node-names-and-labels">Node names and labels</a></li>
-        <li><a href="#paths-and-adjustment-sets">Paths and adjustment sets</a></li>
-        <li><a href="#plot-dag-from-dagittynet-with-ggdag">Plot DAG from dagitty.net with <code>ggdag()</code></a></li>
+        <li><a href="#operador-pipeline-">Operador pipeline %&gt;%</a></li>
+        <li><a href="#boolaenos-y-operadores-lógicos">boolaenos y operadores lógicos</a></li>
       </ul>
     </li>
-    <li><a href="#mosquito-net-example">Mosquito net example</a>
+    <li><a href="#5-transformación-y-selección-de-variables-con-tidyversedplyr">5. Transformación y selección de variables con tidyverse:Dplyr</a>
       <ul>
-        <li><a href="#conditional-independencies">Conditional independencies</a></li>
-        <li><a href="#mosquito-net-adjustment-sets">Mosquito net adjustment sets</a></li>
+        <li><a href="#51-select">5.1 select()</a>
+          <ul>
+            <li><a href="#selección-de-las-variables-en-la-base-de-datos-a-utilizar">selección de las variables en la base de datos a utilizar</a></li>
+            <li><a href="#selección-de-las-variables-por-indexación">selección de las variables por <em>indexación</em></a></li>
+            <li><a href="#selección-y-renombrar">Selección y renombrar</a></li>
+            <li><a href="#selección-que-inicia-con-prefijos-starts_with-y-termina-con-sufijos-ends_with">Selección que inicia con prefijos (starts_with) y termina con sufijos (ends_with)</a></li>
+            <li><a href="#selección-que-contiene-cadenas-contains">Selección que contiene cadenas (contains)</a></li>
+            <li><a href="#selección-con-expresiones-matches">Selección con expresiones (matches)</a></li>
+            <li><a href="#selección-y-función-where">Selección y función where</a></li>
+          </ul>
+        </li>
+        <li><a href="#52-filter">5.2 filter()</a>
+          <ul>
+            <li><a href="#filtar-según-caracteres">Filtar según caracteres</a></li>
+            <li><a href="#filtar-según-números">Filtar según números</a></li>
+          </ul>
+        </li>
+        <li><a href="#53-mutate-">5.3 mutate ()</a>
+          <ul>
+            <li><a href="#creación-de-variable-a-partir-de-cálculos">creación de variable a partir de cálculos</a></li>
+            <li><a href="#mutate-y-filter">Mutate y filter</a></li>
+          </ul>
+        </li>
+        <li><a href="#531-recode">5.3.1 recode()</a>
+          <ul>
+            <li><a href="#factors">Factors</a></li>
+            <li><a href="#numeric">Numeric</a></li>
+          </ul>
+        </li>
+        <li><a href="#532-if_else">5.3.2 if_else()</a></li>
       </ul>
     </li>
+    <li><a href="#533-mutate-group_by-n">5.3.3 mutate group_by n()</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#6-resumen-con-procesamiento-de-las-variables">6. Resumen con procesamiento de las variables</a></li>
+    <li><a href="#7-guardar-base-procesada">7. Guardar base procesada</a></li>
+    <li><a href="#8-reporte-de-progreso">8. Reporte de progreso</a></li>
   </ul>
 </nav>
 
@@ -769,7 +750,7 @@ This video shows how to use it:
             <article class="article">
 
                 <div class="docs-article-container">
-                    <h1>Tranformar y seleccionar variables</h1>
+                    <h1>Transformar y seleccionar variables</h1>
 
                     
 
@@ -778,263 +759,563 @@ This video shows how to use it:
                     
 
                     <div class="article-style">
-                        <h2 id="dags-with-dagittynet">DAGs with dagitty.net</h2>
-<p>The easiest way to quickly build DAGs and find adjustment sets and testable implications is to use <a href="http://dagitty.net/" target="_blank" rel="noopener">dagitty.net</a>.</p>
-<p>This video shows how to use it:</p>
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/3euqrnD9w7c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <h2 id="0-objetivo-de-la-práctica">0. Objetivo de la práctica</h2>
+<p>El objetivo del práctico, es avanzar en el procesamiento de los datos a través de la transformación de las variables a utilizar. Para ello revisaremos procedimientos básicos para el manejo de datos con Rstudio.</p>
+<h2 id="1-recursos-de-la-práctica">1. Recursos de la práctica</h2>
+<p>En este práctico utilizaremos la base de datos de la <a href="https://www.estudiospnud.cl/bases-de-datos_proc/desigualdades-economicas-y-sociales-desiguales-2016/" target="_blank" rel="noopener"><strong>Encuesta Desigualdades Económicas y Sociales (Desiguales)(2016)</strong></a>, la cual fue procesada en el <a href="">Práctico anterior</a>.Recuerden siempre consultar el <a href="https://www.estudiospnud.cl/wp-content/uploads/2020/04/DES_2016_manual-2.pdf" target="_blank" rel="noopener"><strong>manual/libro de códigos</strong></a> antes de trabajar una base de datos.</p>
+<h2 id="2-librerias-a-utilizar">2. Librerias a utilizar</h2>
+<p>En este práctico utilizaremos cuatro paquetes, el primero se llama <strong>pacman</strong> este facilita y agiliza la lectura de los paquetes a utilizar en R; el segundo es <strong>sjmisc</strong>, el tercero es <strong>car</strong> para recodificar y el cuarto es <strong>Tidyverse</strong>, este es una colección de paquetes de código abierto. De este último utilizaremos <strong>Dplyr y Forcast</strong>, si quieres averiguar más puedes ir <a href="https://www.tidyverse.org/" target="_blank" rel="noopener">acá</a></p>
+<blockquote>
+<p>Recuerden que previo a cargar la base de datos, se deben cargar los paquetes</p>
+</blockquote>
+<p>Primero instalamos pacman por unica vez</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">install.packages</span>(<span style="color:#e6db74">&#34;pacman&#34;</span>)
+<span style="color:#a6e22e">library </span>(pacman)
+</code></pre></div><p>Luego cargaremos así los paquetes de R</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">pacman<span style="color:#f92672">::</span><span style="color:#a6e22e">p_load</span>(tidyverse,
+               car,
+               sjmisc)
+</code></pre></div><h2 id="3-cargar-base-de-datos-y-explorarla">3. Cargar base de datos y explorarla</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_sav</span>(<span style="color:#e6db74">&#34;../Rproject/datos_proc.sav&#34;</span>) 
+</code></pre></div><p>En el panel <strong>Environment</strong>, visualizamos el nuevo objeto, que posee 2.613 observaciones (o filas), y 329 variables (o columnas). También podemos explorar la base de datos con los siguientes comandos</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">dim</span>(datos) <span style="color:#75715e"># nos entrega las dimensiones, es decir el numero de observaciones y el número de variables</span>
+<span style="color:#a6e22e">view</span>(datos) <span style="color:#75715e"># se usa para visualizar la base de datos</span>
+<span style="color:#a6e22e">find_var</span>() <span style="color:#75715e"># se utiliza para encontrar variables</span>
+<span style="color:#a6e22e">names</span>(datos) <span style="color:#75715e"># entrega los nombres de las variables que componen el dataset</span>
+<span style="color:#a6e22e">head</span>(datos) <span style="color:#75715e"># muestra las primeras filas presentes en el marco de datos</span>
+</code></pre></div><h2 id="4-aspectos-claves-antes-de-comenzar">4. Aspectos claves antes de comenzar</h2>
+<p>Previo a trabajar con la base de datos, debemos conocer aspectos claves que facilitaran el uso y entendimiento de Rstudio</p>
+<h3 id="operador-pipeline-">Operador pipeline %&gt;%</h3>
+<p>El operador pipe %&gt;% es útil para concatenar múltiples operaciones, el comando para usarlo es <strong>Ctrl + shift + M</strong> o <strong>Cmd + shift + M</strong></p>
+<h3 id="boolaenos-y-operadores-lógicos">boolaenos y operadores lógicos</h3>
+<p>Estos son símbolos lógicos que son utilizados en R para designar funciones.</p>
+<ol>
+<li>En primer lugar están los <strong>operadores relacionales</strong>, estos se usan para hacer comparaciones</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#f92672">&lt;</span>		Este signo se usa para designar que un valor es menor que otro
+<span style="color:#f92672">&gt;</span>		Este es para designar que un valor es mayor que otro
+<span style="color:#f92672">==</span>		Con este se señala que un valor es igual que otro
+<span style="color:#f92672">&lt;=</span>		La composición de estos dos símbolos se usa para decir que un valor es menor o igual que otro
+<span style="color:#f92672">&gt;=</span>		Esta para decir que un valor es mayor o igual que otro
+<span style="color:#f92672">!=</span>		Este para decir que el valor es diferente que otro
+<span style="color:#f92672">%in%</span>		Este significa que un valor pertenece al conjunto designado
+is.na		Este es para asignar un valor como pérdido o <span style="color:#66d9ef">NA</span>
+<span style="color:#f92672">!</span>is.na		Este para decir que un valor no es <span style="color:#66d9ef">NA</span>
+</code></pre></div><ol start="2">
+<li>
+<p>En segundo lugar, están los <strong>operadores aritméticos</strong>, los cuales realizan operaciones, como la suma, resta, división, entre otros.</p>
+</li>
+<li>
+<p>En tercer lugar, los <strong>operadores de asignación</strong>, es decir que están encargados de asignar valores a objetos</p>
+</li>
+<li>
+<p>Finalmente, los <strong>operadores booleanos</strong>, los cuales describen relaciones lógicas, como:</p>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#f92672">&amp;</span>		Este operador es la condición y, es decir si se cumplen todas condiciones mencionadas
+<span style="color:#f92672">|</span>		Este es la condición o, es decir si se cumple una condición u otra mencionada
+<span style="color:#a6e22e">xor</span>()		Este excluye o saca la condición mencionada
+<span style="color:#f92672">!</span>		Significa que no es la condición que se menciona
+any		Significa que ninguna de las condiciones serán utilizadas
+all 		Significa que todas las condiciones serán utilizadas
+</code></pre></div><p><img src="../www-learn-R-uah/static/img/example/operad.png" width="60%" /></p>
+<h2 id="5-transformación-y-selección-de-variables-con-tidyversedplyr">5. Transformación y selección de variables con tidyverse:Dplyr</h2>
+<p>Dplyr proporciona una gramática de manipulación de datos, proporcionando un conjunto consistente de verbos que ayudan a resolver desafíos de manipulación de datos más comunes. Este posee diversas funciones, en estre práctico veremos las principales:</p>
+<h3 id="51-select">5.1 select()</h3>
+<p>Nuestra función select escoge variables basándose en sus nombres o funciones</p>
+<h4 id="selección-de-las-variables-en-la-base-de-datos-a-utilizar">selección de las variables en la base de datos a utilizar</h4>
+<p>Como lo vieron en el <a href="">Práctico anterior</a> se deben seleccionar las variables a utilizar, para ello usaremos la funcion select, sin embargo en este práctico profundizaremos sobre su uso.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">&lt;-</span> datos <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e"># se crea un nuevo objeto llamado datos_proc_proc a partir de la base de datos_proc cargada, esto más el operador pipe</span>
+  <span style="color:#a6e22e">select</span>(edad <span style="color:#f92672">=</span> V6,     <span style="color:#75715e"># Con esta función se seleccionan las variables a utilizar en el práctico, asignándoles con &#34;=&#34; el nuevo nombre que llevará</span>
+         sexo <span style="color:#f92672">=</span> V2,   
+         garan_min_vid <span style="color:#f92672">=</span> V146,
+         clase_sub <span style="color:#f92672">=</span> V70,
+         just_pago_educ <span style="color:#f92672">=</span> V117)
+</code></pre></div><p>Se seleccionaron las variables</p>
+<ul>
+<li>Edad</li>
+<li>Sexo</li>
+<li>Rol Gobierno: garantizar minimo vida</li>
+<li>¿En que clase social ubicaría a la gente como usted?</li>
+<li>Justo: mas pago, mejor educacion</li>
+</ul>
+<div class="note">
+Forcats de Tidyverse proporciona un conjunto de herramientas útiles que resuelven problemas comunes con factores. R usa factores para manejar variables categóricas, variables que tienen un conjunto fijo y conocido de valores posibles. Para eso asignaremos valores a las varibales que estan codificadas de forma numerica, pero son factores.
 </div>
-<h2 id="dags-with-r-ggdag-and-dagitty">DAGs with R, ggdag, and dagitty</h2>
-<p>You can use the <a href="https://ggdag.malco.io/" target="_blank" rel="noopener"><strong>ggdag</strong></a> and <a href="http://dagitty.net/primer/" target="_blank" rel="noopener"><strong>dagitty</strong></a> packages in R to build and work with DAGs too. I typically draw an initial DAG in my browser with dagitty.net and then I rewrite it in code in R so that it&rsquo;s more official and formal and reproducible.</p>
-<h3 id="live-coding-example">Live coding example</h3>
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/uoAjyyToUTE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-<h3 id="basic-dags">Basic DAGs</h3>
-<p><em>(This is a heavily cleaned up and annotated version of the code from the video.)</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># Load packages</span>
-<span style="color:#a6e22e">library</span>(tidyverse)  <span style="color:#75715e"># For dplyr, ggplot, and friends</span>
-<span style="color:#a6e22e">library</span>(ggdag)      <span style="color:#75715e"># For plotting DAGs</span>
-<span style="color:#a6e22e">library</span>(dagitty)    <span style="color:#75715e"># For working with DAG logic</span>
-</code></pre></div><p>The general process for making and working with DAGs in R is to create a DAG object with <code>dagify()</code> and then plot it with <code>ggdag()</code>. The documentation for <strong>ggdag</strong> is really good and helpful and full of examples. Check these pages for all sorts of additional details:</p>
-<ul>
-<li><a href="https://ggdag.malco.io/articles/intro-to-ggdag.html" target="_blank" rel="noopener">&ldquo;An introduction to ggdag&rdquo;</a></li>
-<li><a href="https://ggdag.malco.io/articles/intro-to-dags.html" target="_blank" rel="noopener">&ldquo;An introduction to directed acyclic graphs&rdquo;</a></li>
-<li><a href="https://ggdag.malco.io/reference/index.html" target="_blank" rel="noopener">List of all ggdag-related functions</a></li>
-</ul>
-<p>The syntax for <code>dagify()</code> is similar to the formula syntax you&rsquo;ve been using for building regression models with <code>lm()</code>. The formulas you use in <code>dagify()</code> indicate the relationships between nodes.</p>
-<p>For instance, in this DAG, <code>y</code> is caused by <code>x</code>, <code>a</code>, and <code>b</code> (<code>y ~ x + a + b</code>), and <code>x</code> is caused by <code>a</code> and <code>b</code> (<code>x ~ a + b</code>). This means that <code>a</code> and <code>b</code> are confounders. Use the <code>exposure</code> and <code>outcome</code> arguments to specify which nodes are the exposure (or treatment/intervention/program) and the outcome.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># Create super basic DAG</span>
-simple_dag <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dagify</span>(
-  y <span style="color:#f92672">~</span> x <span style="color:#f92672">+</span> a <span style="color:#f92672">+</span> b,
-  x <span style="color:#f92672">~</span> a <span style="color:#f92672">+</span> b,
-  exposure <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;x&#34;</span>,
-  outcome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;y&#34;</span>
-)
 
-<span style="color:#75715e"># Adding a theme_dag() layer to the plot makes it have a white background with no axis labels</span>
-<span style="color:#a6e22e">ggdag</span>(simple_dag) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/04-practico_files/figure-html/super-basic-dag-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>If you want to plot which nodes are the exposure and outcome, use <code>ggdag_status()</code> instead:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggdag_status</span>(simple_dag) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/04-practico_files/figure-html/simple-status-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<h3 id="layouts-and-manual-coordinates">Layouts and manual coordinates</h3>
-<p>Notice how the layout is different in both of those graphs. By default, <code>ggdag()</code> positions the nodes randomly every time using a network algorithm. You can change the algorithm by using the <code>layout</code> argument: <code>ggdag(simple_dag, layout = &quot;nicely&quot;)</code>. You can see a full list of possible algorithms by running <code>?layout_tbl_graph_igraph</code> in the console.</p>
-<p>Alternatively, you can specify your own coordinates so that the nodes are positioned in the same place every time. Do this with the <code>coords</code> argument in <code>dagify()</code>.</p>
-<p>The best way to figure out what these numbers should be is to draw the DAG on paper or on a whiteboard and add a grid to it and then figure out the coordinates. For instance, in this DAG there are three rows and three columns: <code>x</code> and <code>y</code> go in the middle row (row 2) while <code>a</code> and <code>b</code> go in the middle column (column 2). It can also be helpful to not include <code>theme_dag()</code> at first so you can see the numbers for the underlying grid. Once you have everything positioned correctly, add <code>theme_dag()</code> to clean it up.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">simple_dag_with_coords <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dagify</span>(
-  y <span style="color:#f92672">~</span> x <span style="color:#f92672">+</span> a <span style="color:#f92672">+</span> b,
-  x <span style="color:#f92672">~</span> a <span style="color:#f92672">+</span> b,
-  exposure <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;x&#34;</span>,
-  outcome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;y&#34;</span>,
-  coords <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(x <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(x <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, a <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, y <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>),
-                y <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(x <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, b <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>, y <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>))
-)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">as_factor </span>(datos_proc<span style="color:#f92672">$</span>sexo) 
+</code></pre></div><h4 id="selección-de-las-variables-por-indexación">selección de las variables por <em>indexación</em></h4>
+<p>Además, se puede seleccionar variables, donde a partir de los datos_proc procesados se seleccionarán los casos que estén entre 1 y 2 de la variable <em>&lsquo;garan_min_vid&rsquo;</em>, que tiene como categoría de respuesta</p>
+<p>1 Muy de acuerdo</p>
+<p>2 De acuerdo</p>
+<p>3 Ni de acuerdo ni en desacuerdo</p>
+<p>4 En desacuerdo</p>
+<p>5 Muy en desacuerdo</p>
+<p>Para ello seleccionaremos sólo a las personas que estan de acuerdo de que el gobierno garantice un mínimo de vida.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">select</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">2</span>, garan_min_vid) <span style="color:#75715e"># seleccionan las categorias de respuesta y luego la variable de donde lo seleccionarán</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">## # A tibble: 2,613 x 3</span>
+<span style="color:#75715e">##    edad       sexo      garan_min_vid</span>
+<span style="color:#75715e">##   &lt;dbl&gt;  &lt;dbl+lbl&gt;          &lt;dbl+lbl&gt;</span>
+<span style="color:#75715e">## 1    40 1 [Hombre] 1 [Muy de acuerdo]</span>
+<span style="color:#75715e">## 2    18 1 [Hombre] 1 [Muy de acuerdo]</span>
+<span style="color:#75715e">## 3    66 2 [Mujer]  1 [Muy de acuerdo]</span>
+<span style="color:#75715e">## 4    56 2 [Mujer]  2 [De acuerdo]    </span>
+<span style="color:#75715e">## 5    63 1 [Hombre] 1 [Muy de acuerdo]</span>
+<span style="color:#75715e">## 6    62 2 [Mujer]  1 [Muy de acuerdo]</span>
+<span style="color:#75715e">## 7    54 1 [Hombre] 2 [De acuerdo]    </span>
+<span style="color:#75715e">## 8    75 2 [Mujer]  2 [De acuerdo]    </span>
+<span style="color:#75715e">## 9    36 2 [Mujer]  2 [De acuerdo]    </span>
+<span style="color:#75715e">##10    40 2 [Mujer]  2 [De acuerdo]    </span>
+<span style="color:#75715e">## # ... with 2,603 more rows</span>
+</code></pre></div><p>En este caso seleccionamos todo según los datos de la variable garan_min_vid, con <strong>everything()</strong>. Que selecciona todas las columnas o las columnas que quedan después de aplicar las funciones de selección. Es decir las personas que estan de acuerdo con que el gobienro garantice un mínimo de vida.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span>  <span style="color:#a6e22e">select</span>(garan_min_vid, <span style="color:#a6e22e">everything</span>())
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 2,613 x 5
+##        garan_min_vid  edad      sexo        clase_sub             just_pago_educ
+##            &lt;dbl+lbl&gt; &lt;dbl&gt; &lt;dbl+lbl&gt;        &lt;dbl+lbl&gt;                  &lt;dbl+lbl&gt;
+##  1 1 [Muy de acuerd~    40 1 [Hombr~ 4 [Clase media ~ 4 [En desacuerdo]         
+##  2 1 [Muy de acuerd~    18 1 [Hombr~ 3 [Clase media]  3 [Ni de acuerdo ni en de~
+##  3 1 [Muy de acuerd~    66 2 [Mujer] 3 [Clase media]  4 [En desacuerdo]         
+##  4 2 [De acuerdo]       56 2 [Mujer] 5 [Clase baja]   4 [En desacuerdo]         
+##  5 1 [Muy de acuerd~    63 1 [Hombr~ 5 [Clase baja]   4 [En desacuerdo]         
+##  6 1 [Muy de acuerd~    62 2 [Mujer] 4 [Clase media ~ 1 [Muy de acuerdo]        
+##  7 2 [De acuerdo]       54 1 [Hombr~ 4 [Clase media ~ 2 [De acuerdo]            
+##  8 2 [De acuerdo]       75 2 [Mujer] 5 [Clase baja]   4 [En desacuerdo]         
+##  9 2 [De acuerdo]       36 2 [Mujer] 4 [Clase media ~ 4 [En desacuerdo]         
+## 10 2 [De acuerdo]       40 2 [Mujer] 5 [Clase baja]   4 [En desacuerdo]         
+## # ... with 2,603 more rows
+</code></pre></div><h4 id="selección-y-renombrar">Selección y renombrar</h4>
+<p>También podemos <em>seleccionar y renombrar</em>, es decir, seleccionar según <em>garan_min_vid</em> y renombrar la variable cómo <em>acuerdo_garan_min_vid</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span>  <span style="color:#a6e22e">select</span>(garan_min_vid, acuerdo_garan_min_vid <span style="color:#f92672">=</span> garan_min_vid ,<span style="color:#a6e22e">everything</span>())
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 2,613 x 5
+##    acuerdo_garan_min_~  edad      sexo       clase_sub            just_pago_educ
+##              &lt;dbl+lbl&gt; &lt;dbl&gt; &lt;dbl+lbl&gt;       &lt;dbl+lbl&gt;                 &lt;dbl+lbl&gt;
+##  1  1 [Muy de acuerdo]    40 1 [Hombr~ 4 [Clase media~ 4 [En desacuerdo]        
+##  2  1 [Muy de acuerdo]    18 1 [Hombr~ 3 [Clase media] 3 [Ni de acuerdo ni en d~
+##  3  1 [Muy de acuerdo]    66 2 [Mujer] 3 [Clase media] 4 [En desacuerdo]        
+##  4  2 [De acuerdo]        56 2 [Mujer] 5 [Clase baja]  4 [En desacuerdo]        
+##  5  1 [Muy de acuerdo]    63 1 [Hombr~ 5 [Clase baja]  4 [En desacuerdo]        
+##  6  1 [Muy de acuerdo]    62 2 [Mujer] 4 [Clase media~ 1 [Muy de acuerdo]       
+##  7  2 [De acuerdo]        54 1 [Hombr~ 4 [Clase media~ 2 [De acuerdo]           
+##  8  2 [De acuerdo]        75 2 [Mujer] 5 [Clase baja]  4 [En desacuerdo]        
+##  9  2 [De acuerdo]        36 2 [Mujer] 4 [Clase media~ 4 [En desacuerdo]        
+## 10  2 [De acuerdo]        40 2 [Mujer] 5 [Clase baja]  4 [En desacuerdo]        
+## # ... with 2,603 more rows
+</code></pre></div><h4 id="selección-que-inicia-con-prefijos-starts_with-y-termina-con-sufijos-ends_with">Selección que inicia con prefijos (starts_with) y termina con sufijos (ends_with)</h4>
+<p>El primer ejemplo muestra la selección de casos que inicien con la variable edad y que terminen con sexo</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">select</span>(<span style="color:#a6e22e">starts_with</span>(<span style="color:#e6db74">&#34;edad&#34;</span>), <span style="color:#a6e22e">ends_with</span>(<span style="color:#e6db74">&#34;sexo&#34;</span>))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 2,613 x 2
+##     edad       sexo
+##    &lt;dbl&gt;  &lt;dbl+lbl&gt;
+##  1    40 1 [Hombre]
+##  2    18 1 [Hombre]
+##  3    66 2 [Mujer] 
+##  4    56 2 [Mujer] 
+##  5    63 1 [Hombre]
+##  6    62 2 [Mujer] 
+##  7    54 1 [Hombre]
+##  8    75 2 [Mujer] 
+##  9    36 2 [Mujer] 
+## 10    40 2 [Mujer] 
+## # ... with 2,603 more rows
+</code></pre></div><h4 id="selección-que-contiene-cadenas-contains">Selección que contiene cadenas (contains)</h4>
+<p>El segundo selecciona los casos que contienen una letra m <strong>o</strong> los que contienen una letra y</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">select</span>(<span style="color:#a6e22e">contains</span>(<span style="color:#e6db74">&#34;m&#34;</span>)<span style="color:#f92672">|</span><span style="color:#a6e22e">contains</span>(<span style="color:#e6db74">&#34;y&#34;</span>))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 2,613 x 1
+##         garan_min_vid
+##             &lt;dbl+lbl&gt;
+##  1 1 [Muy de acuerdo]
+##  2 1 [Muy de acuerdo]
+##  3 1 [Muy de acuerdo]
+##  4 2 [De acuerdo]    
+##  5 1 [Muy de acuerdo]
+##  6 1 [Muy de acuerdo]
+##  7 2 [De acuerdo]    
+##  8 2 [De acuerdo]    
+##  9 2 [De acuerdo]    
+## 10 2 [De acuerdo]    
+## # ... with 2,603 more rows
+</code></pre></div><h4 id="selección-con-expresiones-matches">Selección con expresiones (matches)</h4>
+<p>El último ejemplo, selecciona las variables que contengan el nombre sexo</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">select</span>(<span style="color:#a6e22e">matches</span>(<span style="color:#e6db74">&#34;sexo&#34;</span>))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 2,613 x 1
+##          sexo
+##     &lt;dbl+lbl&gt;
+##  1 1 [Hombre]
+##  2 1 [Hombre]
+##  3 2 [Mujer] 
+##  4 2 [Mujer] 
+##  5 1 [Hombre]
+##  6 2 [Mujer] 
+##  7 1 [Hombre]
+##  8 2 [Mujer] 
+##  9 2 [Mujer] 
+## 10 2 [Mujer] 
+## # ... with 2,603 more rows
+</code></pre></div><h4 id="selección-y-función-where">Selección y función where</h4>
+<p>La función select puede combinarse con la función where, es decir selecciona con la condición cuando, en este caso selecciona cuando el valor es numérico.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">select</span>(<span style="color:#a6e22e">where</span>(is.numeric))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 2,613 x 5
+##     edad      sexo     garan_min_vid        clase_sub             just_pago_educ
+##    &lt;dbl&gt; &lt;dbl+lbl&gt;         &lt;dbl+lbl&gt;        &lt;dbl+lbl&gt;                  &lt;dbl+lbl&gt;
+##  1    40 1 [Hombr~ 1 [Muy de acuerd~ 4 [Clase media ~ 4 [En desacuerdo]         
+##  2    18 1 [Hombr~ 1 [Muy de acuerd~ 3 [Clase media]  3 [Ni de acuerdo ni en de~
+##  3    66 2 [Mujer] 1 [Muy de acuerd~ 3 [Clase media]  4 [En desacuerdo]         
+##  4    56 2 [Mujer] 2 [De acuerdo]    5 [Clase baja]   4 [En desacuerdo]         
+##  5    63 1 [Hombr~ 1 [Muy de acuerd~ 5 [Clase baja]   4 [En desacuerdo]         
+##  6    62 2 [Mujer] 1 [Muy de acuerd~ 4 [Clase media ~ 1 [Muy de acuerdo]        
+##  7    54 1 [Hombr~ 2 [De acuerdo]    4 [Clase media ~ 2 [De acuerdo]            
+##  8    75 2 [Mujer] 2 [De acuerdo]    5 [Clase baja]   4 [En desacuerdo]         
+##  9    36 2 [Mujer] 2 [De acuerdo]    4 [Clase media ~ 4 [En desacuerdo]         
+## 10    40 2 [Mujer] 2 [De acuerdo]    5 [Clase baja]   4 [En desacuerdo]         
+## # ... with 2,603 more rows
+</code></pre></div><h3 id="52-filter">5.2 filter()</h3>
+<p>La función filter de dplyr, escoge o extrae filas basados en sus valores, subdivide un data frame, reteniendo todas las filas que satisfacen sus condiciones.</p>
+<p>Antes de esto, hay que tener en cuenta que para establecer las condiciones a utilizar en las funciones debemos usar <strong>operadores</strong>, ya que la estructutra será <strong>filter(data, variable (operador lógico) condición)</strong></p>
+<h4 id="filtar-según-caracteres">Filtar según caracteres</h4>
+<p>A la hora de filtrar según caracteres nuestro primer ejemplo nos muestra cómo filtrar los datos excluyendo el sexo Hombre</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">filter</span>(datos_proc, sexo  <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;Hombre&#34;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">## # A tibble: 1,601 x 5</span>
+<span style="color:#75715e">##    edad sexo       garan_min_vid            clase_sub        just_pago_educ</span>
+<span style="color:#75715e">##   &lt;dbl&gt; &lt;fct&gt;          &lt;dbl+lbl&gt;            &lt;dbl+lbl&gt;             &lt;dbl+lbl&gt;</span>
+<span style="color:#75715e">## 1    66 Mujer 1 [Muy de acuerdo] 3 [Clase media]      4 [En desacuerdo]    </span>
+<span style="color:#75715e">## 2    56 Mujer 2 [De acuerdo]     5 [Clase baja]       4 [En desacuerdo]    </span>
+<span style="color:#75715e">## 3    62 Mujer 1 [Muy de acuerdo] 4 [Clase media baja] 1 [Muy de acuerdo]   </span>
+<span style="color:#75715e">## 4    75 Mujer 2 [De acuerdo]     5 [Clase baja]       4 [En desacuerdo]    </span>
+<span style="color:#75715e">## 5    36 Mujer 2 [De acuerdo]     4 [Clase media baja] 4 [En desacuerdo]    </span>
+<span style="color:#75715e">## 6    40 Mujer 2 [De acuerdo]     5 [Clase baja]       4 [En desacuerdo]    </span>
+<span style="color:#75715e">## 7    29 Mujer 2 [De acuerdo]     2 [Clase media alta] 4 [En desacuerdo]    </span>
+<span style="color:#75715e">## 8    53 Mujer 2 [De acuerdo]     3 [Clase media]      4 [En desacuerdo]    </span>
+<span style="color:#75715e">## 9    31 Mujer 2 [De acuerdo]     5 [Clase baja]       5 [Muy en desacuerdo]</span>
+<span style="color:#75715e">## 10    48 Mujer 2 [De acuerdo]     3 [Clase media]      5 [Muy en desacuerdo]</span>
+<span style="color:#75715e">## # ... with 1,591 more rows</span>
+<span style="color:#f92672">&gt;</span> 
+</code></pre></div><p>Ahora si queremos filtrar y dejar sólo a los hombres, se usa el operador ==</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">filter</span>(datos_proc, sexo <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;hombre&#34;</span>) 
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">## # A tibble: 0 x 5</span>
+<span style="color:#75715e">## # ... with 5 variables: edad &lt;dbl&gt;, sexo &lt;fct&gt;, garan_min_vid &lt;dbl+lbl&gt;, clase_sub &lt;dbl+lbl&gt;, just_pago_educ &lt;dbl+lbl&gt;</span>
+</code></pre></div><p>En este caso no sirvio el comando porque no esta escrito correctamente (Sin mayúscula)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">filter</span>(datos_proc, sexo <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Hombre&#34;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">## # A tibble: 1,012 x 5</span>
+<span style="color:#75715e">##    edad sexo                        garan_min_vid            clase_sub                     just_pago_educ</span>
+<span style="color:#75715e">##   &lt;dbl&gt; &lt;fct&gt;                           &lt;dbl+lbl&gt;            &lt;dbl+lbl&gt;                          &lt;dbl+lbl&gt;</span>
+<span style="color:#75715e">## 1    40 Hombre 1 [Muy de acuerdo]                 4 [Clase media baja] 4 [En desacuerdo]                 </span>
+<span style="color:#75715e">## 2    18 Hombre 1 [Muy de acuerdo]                 3 [Clase media]      3 [Ni de acuerdo ni en desacuerdo]</span>
+<span style="color:#75715e">## 3    63 Hombre 1 [Muy de acuerdo]                 5 [Clase baja]       4 [En desacuerdo]                 </span>
+<span style="color:#75715e">## 4    54 Hombre 2 [De acuerdo]                     4 [Clase media baja] 2 [De acuerdo]                    </span>
+<span style="color:#75715e">## 5    18 Hombre 2 [De acuerdo]                     5 [Clase baja]       4 [En desacuerdo]                 </span>
+<span style="color:#75715e">## 6    20 Hombre 2 [De acuerdo]                     4 [Clase media baja] 3 [Ni de acuerdo ni en desacuerdo]</span>
+<span style="color:#75715e">## 7    23 Hombre 2 [De acuerdo]                     4 [Clase media baja] 3 [Ni de acuerdo ni en desacuerdo]</span>
+<span style="color:#75715e">## 8    26 Hombre 1 [Muy de acuerdo]                 4 [Clase media baja] 3 [Ni de acuerdo ni en desacuerdo]</span>
+<span style="color:#75715e">## 9    27 Hombre 3 [Ni de acuerdo ni en desacuerdo] 4 [Clase media baja] 3 [Ni de acuerdo ni en desacuerdo]</span>
+<span style="color:#75715e">## 10    63 Hombre 2 [De acuerdo]                     3 [Clase media]      2 [De acuerdo]                    </span>
+<span style="color:#75715e">## # ... with 1,002 more rows</span>
+</code></pre></div><p>Finalmente, si queremos filtrar según un conjunto de caracteres, usamos el operador %in% y nos quedamos con mujeres y hombres</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">filter</span>(datos_proc, sexo <span style="color:#f92672">%in%</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Mujer&#34;</span>, <span style="color:#e6db74">&#34;Hombre&#34;</span>))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 0 x 5
+## # ... with 5 variables: edad &lt;dbl&gt;, sexo &lt;dbl+lbl&gt;, garan_min_vid &lt;dbl+lbl&gt;,
+## #   clase_sub &lt;dbl+lbl&gt;, just_pago_educ &lt;dbl+lbl&gt;
+</code></pre></div><h4 id="filtar-según-números">Filtar según números</h4>
+<p>Ahora filtraremos según datos numéricos</p>
+<p>En este caso queremos dejar todos los casos que sean de clase media, clase media baja, o clase baja</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">filter</span>(datos_proc, clase_sub <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">3</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 1,284 x 5
+##     edad       sexo      garan_min_vid            clase_sub       just_pago_educ
+##    &lt;dbl&gt;  &lt;dbl+lbl&gt;          &lt;dbl+lbl&gt;            &lt;dbl+lbl&gt;            &lt;dbl+lbl&gt;
+##  1    40 1 [Hombre] 1 [Muy de acuerdo] 4 [Clase media baja] 4 [En desacuerdo]   
+##  2    56 2 [Mujer]  2 [De acuerdo]     5 [Clase baja]       4 [En desacuerdo]   
+##  3    63 1 [Hombre] 1 [Muy de acuerdo] 5 [Clase baja]       4 [En desacuerdo]   
+##  4    62 2 [Mujer]  1 [Muy de acuerdo] 4 [Clase media baja] 1 [Muy de acuerdo]  
+##  5    54 1 [Hombre] 2 [De acuerdo]     4 [Clase media baja] 2 [De acuerdo]      
+##  6    75 2 [Mujer]  2 [De acuerdo]     5 [Clase baja]       4 [En desacuerdo]   
+##  7    36 2 [Mujer]  2 [De acuerdo]     4 [Clase media baja] 4 [En desacuerdo]   
+##  8    40 2 [Mujer]  2 [De acuerdo]     5 [Clase baja]       4 [En desacuerdo]   
+##  9    31 2 [Mujer]  2 [De acuerdo]     5 [Clase baja]       5 [Muy en desacuerd~
+## 10    18 1 [Hombre] 2 [De acuerdo]     5 [Clase baja]       4 [En desacuerdo]   
+## # ... with 1,274 more rows
+</code></pre></div><p>Acá podemos ver que parten desde <em>Clase media baja</em>, pero si queremos considerar la <strong>Clase media</strong>, usamos el operador <strong>mayor o igual</strong>. Además con el operador &amp; nos añadirá también a las mujeres</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">filter</span>(datos_proc, clase_sub <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">3</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 2,174 x 5
+##     edad      sexo     garan_min_vid        clase_sub             just_pago_educ
+##    &lt;dbl&gt; &lt;dbl+lbl&gt;         &lt;dbl+lbl&gt;        &lt;dbl+lbl&gt;                  &lt;dbl+lbl&gt;
+##  1    40 1 [Hombr~ 1 [Muy de acuerd~ 4 [Clase media ~ 4 [En desacuerdo]         
+##  2    18 1 [Hombr~ 1 [Muy de acuerd~ 3 [Clase media]  3 [Ni de acuerdo ni en de~
+##  3    66 2 [Mujer] 1 [Muy de acuerd~ 3 [Clase media]  4 [En desacuerdo]         
+##  4    56 2 [Mujer] 2 [De acuerdo]    5 [Clase baja]   4 [En desacuerdo]         
+##  5    63 1 [Hombr~ 1 [Muy de acuerd~ 5 [Clase baja]   4 [En desacuerdo]         
+##  6    62 2 [Mujer] 1 [Muy de acuerd~ 4 [Clase media ~ 1 [Muy de acuerdo]        
+##  7    54 1 [Hombr~ 2 [De acuerdo]    4 [Clase media ~ 2 [De acuerdo]            
+##  8    75 2 [Mujer] 2 [De acuerdo]    5 [Clase baja]   4 [En desacuerdo]         
+##  9    36 2 [Mujer] 2 [De acuerdo]    4 [Clase media ~ 4 [En desacuerdo]         
+## 10    40 2 [Mujer] 2 [De acuerdo]    5 [Clase baja]   4 [En desacuerdo]         
+## # ... with 2,164 more rows
+</code></pre></div><h3 id="53-mutate-">5.3 mutate ()</h3>
+<p>La función de mutate añade nuevas variables que son funciones de variables existentes, es decir transforma datos existentes de un data frame a nuevas columnas.</p>
+<h4 id="creación-de-variable-a-partir-de-cálculos">creación de variable a partir de cálculos</h4>
+<p>En nuestro primer ejemplo, crearemos una variable a partir de un cálculo, la llamaremos nueva variable y será la suma de 2 y 3, su estructura será <strong>mutate(datos_proc, nueva_variable = calculo/condicion)</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">mutate</span>(datos_proc, nueva_variable <span style="color:#f92672">=</span> <span style="color:#ae81ff">3+2</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 2,613 x 6
+##     edad     sexo   garan_min_vid   clase_sub      just_pago_educ nueva_variable
+##    &lt;dbl&gt; &lt;dbl+lb&gt;       &lt;dbl+lbl&gt;   &lt;dbl+lbl&gt;           &lt;dbl+lbl&gt;          &lt;dbl&gt;
+##  1    40 1 [Homb~ 1 [Muy de acue~ 4 [Clase m~ 4 [En desacuerdo]                5
+##  2    18 1 [Homb~ 1 [Muy de acue~ 3 [Clase m~ 3 [Ni de acuerdo n~              5
+##  3    66 2 [Muje~ 1 [Muy de acue~ 3 [Clase m~ 4 [En desacuerdo]                5
+##  4    56 2 [Muje~ 2 [De acuerdo]  5 [Clase b~ 4 [En desacuerdo]                5
+##  5    63 1 [Homb~ 1 [Muy de acue~ 5 [Clase b~ 4 [En desacuerdo]                5
+##  6    62 2 [Muje~ 1 [Muy de acue~ 4 [Clase m~ 1 [Muy de acuerdo]               5
+##  7    54 1 [Homb~ 2 [De acuerdo]  4 [Clase m~ 2 [De acuerdo]                   5
+##  8    75 2 [Muje~ 2 [De acuerdo]  5 [Clase b~ 4 [En desacuerdo]                5
+##  9    36 2 [Muje~ 2 [De acuerdo]  4 [Clase m~ 4 [En desacuerdo]                5
+## 10    40 2 [Muje~ 2 [De acuerdo]  5 [Clase b~ 4 [En desacuerdo]                5
+## # ... with 2,603 more rows
+</code></pre></div><h4 id="mutate-y-filter">Mutate y filter</h4>
+<p>Pero ¿Qué pasa si quiero crear una variable y filtrar?, para eso usaremos el operador pipe. Entonces a partir de los datos, unimos las operaciones de filter, que nos extraerá los valores que sean mayores o iguales a 3 (clase media) y que además estén en conjunto de mujeres. Además unimos la operación de mutare que creará una nueva variable que será igual al valor 5</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">filter</span>(clase_sub <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">&amp;</span> sexo <span style="color:#f92672">%in%</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Mujer&#34;</span>)) <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">mutate</span>(nueva_variable <span style="color:#f92672">=</span> <span style="color:#ae81ff">3+2</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 0 x 6
+## # ... with 6 variables: edad &lt;dbl&gt;, sexo &lt;dbl+lbl&gt;, garan_min_vid &lt;dbl+lbl&gt;,
+## #   clase_sub &lt;dbl+lbl&gt;, just_pago_educ &lt;dbl+lbl&gt;, nueva_variable &lt;dbl&gt;
+</code></pre></div><h3 id="531-recode">5.3.1 recode()</h3>
+<p>La función denominada <em>recode</em> puede reemplazar valores numéricos en base a su posición o su nombre, y valores de caracteres o factores sólo por su nombre.</p>
+<h4 id="factors">Factors</h4>
+<p>Para reemplazar caracteres o factores en este caso de la variable sexo, transformaremos las categorias de respuestas de Mujer a Femenino y de Hombre a Masculino</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">mutate</span>(sexo <span style="color:#f92672">=</span> <span style="color:#a6e22e">recode</span>(sexo, <span style="color:#e6db74">&#34;Mujer&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Femenino&#34;</span>, <span style="color:#e6db74">&#34;Hombre&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Masculino&#34;</span>))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">## # A tibble: 2,613 x 5</span>
+<span style="color:#75715e">##    edad sexo           garan_min_vid            clase_sub                     just_pago_educ</span>
+<span style="color:#75715e">##   &lt;dbl&gt; &lt;fct&gt;              &lt;dbl+lbl&gt;            &lt;dbl+lbl&gt;                          &lt;dbl+lbl&gt;</span>
+<span style="color:#75715e">## 1    40 Masculino 1 [Muy de acuerdo] 4 [Clase media baja] 4 [En desacuerdo]                 </span>
+<span style="color:#75715e">## 2    18 Masculino 1 [Muy de acuerdo] 3 [Clase media]      3 [Ni de acuerdo ni en desacuerdo]</span>
+<span style="color:#75715e">## 3    66 Femenino  1 [Muy de acuerdo] 3 [Clase media]      4 [En desacuerdo]                 </span>
+<span style="color:#75715e">## 4    56 Femenino  2 [De acuerdo]     5 [Clase baja]       4 [En desacuerdo]                 </span>
+<span style="color:#75715e">## 5    63 Masculino 1 [Muy de acuerdo] 5 [Clase baja]       4 [En desacuerdo]                 </span>
+<span style="color:#75715e">## 6    62 Femenino  1 [Muy de acuerdo] 4 [Clase media baja] 1 [Muy de acuerdo]                </span>
+<span style="color:#75715e">## 7    54 Masculino 2 [De acuerdo]     4 [Clase media baja] 2 [De acuerdo]                    </span>
+<span style="color:#75715e">## 8    75 Femenino  2 [De acuerdo]     5 [Clase baja]       4 [En desacuerdo]                 </span>
+<span style="color:#75715e">## 9    36 Femenino  2 [De acuerdo]     4 [Clase media baja] 4 [En desacuerdo]                 </span>
+<span style="color:#75715e">## 10    40 Femenino  2 [De acuerdo]     5 [Clase baja]       4 [En desacuerdo]                 </span>
+<span style="color:#75715e">## # ... with 2,603 more rows</span>
+</code></pre></div><h4 id="numeric">Numeric</h4>
+<p>Luego transformaremos las categorias de respuesta de 1 a 5 en el grado de acuerdo o desacuerdo. Previo a esto es necesario recodificar la variable como caracter, en este caso se establece que los numeros que tiene la variable son categorias, es decir 1 es la categoría 1 y no un número. <a href="">Ver la diferencia entre character y factor en el práctico anterior</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc<span style="color:#f92672">$</span>just_pago_educ <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.character</span>(datos_proc<span style="color:#f92672">$</span>just_pago_educ) 
 
-<span style="color:#a6e22e">ggdag_status</span>(simple_dag_with_coords) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/04-practico_files/figure-html/dag-with-coords-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<h3 id="node-names-and-labels">Node names and labels</h3>
-<p>The variable names you use do not have to be limited to just <code>x</code>, <code>y</code>, and other lowercase letters. You can any names you want, as long as there are no spaces.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">dag_with_var_names <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dagify</span>(
-  outcome <span style="color:#f92672">~</span> treatment <span style="color:#f92672">+</span> confounder1 <span style="color:#f92672">+</span> confounder2,
-  treatment <span style="color:#f92672">~</span> confounder1 <span style="color:#f92672">+</span> confounder2,
-  exposure <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;treatment&#34;</span>,
-  outcome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;outcome&#34;</span>
-)
-
-<span style="color:#a6e22e">ggdag_status</span>(dag_with_var_names) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/04-practico_files/figure-html/dag-with-names-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>However, unless you use very short names, it is likely that the text will not fit inside the nodes. To get around this, you can add labels to the nodes using the <code>labels</code> argument in <code>dagify()</code>. Plot the labels by setting <code>use_labels = &quot;label&quot;</code> in <code>ggdag()</code>. You can turn off the text in the nodes with <code>text = FALSE</code> in <code>ggdag()</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">simple_dag_with_coords_and_labels <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dagify</span>(
-  y <span style="color:#f92672">~</span> x <span style="color:#f92672">+</span> a <span style="color:#f92672">+</span> b,
-  x <span style="color:#f92672">~</span> a <span style="color:#f92672">+</span> b,
-  exposure <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;x&#34;</span>,
-  outcome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;y&#34;</span>,
-  labels <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Outcome&#34;</span>, x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Treatment&#34;</span>,
-             a <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Confounder 1&#34;</span>, b <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Confounder 2&#34;</span>),
-  coords <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(x <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(x <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, a <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, y <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>),
-                y <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(x <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, b <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>, y <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>))
-)
-
-<span style="color:#a6e22e">ggdag_status</span>(simple_dag_with_coords_and_labels,
-             use_labels <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;label&#34;</span>, text <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">guides</span>(fill <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>, color <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>) <span style="color:#f92672">+</span>  <span style="color:#75715e"># Disable the legend</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/04-practico_files/figure-html/dag-with-labels-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<h3 id="paths-and-adjustment-sets">Paths and adjustment sets</h3>
-<p>R can also perform analysis on DAG objects. For example, we can find all the testable implications from the DAG using the <code>impliedConditionalIndependencies()</code> function from the <strong>dagitty</strong> package. For this simple DAG, there is only one: <code>a</code> should be independent of <code>b</code>. If we had a dataset with columns for each of these variables, we could check if this is true by running <code>cor(a, b)</code> to see if the two are related.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">impliedConditionalIndependencies</span>(simple_dag)
-<span style="color:#75715e">## a _||_ b</span>
-</code></pre></div><p>We can also find all the paths between <code>x</code> and <code>y</code> using the <code>paths()</code> function from the <strong>dagitty</strong> package. We can see that there are three open paths between <code>x</code> and <code>y</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">paths</span>(simple_dag)
-<span style="color:#75715e">## $paths</span>
-<span style="color:#75715e">## [1] &#34;x -&gt; y&#34;      &#34;x &lt;- a -&gt; y&#34; &#34;x &lt;- b -&gt; y&#34;</span>
-<span style="color:#75715e">## </span>
-<span style="color:#75715e">## $open</span>
-<span style="color:#75715e">## [1] TRUE TRUE TRUE</span>
-</code></pre></div><p>The first open path is fine—we want a single <em>d</em>-connected relationship between treatment and outcome—but the other two indicate that there is confounding from <code>a</code> and <code>b</code>. We can see what each of these paths are with the <code>ggdag_paths()</code> function from the <strong>ggdag</strong> package:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggdag_paths</span>(simple_dag_with_coords) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/04-practico_files/figure-html/plot-dag-paths-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>Instead of listing out all the possible paths and identifying backdoors by hand, you can use the <code>adjustmentSets()</code> function in the <strong>dagitty</strong> package to programmatically find all the nodes that need to be adjusted. Here we see that both <code>a</code> and <code>b</code> need to be controlled for to isolate the <code>x -&gt; y</code> relationship.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">adjustmentSets</span>(simple_dag)
-<span style="color:#75715e">## { a, b }</span>
-</code></pre></div><p>You can also visualize the adjustment sets with <code>ggdag_adjustment_set()</code> in the <strong>ggdag</strong> package. Make sure you set <code>shadow = TRUE</code> to draw the arrows coming out of the adjusted nodes—by default, those are not included.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggdag_adjustment_set</span>(simple_dag_with_coords, shadow <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/04-practico_files/figure-html/plot-adjustment-sets-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>R will find minimally sufficient adjustment sets, which includes the fewest number of adjustments needed to close all backdoors between <code>x</code> and <code>y</code>. In this example DAG there was only one set of variables (<code>a</code> and <code>b</code>), but in other situations there could be many possible sets, or none if the causal effect is not identifiable.</p>
-<h3 id="plot-dag-from-dagittynet-with-ggdag">Plot DAG from dagitty.net with <code>ggdag()</code></h3>
-<p>If you use <a href="http://dagitty.net/" target="_blank" rel="noopener">dagitty.net</a> to draw a DAG, you&rsquo;ll notice that it generates some code for you in the model code section:</p>
-<p><img src="/img/example/dagitty-code.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>You can copy that <code>dag{ ... }</code> code and paste it into R to define a DAG object rather than use the <code>dagify()</code> function. To do this, use the <code>dagitty()</code> function from the <strong>dagitty</strong> library and include the whole generated model code in single quotes (<code>''</code>):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">model_from_dagitty <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dagitty</span>(<span style="color:#e6db74">&#39;dag {
-</span><span style="color:#e6db74">bb=&#34;0,0,1,1&#34;
-</span><span style="color:#e6db74">&#34;A confounder&#34; [pos=&#34;0.809,0.306&#34;]
-</span><span style="color:#e6db74">&#34;Another confounder&#34; [pos=&#34;0.810,0.529&#34;]
-</span><span style="color:#e6db74">&#34;Some outcome&#34; [outcome,pos=&#34;0.918,0.432&#34;]
-</span><span style="color:#e6db74">&#34;Some treatment&#34; [exposure,pos=&#34;0.681,0.426&#34;]
-</span><span style="color:#e6db74">&#34;A confounder&#34; -&gt; &#34;Some outcome&#34;
-</span><span style="color:#e6db74">&#34;A confounder&#34; -&gt; &#34;Some treatment&#34;
-</span><span style="color:#e6db74">&#34;Another confounder&#34; -&gt; &#34;Some outcome&#34;
-</span><span style="color:#e6db74">&#34;Another confounder&#34; -&gt; &#34;Some treatment&#34;
-</span><span style="color:#e6db74">&#34;Some treatment&#34; -&gt; &#34;Some outcome&#34;
-</span><span style="color:#e6db74">}
-</span><span style="color:#e6db74">&#39;</span>)
-
-<span style="color:#a6e22e">ggdag</span>(model_from_dagitty) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/04-practico_files/figure-html/code-from-dagitty-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>By default it&rsquo;s going to look ugly because (1) the node labels don&rsquo;t fit, and (2) slight differences in the coordinates make it so the nodes don&rsquo;t perfectly align with each other. To fix coordinate alignment, you can modify the numbers in the generated DAG code. Here I rounded the numbers so that they&rsquo;re all 0.3, 0.8, etc.</p>
-<p>To fix the label issue, you can add the <code>use_labels</code> argument like normally. Only here, you can&rsquo;t specify <code>use_labels = &quot;label&quot;</code>. Instead, when you specify a DAG using dagitty&rsquo;s code like this, the column in the underlying dataset that contains the labels is named <code>name</code>, so you need to use <code>use_labels = &quot;name&quot;</code>.</p>
-<p>Other <code>ggdag()</code> variations like <code>ggdag_status()</code> will still work fine.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">model_from_dagitty_rounded <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dagitty</span>(<span style="color:#e6db74">&#39;dag {
-</span><span style="color:#e6db74">bb=&#34;0,0,1,1&#34;
-</span><span style="color:#e6db74">&#34;A confounder&#34; [pos=&#34;0.8,0.3&#34;]
-</span><span style="color:#e6db74">&#34;Another confounder&#34; [pos=&#34;0.8,0.5&#34;]
-</span><span style="color:#e6db74">&#34;Some outcome&#34; [outcome,pos=&#34;0.9,0.4&#34;]
-</span><span style="color:#e6db74">&#34;Some treatment&#34; [exposure,pos=&#34;0.7,0.4&#34;]
-</span><span style="color:#e6db74">&#34;A confounder&#34; -&gt; &#34;Some outcome&#34;
-</span><span style="color:#e6db74">&#34;A confounder&#34; -&gt; &#34;Some treatment&#34;
-</span><span style="color:#e6db74">&#34;Another confounder&#34; -&gt; &#34;Some outcome&#34;
-</span><span style="color:#e6db74">&#34;Another confounder&#34; -&gt; &#34;Some treatment&#34;
-</span><span style="color:#e6db74">&#34;Some treatment&#34; -&gt; &#34;Some outcome&#34;
-</span><span style="color:#e6db74">}
-</span><span style="color:#e6db74">&#39;</span>)
-
-<span style="color:#a6e22e">ggdag_status</span>(model_from_dagitty_rounded, text <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>, use_labels <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span>) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">guides</span>(color <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>) <span style="color:#f92672">+</span>  <span style="color:#75715e"># Turn off legend</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/04-practico_files/figure-html/code-from-dagitty-better-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<h2 id="mosquito-net-example">Mosquito net example</h2>
-<h3 id="conditional-independencies">Conditional independencies</h3>
-<p>You can test if your stated relationships are correct by looking at the conditional independencies that are implied by the DAG. In dagitty.net, these appear in the sidebar in the &ldquo;Testable implications&rdquo; section. To show how this works, we&rsquo;ll use a simulated dataset that I generated about a fictional mosquito net program. Download the data here if you want to follow along:</p>
-<ul>
-<li><a href="/data/mosquito_nets.csv"><i class="fas fa-table"></i> <code>mosquito_nets.csv</code></a></li>
-</ul>
-<p>Researchers are interested in whether using mosquito nets decreases an individual&rsquo;s risk of contracting malaria. They have collected data from 1,752 households in an unnamed country and have variables related to environmental factors, individual health, and household characteristics. Additionally, this country has a special government program that provides free mosquito nets to households that meet specific requirements: to qualify for the program, there must be more than 4 members of the household, and the household&rsquo;s monthly income must be lower than $700 a month. Households are not automatically enrolled in the program, and many do not use it. The data is not experimental—researchers have no control over who uses mosquito nets, and individual households make their own choices over whether to apply for free nets or buy their own nets, as well as whether they use the nets if they have them.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">mosquito_dag <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dagify</span>(
-  malaria_risk <span style="color:#f92672">~</span> net <span style="color:#f92672">+</span> income <span style="color:#f92672">+</span> health <span style="color:#f92672">+</span> temperature <span style="color:#f92672">+</span> resistance,
-  net <span style="color:#f92672">~</span> income <span style="color:#f92672">+</span> health <span style="color:#f92672">+</span> temperature <span style="color:#f92672">+</span> eligible <span style="color:#f92672">+</span> household,
-  eligible <span style="color:#f92672">~</span> income <span style="color:#f92672">+</span> household,
-  health <span style="color:#f92672">~</span> income,
-  exposure <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;net&#34;</span>,
-  outcome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;malaria_risk&#34;</span>,
-  coords <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(x <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(malaria_risk <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>, net <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>, income <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>, health <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>,
-                      temperature <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>, resistance <span style="color:#f92672">=</span> <span style="color:#ae81ff">8.5</span>, eligible <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, household <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>),
-                y <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(malaria_risk <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, net <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, income <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>, health <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>,
-                      temperature <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>, resistance <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, eligible <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>, household <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)),
-  labels <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(malaria_risk <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Risk of malaria&#34;</span>, net <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Mosquito net&#34;</span>, income <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Income&#34;</span>,
-             health <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Health&#34;</span>, temperature <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Nighttime temperatures&#34;</span>,
-             resistance <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Insecticide resistance&#34;</span>,
-             eligible <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Eligible for program&#34;</span>, household <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Number in household&#34;</span>)
-)
-
-<span style="color:#a6e22e">ggdag_status</span>(mosquito_dag, use_labels <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;label&#34;</span>, text <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">guides</span>(fill <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>, color <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>) <span style="color:#f92672">+</span>  <span style="color:#75715e"># Disable the legend</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/04-practico_files/figure-html/build-mosquito-dag-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>The causal graph above  outlines the complete relationship between mosquito net use and risk of malaria. Each node in the DAG is a column in the dataset collected by the researchers, and includes the following:</p>
-<ul>
-<li>Malaria risk (<code>malaria_risk</code>): The likelihood that someone in the household will be infected with malaria. Measured on a scale of 0–100, with higher values indicating higher risk.</li>
-<li>Mosquito net (<code>net</code> and <code>net_num</code>): A binary variable indicating if the household used mosquito nets.</li>
-<li>Eligible for program (<code>eligible</code>): A binary variable indicating if the household is eligible for the free net program.</li>
-<li>Income (<code>income</code>): The household&rsquo;s monthly income, in US dollars.</li>
-<li>Nighttime temperatures (<code>temperature</code>): The average temperature at night, in Celsius.</li>
-<li>Health (<code>health</code>): Self-reported healthiness in the household. Measured on a scale of 0–100, with higher values indicating better health.</li>
-<li>Number in household (<code>household</code>): Number of people living in the household.</li>
-<li>Insecticide resistance (<code>resistance</code>): Some strains of mosquitoes are more resistant to insecticide and thus pose a higher risk of infecting people with malaria. This is measured on a scale of 0–100, with higher values indicating higher resistance.</li>
-</ul>
-<p>According to the DAG, malaria risk is caused by income, temperatures, health, insecticide resistance, and mosquito net use. People who live in hotter regions, have lower incomes, have worse health, are surrounded by mosquitoes with high resistance to insecticide, and who do not use mosquito nets are at higher risk of contracting malaria than those who do not. Mosquito net use is caused by income, nighttime temperatures, health, the number of people living in the house, and eligibility for the free net program. People who live in areas that are cooler at night, have higher incomes, have better health, have more people in the home, and are eligible for free government nets are more likely to regularly use nets than those who do not. The DAG also shows that eligibility for the free net program is caused by income and household size, since households must meet specific thresholds to qualify.</p>
-<p>First, let&rsquo;s download the dataset, put in a folder named <code>data</code>, and load it:</p>
-<ul>
-<li><a href="/data/mosquito_nets.csv"><i class="fas fa-table"></i> <code>mosquito_nets.csv</code></a></li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># Load the data.</span>
-<span style="color:#75715e"># It&#39;d be a good idea to click on the &#34;mosquito_nets.csv&#34; object in the</span>
-<span style="color:#75715e"># Environment panel in RStudio to see what the data looks like after you load it</span>
-mosquito_nets <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;data/mosquito_nets.csv&#34;</span>)
-</code></pre></div><p>We can use this data to check if the relationships defined by our DAG reflect reality. Recall that <em>d</em>-separation implies that nodes are statistically independent of each other and do not transfer associational information. If you draw the mosquito net DAG with dagitty.net, or if you run <code>impliedConditionalIndependencies()</code> in R, you can see a list of all the implied conditional independencies.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">impliedConditionalIndependencies</span>(mosquito_dag)
-<span style="color:#75715e">## elgb _||_ hlth | incm</span>
-<span style="color:#75715e">## elgb _||_ mlr_ | hlth, incm, net, tmpr</span>
-<span style="color:#75715e">## elgb _||_ rsst</span>
-<span style="color:#75715e">## elgb _||_ tmpr</span>
-<span style="color:#75715e">## hlth _||_ hshl</span>
-<span style="color:#75715e">## hlth _||_ rsst</span>
-<span style="color:#75715e">## hlth _||_ tmpr</span>
-<span style="color:#75715e">## hshl _||_ incm</span>
-<span style="color:#75715e">## hshl _||_ mlr_ | hlth, incm, net, tmpr</span>
-<span style="color:#75715e">## hshl _||_ rsst</span>
-<span style="color:#75715e">## hshl _||_ tmpr</span>
-<span style="color:#75715e">## incm _||_ rsst</span>
-<span style="color:#75715e">## incm _||_ tmpr</span>
-<span style="color:#75715e">## net _||_ rsst</span>
-<span style="color:#75715e">## rsst _||_ tmpr</span>
-</code></pre></div><p>The <code>_||_</code> symbol in the output here is the <code>\(\perp\)</code> symbol, which means &ldquo;independent of&rdquo;. The <code>|</code> in the output means &ldquo;given&rdquo;.</p>
-<p>In the interest of space, we will not verify all these implied independencies, but we can test a few of them:</p>
-<ul>
-<li>
-<p><code>\(\text{Health} \perp \text{Household members}\)</code>: (Read as <em>&ldquo;Health is independent of household member count&rdquo;</em>.) Health should be independent of the number of people in each household. In the data, the two variables should not be correlated. This is indeed the case:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">cor</span>(mosquito_nets<span style="color:#f92672">$</span>health, mosquito_nets<span style="color:#f92672">$</span>household)
-<span style="color:#75715e">## [1] 9.8e-05</span>
-</code></pre></div></li>
-<li>
-<p><code>\(\text{Income} \perp \text{Insecticide resistance}\)</code>: (Read as <em>&ldquo;Income is independent of insecticide resistance&rdquo;</em>.) Income should be independent of insecticide resistance. This is again true:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">cor</span>(mosquito_nets<span style="color:#f92672">$</span>income, mosquito_nets<span style="color:#f92672">$</span>resistance)
-<span style="color:#75715e">## [1] 0.014</span>
-</code></pre></div></li>
-<li>
-<p><code>\(\text{Malaria risk} \perp \text{Household members}\ |\ \text{Health, Income, Bed net use, Temperature}\)</code>: (Read as <em>&ldquo;Malaria risk is independent of house member count given health, income, bed net use, and temperature&rdquo;</em>.) Malaria risk should be independent of the number of household members given similar levels of health, income, mosquito net use, and nighttime temperatures. We cannot use <code>cor()</code> to test this implication, since there are many variables involved, but we can use a regression model to check if the number of household members is significantly related to malaria risk. It is not significant ($t = -0.17$, <code>\(p = 0.863\)</code>), which means the two are independent, as expected.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">lm</span>(malaria_risk <span style="color:#f92672">~</span> household <span style="color:#f92672">+</span> health <span style="color:#f92672">+</span> income <span style="color:#f92672">+</span> net <span style="color:#f92672">+</span> temperature,
-   data <span style="color:#f92672">=</span> mosquito_nets) <span style="color:#f92672">%&gt;%</span>
-  broom<span style="color:#f92672">::</span><span style="color:#a6e22e">tidy</span>()
-<span style="color:#75715e">## # A tibble: 6 x 5</span>
-<span style="color:#75715e">##   term        estimate std.error statistic   p.value</span>
-<span style="color:#75715e">##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;</span>
-<span style="color:#75715e">## 1 (Intercept)  76.2      0.966      78.9   0.       </span>
-<span style="color:#75715e">## 2 household    -0.0155   0.0893     -0.173 8.63e-  1</span>
-<span style="color:#75715e">## 3 health        0.148    0.0107     13.9   9.75e- 42</span>
-<span style="color:#75715e">## 4 income       -0.0751   0.00104   -72.6   0.       </span>
-<span style="color:#75715e">## 5 netTRUE     -10.4      0.266     -39.2   2.63e-241</span>
-<span style="color:#75715e">## 6 temperature   1.01     0.0310     32.5   1.88e-181</span>
-</code></pre></div></li>
-</ul>
-<p>We can check all the other conditional independencies to see if the DAG captures the reality of the full system of factors that influence mosquito net use and malaria risk. If there are substantial and significant correlations between nodes that should be independent, there is likely an issue with the specification of the DAG. Return to the theory of how the phenomena are generated and refine the DAG more.</p>
-<h3 id="mosquito-net-adjustment-sets">Mosquito net adjustment sets</h3>
-<p>There is a direct path between mosquito net use and the risk of malaria, but the effect is not causally identified due to several other open paths. We can either list out all the paths and find which open paths have arrows pointing backwards into the mosquito net node (run <code>paths(mosquito_dag)</code> to see these results), or we can let R find the appropriate adjustment sets automatically:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">adjustmentSets</span>(mosquito_dag)
-<span style="color:#75715e">## { health, income, temperature }</span>
-</code></pre></div><p>Based on the relationships between all the nodes in the DAG, adjusting for health, income, and temperature is enough to close all backdoors and identify the relationship between net use and malaria risk. Importantly, we do not need to worry about any of the nodes related to the government program for free nets, since those nodes are not <em>d</em>-connected to malaria risk. We only need to worry about confounding relationships.</p>
-<p>We can confirm this graphically with <code>ggdag_adjustment_set()</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggdag_adjustment_set</span>(mosquito_dag, shadow <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>,
-                     use_labels <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;label&#34;</span>, text <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/04-practico_files/figure-html/plot-mosquito-adjustment-fake-1.png" width="75%" style="display: block; margin: auto;" /></p>
+datos_proc <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">mutate</span>(just_pago_educ <span style="color:#f92672">=</span> <span style="color:#a6e22e">recode </span>(just_pago_educ, <span style="color:#e6db74">&#34;1&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Muy de acuerdo&#34;</span>, <span style="color:#e6db74">&#34;2&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;De acuerdo&#34;</span>, <span style="color:#e6db74">&#34;3&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Ni de acuerdo ni en desacuerdo&#34;</span>, <span style="color:#e6db74">&#34;4&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;En desacuerdo&#34;</span>, <span style="color:#e6db74">&#34;5&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Muy en desacuerdo&#34;</span>))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">## # A tibble: 2,613 x 5</span>
+<span style="color:#75715e">##    edad sexo        garan_min_vid            clase_sub just_pago_educ                </span>
+<span style="color:#75715e">##   &lt;dbl&gt; &lt;fct&gt;           &lt;dbl+lbl&gt;            &lt;dbl+lbl&gt; &lt;chr&gt;                         </span>
+<span style="color:#75715e">## 1    40 Hombre 1 [Muy de acuerdo] 4 [Clase media baja] En desacuerdo                 </span>
+<span style="color:#75715e">## 2    18 Hombre 1 [Muy de acuerdo] 3 [Clase media]      Ni de acuerdo ni en desacuerdo</span>
+<span style="color:#75715e">## 3    66 Mujer  1 [Muy de acuerdo] 3 [Clase media]      En desacuerdo                 </span>
+<span style="color:#75715e">## 4    56 Mujer  2 [De acuerdo]     5 [Clase baja]       En desacuerdo                 </span>
+<span style="color:#75715e">## 5    63 Hombre 1 [Muy de acuerdo] 5 [Clase baja]       En desacuerdo                 </span>
+<span style="color:#75715e">## 6    62 Mujer  1 [Muy de acuerdo] 4 [Clase media baja] Muy de acuerdo                </span>
+<span style="color:#75715e">## 7    54 Hombre 2 [De acuerdo]     4 [Clase media baja] De acuerdo                    </span>
+<span style="color:#75715e">## 8    75 Mujer  2 [De acuerdo]     5 [Clase baja]       En desacuerdo                 </span>
+<span style="color:#75715e">## 9    36 Mujer  2 [De acuerdo]     4 [Clase media baja] En desacuerdo                 </span>
+<span style="color:#75715e">## 10    40 Mujer  2 [De acuerdo]     5 [Clase baja]       En desacuerdo                 </span>
+<span style="color:#75715e">## # ... with 2,603 more rows</span>
+</code></pre></div><p>Si bien en este caso más simple usar el comando de Forcast as_factor, en ocasiones la/el investigador puede requerir tener distintos nombres de categorias, por lo que resultaría más útil este procedimiento.</p>
+<h3 id="532-if_else">5.3.2 if_else()</h3>
+<p>La función if_else comprueba condiciones lógicas en su primer argumento, en este caso queremos crear una nueva variable denominada d_sexo que cumpla la condición que la categoría Mujer sea visualizado como 1 y los demás como 0, su estructura será <strong>if_else(condition, Verdadero, Falso)</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> 
+ 		 <span style="color:#a6e22e">mutate</span>(d_sexo <span style="color:#f92672">=</span> <span style="color:#a6e22e">if_else</span>(sexo <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Mujer&#34;</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">## # A tibble: 2,613 x 6</span>
+<span style="color:#75715e">##    edad sexo        garan_min_vid            clase_sub just_pago_educ d_sexo</span>
+<span style="color:#75715e">##   &lt;dbl&gt; &lt;fct&gt;           &lt;dbl+lbl&gt;            &lt;dbl+lbl&gt; &lt;chr&gt;           &lt;dbl&gt;</span>
+<span style="color:#75715e">## 1    40 Hombre 1 [Muy de acuerdo] 4 [Clase media baja] 4                   0</span>
+<span style="color:#75715e">## 2    18 Hombre 1 [Muy de acuerdo] 3 [Clase media]      3                   0</span>
+<span style="color:#75715e">## 3    66 Mujer  1 [Muy de acuerdo] 3 [Clase media]      4                   1</span>
+<span style="color:#75715e">## 4    56 Mujer  2 [De acuerdo]     5 [Clase baja]       4                   1</span>
+<span style="color:#75715e">## 5    63 Hombre 1 [Muy de acuerdo] 5 [Clase baja]       4                   0</span>
+<span style="color:#75715e">## 6    62 Mujer  1 [Muy de acuerdo] 4 [Clase media baja] 1                   1</span>
+<span style="color:#75715e">## 7    54 Hombre 2 [De acuerdo]     4 [Clase media baja] 2                   0</span>
+<span style="color:#75715e">## 8    75 Mujer  2 [De acuerdo]     5 [Clase baja]       4                   1</span>
+<span style="color:#75715e">## 9    36 Mujer  2 [De acuerdo]     4 [Clase media baja] 4                   1</span>
+<span style="color:#75715e">## 10    40 Mujer  2 [De acuerdo]     5 [Clase baja]       4                   1</span>
+<span style="color:#75715e">## # ... with 2,603 more rows</span>
+</code></pre></div><p>En nuestro segundo ejemplo, creamos una variable llamada validador, que si just_pago_educ tiene un caso NA la variable tendrá categoría de respuesta False y sino será True</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">mutate</span>(validador <span style="color:#f92672">=</span> <span style="color:#a6e22e">if_else</span>(<span style="color:#a6e22e">is.na</span>(just_pago_educ), <span style="color:#66d9ef">FALSE</span>, <span style="color:#66d9ef">TRUE</span>))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 2,613 x 6
+##     edad      sexo   garan_min_vid     clase_sub        just_pago_educ validador
+##    &lt;dbl&gt; &lt;dbl+lbl&gt;       &lt;dbl+lbl&gt;     &lt;dbl+lbl&gt;             &lt;dbl+lbl&gt; &lt;lgl&gt;    
+##  1    40 1 [Hombr~ 1 [Muy de acue~ 4 [Clase med~ 4 [En desacuerdo]     TRUE     
+##  2    18 1 [Hombr~ 1 [Muy de acue~ 3 [Clase med~ 3 [Ni de acuerdo ni ~ TRUE     
+##  3    66 2 [Mujer] 1 [Muy de acue~ 3 [Clase med~ 4 [En desacuerdo]     TRUE     
+##  4    56 2 [Mujer] 2 [De acuerdo]  5 [Clase baj~ 4 [En desacuerdo]     TRUE     
+##  5    63 1 [Hombr~ 1 [Muy de acue~ 5 [Clase baj~ 4 [En desacuerdo]     TRUE     
+##  6    62 2 [Mujer] 1 [Muy de acue~ 4 [Clase med~ 1 [Muy de acuerdo]    TRUE     
+##  7    54 1 [Hombr~ 2 [De acuerdo]  4 [Clase med~ 2 [De acuerdo]        TRUE     
+##  8    75 2 [Mujer] 2 [De acuerdo]  5 [Clase baj~ 4 [En desacuerdo]     TRUE     
+##  9    36 2 [Mujer] 2 [De acuerdo]  4 [Clase med~ 4 [En desacuerdo]     TRUE     
+## 10    40 2 [Mujer] 2 [De acuerdo]  5 [Clase baj~ 4 [En desacuerdo]     TRUE     
+## # ... with 2,603 more rows
+</code></pre></div><h2 id="533-mutate-group_by-n">5.3.3 mutate group_by n()</h2>
+<p>La función group_by toma datos existentes y lo convierte en datos agrupados, en nuestro primer ejemplo, los agrupa por la variable sexo y luego crearemos la variable n_sexo</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">group_by</span>(sexo)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 2,613 x 5
+## # Groups:   sexo [2]
+##     edad      sexo     garan_min_vid        clase_sub             just_pago_educ
+##    &lt;dbl&gt; &lt;dbl+lbl&gt;         &lt;dbl+lbl&gt;        &lt;dbl+lbl&gt;                  &lt;dbl+lbl&gt;
+##  1    40 1 [Hombr~ 1 [Muy de acuerd~ 4 [Clase media ~ 4 [En desacuerdo]         
+##  2    18 1 [Hombr~ 1 [Muy de acuerd~ 3 [Clase media]  3 [Ni de acuerdo ni en de~
+##  3    66 2 [Mujer] 1 [Muy de acuerd~ 3 [Clase media]  4 [En desacuerdo]         
+##  4    56 2 [Mujer] 2 [De acuerdo]    5 [Clase baja]   4 [En desacuerdo]         
+##  5    63 1 [Hombr~ 1 [Muy de acuerd~ 5 [Clase baja]   4 [En desacuerdo]         
+##  6    62 2 [Mujer] 1 [Muy de acuerd~ 4 [Clase media ~ 1 [Muy de acuerdo]        
+##  7    54 1 [Hombr~ 2 [De acuerdo]    4 [Clase media ~ 2 [De acuerdo]            
+##  8    75 2 [Mujer] 2 [De acuerdo]    5 [Clase baja]   4 [En desacuerdo]         
+##  9    36 2 [Mujer] 2 [De acuerdo]    4 [Clase media ~ 4 [En desacuerdo]         
+## 10    40 2 [Mujer] 2 [De acuerdo]    5 [Clase baja]   4 [En desacuerdo]         
+## # ... with 2,603 more rows
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">mutate</span>(n_sexo <span style="color:#f92672">=</span> <span style="color:#a6e22e">n</span>())
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 2,613 x 6
+##     edad      sexo   garan_min_vid      clase_sub          just_pago_educ n_sexo
+##    &lt;dbl&gt; &lt;dbl+lbl&gt;       &lt;dbl+lbl&gt;      &lt;dbl+lbl&gt;               &lt;dbl+lbl&gt;  &lt;int&gt;
+##  1    40 1 [Hombr~ 1 [Muy de acue~ 4 [Clase medi~ 4 [En desacuerdo]         2613
+##  2    18 1 [Hombr~ 1 [Muy de acue~ 3 [Clase medi~ 3 [Ni de acuerdo ni en~   2613
+##  3    66 2 [Mujer] 1 [Muy de acue~ 3 [Clase medi~ 4 [En desacuerdo]         2613
+##  4    56 2 [Mujer] 2 [De acuerdo]  5 [Clase baja] 4 [En desacuerdo]         2613
+##  5    63 1 [Hombr~ 1 [Muy de acue~ 5 [Clase baja] 4 [En desacuerdo]         2613
+##  6    62 2 [Mujer] 1 [Muy de acue~ 4 [Clase medi~ 1 [Muy de acuerdo]        2613
+##  7    54 1 [Hombr~ 2 [De acuerdo]  4 [Clase medi~ 2 [De acuerdo]            2613
+##  8    75 2 [Mujer] 2 [De acuerdo]  5 [Clase baja] 4 [En desacuerdo]         2613
+##  9    36 2 [Mujer] 2 [De acuerdo]  4 [Clase medi~ 4 [En desacuerdo]         2613
+## 10    40 2 [Mujer] 2 [De acuerdo]  5 [Clase baja] 4 [En desacuerdo]         2613
+## # ... with 2,603 more rows
+</code></pre></div><p>También podemos hacer ambas operaciones en un sólo comando</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">group_by</span>(sexo) <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">mutate</span>(n_sexo <span style="color:#f92672">=</span> <span style="color:#a6e22e">n</span>())
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 2,613 x 6
+## # Groups:   sexo [2]
+##     edad      sexo   garan_min_vid      clase_sub          just_pago_educ n_sexo
+##    &lt;dbl&gt; &lt;dbl+lbl&gt;       &lt;dbl+lbl&gt;      &lt;dbl+lbl&gt;               &lt;dbl+lbl&gt;  &lt;int&gt;
+##  1    40 1 [Hombr~ 1 [Muy de acue~ 4 [Clase medi~ 4 [En desacuerdo]         1012
+##  2    18 1 [Hombr~ 1 [Muy de acue~ 3 [Clase medi~ 3 [Ni de acuerdo ni en~   1012
+##  3    66 2 [Mujer] 1 [Muy de acue~ 3 [Clase medi~ 4 [En desacuerdo]         1601
+##  4    56 2 [Mujer] 2 [De acuerdo]  5 [Clase baja] 4 [En desacuerdo]         1601
+##  5    63 1 [Hombr~ 1 [Muy de acue~ 5 [Clase baja] 4 [En desacuerdo]         1012
+##  6    62 2 [Mujer] 1 [Muy de acue~ 4 [Clase medi~ 1 [Muy de acuerdo]        1601
+##  7    54 1 [Hombr~ 2 [De acuerdo]  4 [Clase medi~ 2 [De acuerdo]            1012
+##  8    75 2 [Mujer] 2 [De acuerdo]  5 [Clase baja] 4 [En desacuerdo]         1601
+##  9    36 2 [Mujer] 2 [De acuerdo]  4 [Clase medi~ 4 [En desacuerdo]         1601
+## 10    40 2 [Mujer] 2 [De acuerdo]  5 [Clase baja] 4 [En desacuerdo]         1601
+## # ... with 2,603 more rows
+</code></pre></div><h1 id="54-summarise">5.4 summarise</h1>
+<p>La función summarise resume dato a una sola fila de valores, en nuestro primer ejemplo, toma los datos creados anteriormente y los resume a un solo valor</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">summarise</span>(n_sexo <span style="color:#f92672">=</span> <span style="color:#a6e22e">n</span>())
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 1 x 1
+##   n_sexo
+##    &lt;int&gt;
+## 1   2613
+</code></pre></div><p>En nuestro segundo ejemplo, creamos una nueva tabla donde nos agrupara los datos según sexo y además resumirá los casos</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">group_by</span>(sexo) <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">summarise</span>(n_sexo <span style="color:#f92672">=</span> <span style="color:#a6e22e">n</span>())
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 2 x 2
+##         sexo n_sexo
+##    &lt;dbl+lbl&gt;  &lt;int&gt;
+## 1 1 [Hombre]   1012
+## 2 2 [Mujer]    1601
+</code></pre></div><h2 id="6-resumen-con-procesamiento-de-las-variables">6. Resumen con procesamiento de las variables</h2>
+<p>Previo a la manipulación de los datos es necesario conocer como se distribuye esta por eso el paso inicial es un descriptivo de las variables a procesar. Para ello, usaremos la función frq del paquete <strong>sjmisc</strong>, que  permite analizar la frecuencia las variables que <strong>no sean numericas</strong>. Para las variables numericas, en cambio, usaremos la función <strong>descr</strong> del mismo paquete, que nos entregará las <strong>medidas de tendencia central, dispersión y posición</strong> de la variable. <a href="">Ver práctico anterior</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">descr</span>(datos_proc<span style="color:#f92672">$</span>edad) <span style="color:#75715e">#Usar la función descr con la variable edad de los datos datos_proc.</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## 
+## ## Basic descriptive statistics
+## 
+##  var    type        label    n NA.prc  mean    sd   se md trimmed      range
+##   dd numeric Edad (anyos) 2613      0 45.54 17.68 0.35 45   44.75 78 (18-96)
+##  iqr skew
+##   29 0.29
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">frq</span>(datos_proc<span style="color:#f92672">$</span>sexo)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## 
+## Sexo del entrevistado (x) &lt;numeric&gt;
+## # total N=2613  valid N=2613  mean=1.61  sd=0.49
+## 
+## Value |  Label |    N | Raw % | Valid % | Cum. %
+## ------------------------------------------------
+##     1 | Hombre | 1012 | 38.73 |   38.73 |  38.73
+##     2 |  Mujer | 1601 | 61.27 |   61.27 | 100.00
+##  &lt;NA&gt; |   &lt;NA&gt; |    0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">frq</span>(datos_proc<span style="color:#f92672">$</span>garan_min_vid)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## 
+## P35 - Rol Gobierno: garantizar minimo vida (x) &lt;numeric&gt;
+## # total N=2613  valid N=2613  mean=2.09  sd=1.24
+## 
+## Value |                          Label |    N | Raw % | Valid % | Cum. %
+## ------------------------------------------------------------------------
+##     1 |                 Muy de acuerdo |  836 | 31.99 |   31.99 |  31.99
+##     2 |                     De acuerdo | 1226 | 46.92 |   46.92 |  78.91
+##     3 | Ni de acuerdo ni en desacuerdo |  285 | 10.91 |   10.91 |  89.82
+##     4 |                  En desacuerdo |  153 |  5.86 |    5.86 |  95.68
+##     5 |              Muy en desacuerdo |   67 |  2.56 |    2.56 |  98.24
+##     8 |                   NS (no leer) |   41 |  1.57 |    1.57 |  99.81
+##     9 |                   NR (no leer) |    5 |  0.19 |    0.19 | 100.00
+##  &lt;NA&gt; |                           &lt;NA&gt; |    0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">frq</span>(datos_proc<span style="color:#f92672">$</span>clase_sub)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## 
+## P14 - ¿En qué clase social ubicaría a la gente como usted? (x) &lt;numeric&gt;
+## # total N=2613  valid N=2613  mean=3.47  sd=1.09
+## 
+## Value |            Label |   N | Raw % | Valid % | Cum. %
+## ---------------------------------------------------------
+##     1 |       Clase alta | 119 |  4.55 |    4.55 |   4.55
+##     2 | Clase media alta | 320 | 12.25 |   12.25 |  16.80
+##     3 |      Clase media | 890 | 34.06 |   34.06 |  50.86
+##     4 | Clase media baja | 807 | 30.88 |   30.88 |  81.75
+##     5 |       Clase baja | 468 | 17.91 |   17.91 |  99.66
+##     8 |     NS (no leer) |   9 |  0.34 |    0.34 | 100.00
+##     9 |     NR (no leer) |   0 |  0.00 |    0.00 | 100.00
+##  &lt;NA&gt; |             &lt;NA&gt; |   0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">frq</span>(datos_proc<span style="color:#f92672">$</span>just_pago_educ)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## 
+## P25 - Justo: mas pago, mejor educacion (x) &lt;numeric&gt;
+## # total N=2613  valid N=2613  mean=3.50  sd=1.29
+## 
+## Value |                          Label |   N | Raw % | Valid % | Cum. %
+## -----------------------------------------------------------------------
+##     1 |                 Muy de acuerdo | 157 |  6.01 |    6.01 |   6.01
+##     2 |                     De acuerdo | 559 | 21.39 |   21.39 |  27.40
+##     3 | Ni de acuerdo ni en desacuerdo | 346 | 13.24 |   13.24 |  40.64
+##     4 |                  En desacuerdo | 997 | 38.16 |   38.16 |  78.80
+##     5 |              Muy en desacuerdo | 528 | 20.21 |   20.21 |  99.00
+##     8 |                   NS (no leer) |  20 |  0.77 |    0.77 |  99.77
+##     9 |                   NR (no leer) |   6 |  0.23 |    0.23 | 100.00
+##  &lt;NA&gt; |                           &lt;NA&gt; |   0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;
+</code></pre></div><p>Luego debemos recodificar las variables según sean necesario, para ello utilizaremos las librerias car y Dplyr</p>
+<p>Para la libreria car recodificaremos todas las categorias de respuesta como no sabe (NS) o no responde(NR) en NA&rsquo;s</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc<span style="color:#f92672">$</span>garan_min_vid <span style="color:#f92672">&lt;-</span> car<span style="color:#f92672">::</span><span style="color:#a6e22e">recode</span>(datos_proc<span style="color:#f92672">$</span>garan_min_vid, <span style="color:#e6db74">&#34;c(8, 9)=NA&#34;</span>) <span style="color:#75715e">#acá con :: especificamos qué libreria usar</span>
+datos_proc<span style="color:#f92672">$</span>clase_sub <span style="color:#f92672">&lt;-</span> car<span style="color:#f92672">::</span><span style="color:#a6e22e">recode</span>(datos_proc<span style="color:#f92672">$</span>clase_sub, <span style="color:#e6db74">&#34;c(8, 9)=NA&#34;</span>)
+datos_proc<span style="color:#f92672">$</span>just_pago_educ <span style="color:#f92672">&lt;-</span> car<span style="color:#f92672">::</span><span style="color:#a6e22e">recode</span>(datos_proc<span style="color:#f92672">$</span>just_pago_educ, <span style="color:#e6db74">&#34;c(8, 9)=NA&#34;</span>)
+</code></pre></div><p>Tambien podemos recodificar para agruparlas</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc<span style="color:#f92672">$</span>just_pago_educ <span style="color:#f92672">&lt;-</span> car<span style="color:#f92672">::</span><span style="color:#a6e22e">recode</span>(datos_proc<span style="color:#f92672">$</span>just_pago_educ, <span style="color:#e6db74">&#34;1:2=1;3=2;4:5=3&#34;</span>)
+</code></pre></div><p>Luego con Dplyr le asignamos nuevos valores</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">mutate</span>(just_pago_educ <span style="color:#f92672">=</span> <span style="color:#a6e22e">recode </span>(just_pago_educ, <span style="color:#e6db74">&#34;1&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;a favor&#34;</span>, <span style="color:#e6db74">&#34;2&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;neutro&#34;</span>, <span style="color:#e6db74">&#34;3&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;en contra&#34;</span>))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">## # A tibble: 2,613 x 5</span>
+<span style="color:#75715e">##    edad sexo        garan_min_vid            clase_sub just_pago_educ</span>
+<span style="color:#75715e">##   &lt;dbl&gt; &lt;fct&gt;           &lt;dbl+lbl&gt;            &lt;dbl+lbl&gt; &lt;chr&gt;         </span>
+<span style="color:#75715e">## 1    40 Hombre 1 [Muy de acuerdo] 4 [Clase media baja] en contra     </span>
+<span style="color:#75715e">## 2    18 Hombre 1 [Muy de acuerdo] 3 [Clase media]      neutro        </span>
+<span style="color:#75715e">## 3    66 Mujer  1 [Muy de acuerdo] 3 [Clase media]      en contra     </span>
+<span style="color:#75715e">## 4    56 Mujer  2 [De acuerdo]     5 [Clase baja]       en contra     </span>
+<span style="color:#75715e">## 5    63 Hombre 1 [Muy de acuerdo] 5 [Clase baja]       en contra     </span>
+<span style="color:#75715e">## 6    62 Mujer  1 [Muy de acuerdo] 4 [Clase media baja] a favor       </span>
+<span style="color:#75715e">## 7    54 Hombre 2 [De acuerdo]     4 [Clase media baja] a favor       </span>
+<span style="color:#75715e">## 8    75 Mujer  2 [De acuerdo]     5 [Clase baja]       en contra     </span>
+<span style="color:#75715e">## 9    36 Mujer  2 [De acuerdo]     4 [Clase media baja] en contra     </span>
+<span style="color:#75715e">## 10    40 Mujer  2 [De acuerdo]     5 [Clase baja]       en contra      </span>
+<span style="color:#75715e">## # ... with 2,603 more rows</span>
+</code></pre></div><h2 id="7-guardar-base-procesada">7. Guardar base procesada</h2>
+<p>Para guardar la base de datos procesada, debes dirigir la ruta hacia tu Rproject</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">save</span>(datos_proc, data <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;../Rproject/datos_proc.RData&#34;</span>)
+</code></pre></div><h2 id="8-reporte-de-progreso">8. Reporte de progreso</h2>
+<p>¡Recuerda rellenar tu reporte de progreso! En <a href="https://learn-r.formr.org/">https://learn-r.formr.org/</a>. Te llegó un código único a tu correo electrónico. Mediante él debes acceder para actualizar tu estado de avance del curso.</p>
 
                     </div>
 
@@ -1050,15 +1331,8 @@ mosquito_nets <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22
   
   
   <div class="post-nav-item">
-    <div class="meta-nav">Previous</div>
-    <a href="/example/05-practico/" rel="next">Transformación de datos en tidydata</a>
-  </div>
-  
-  
-  
-  <div class="post-nav-item">
     <div class="meta-nav">Next</div>
-    <a href="/example/01-datos/" rel="prev">The ultimate guide to generating synthetic data for causal inference</a>
+    <a href="/example/01-practico/" rel="prev">Bienvenido/a a R, RStudio y Github</a>
   </div>
   
 </div>
