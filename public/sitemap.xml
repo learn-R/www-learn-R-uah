@@ -53,6 +53,11 @@
   </url>
   
   <url>
+    <loc>/example/02-practico/</loc>
+    <lastmod>2020-01-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/resource/rmarkdown/</loc>
     <lastmod>2020-01-13T00:00:00+00:00</lastmod>
   </url>
