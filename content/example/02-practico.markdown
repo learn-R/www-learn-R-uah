@@ -51,9 +51,7 @@ Dentro de la creación de archivos en RMarkdown, hay algunos conceptos claves qu
 
 - Knit: Es un boton el cual generará un documento que incluye tanto el contenido como la salida de cualquier trozo de código R incrustado en el documento (se debe instalar un paquete). Este boton combina (teje) el texto y el código en una misma hoja, facilitando diferentes opciones de formato de salida (html, pdf, word). Cuando se **Knitea** (teje) un documento, R ejecuta cada uno de los trozos secuencialmente y convierte la salida de cada trozo en Markdown. Luego, R ejecuta el documento tejido a través de [pandoc](https://pandoc.org/) para convertirlo en HTML o PDF o Word (o cualquier salida que haya seleccionado).
 
-```{r knit-button, indent=" ", echo=FALSE, out.width="30%"}
-knitr::include_graphics("/img/assignments/knit-button.png", error = FALSE)
-```
+ <img src="/img/assignments/knit-button.png" width="30%" />
 
 - YAML: Es un encabezado al inicio del documento que inicia y acaba con tres guiones **---***. Acá se introducen aspectos básicos del documento, como el título, el autor, la fecha y el formato de salida (output)
 
@@ -63,7 +61,7 @@ knitr::include_graphics("/img/assignments/knit-button.png", error = FALSE)
 Los chunks lucen así:
 
     ````markdown
-    `r ''````{r}
+    ```{r}
     # Code goes here
     ```
     ````
@@ -76,9 +74,7 @@ Hay tres formas de insertar chunks:
 
 2. Pulsa el botón "Insert" en la parte superior de la ventana del editor
 
-```{r insertar trozo, indent=" ", echo=FALSE, out.width="30%"}
-knitr::include_graphics("/img/reference/insert-chunk.png", error = FALSE)
-```
+ <img src="/img/reference/insert-chunk.png" width="30%" />
 
 3. Escribirlo manualmente (no recomendado)
 
@@ -86,9 +82,7 @@ knitr::include_graphics("/img/reference/insert-chunk.png", error = FALSE)
 
 Se puede añadir nombres a los chunks para hacer más facil la navegación por el documento. Si haces clic en el pequeño menú desplegable en la parte inferior de tu editor en RStudio, puedes ver una tabla de contenidos que muestra todos los títulos y chunks. Si nombras los chunks, aparecerán en la lista. Si no incluyes un nombre, el chunk seguirá apareciendo, pero no sabrás lo que hace.
 
-```{r chunk-toc, echo=FALSE, out.width="40%"}
-knitr::include_graphics("/img/reference/chunk-toc.png", error = FALSE)
-```
+<img src="/img/reference/chunk-toc.png" width="40%" />
 
 Para añadir un nombre, inclúyelo inmediatamente después de la `{r` en la primera línea del chunk. Los nombres no pueden contener espacios, pero sí guiones bajos y guiones. **Todos los nombres de chunk de tu documento deben ser únicos.
 
@@ -120,9 +114,7 @@ Las opciones de chunk más comunes son estas:
 
 También puedes configurar las opciones del chunk haciendo clic en el pequeño icono del engranaje en la esquina superior derecha de cualquier chunk:
 
-```{r chunk-options, echo=FALSE, out.width="70%"}
-knitr::include_graphics("/img/reference/chunk-options.png", error = FALSE)
-```
+<img src="/img/reference/chunk-options.png" width="70%" />
 
 
 ## 3. Formatos de salida (Output formats)
@@ -141,9 +133,7 @@ output:
 
 También puedes hacer clic en la flecha hacia abajo del botón "Knit" para elegir la salida *y* generar el YAML apropiado. Si hace clic en el icono del engranaje junto al botón "Knit" y elige "Output options" (opciones de salida), puede cambiar la configuración para cada tipo de salida en específico, como las dimensiones de las figuras por defecto o si se incluye o no un índice.
 
-```{r output-options, echo=FALSE, out.width="35%"}
-knitr::include_graphics("/img/reference/output-options.png", error = FALSE)
-``` 
+<img src="/img/reference/output-options.png" width="35%" />
 
 El primer tipo de salida que aparece en `output:` será el que se genere al pulsar el botón "Knit" o al pulsar el atajo de teclado (`⌘⇧K` en macOS; `control + shift + K` en Windows). Si elige una salida diferente con el menú del botón "Knit", esa salida se moverá a la parte superior de la sección `output`.
 
@@ -235,14 +225,10 @@ _**Cursiva y negrita**_
 Tambien se pueden agregar imágenes con chunks
 
 ````
-```{r, echo=FALSE, out.width="60%"}
-    knitr::include_graphics("ruta de la carpeta/imagen.png", error = FALSE)
-```
+<img src="ruta de la carpeta/imagen.png" width="60%" />
 ````
 
-```{r, echo=FALSE, out.width="60%"}
-    knitr::include_graphics("../www-learn-R-uah/static/img/example/02practico/logo.png", error = FALSE)
-```
+<img src="../www-learn-R-uah/static/img/example/02practico/logo.png" width="60%" />
 
 #### Citas
 
@@ -357,21 +343,24 @@ Previo a la creación de nuestro primer Markdown debemos tener en cuenta algo, p
 
 Usualmente para cargar paquetes lo hacemos de la siguiente manera:
 
-```{r eval=FALSE, include=TRUE}
+
+```r
   install.packages("paquete")
   library(paquete)
 ```
 
 Pero en esta ocasion utilizaremos un paquete llamado **pacman**, este facilita y agiliza la lectura de los paquetes a utilizar en R. DE esta forma lo instalamos 1 única vez así:
 
-```{r eval=FALSE, include=TRUE}
+
+```r
 install.packages("pacman")
 library (pacman)
 ```
 
 Luego cargaremos así los paquetes de R, esto agiliza la carga de paquetes. Para este práctico cargaremos el paquete **rmarkdown** y **knit**.
 
-```{r eval=FALSE, include=TRUE}
+
+```r
 pacman::p_load(rmarkdown,
                knit)
 ```
@@ -381,21 +370,15 @@ pacman::p_load(rmarkdown,
 
 1. Una vez cargados los paquetes deben dirigirse en File > New File > R Markdown
 
-```{r, echo=FALSE, out.width="60%"}
-    knitr::include_graphics("../www-learn-R-uah/static/example/02practico/open_rmark_file.png", error = FALSE)
-```
+<img src="../www-learn-R-uah/static/example/02practico/open_rmark_file.png" width="60%" />
 
 2. Luego deben darle un título, poner su nombre y especificar un _formato de salida_ ya sea en **HTML**, **PDF** o **Word**
 
-```{r, echo=FALSE, out.width="60%"}
-    knitr::include_graphics("../www-learn-R-uah/static/img/example/02practico/open_rmark_file2.png", error = FALSE)
-```
+<img src="../www-learn-R-uah/static/img/example/02practico/open_rmark_file2.png" width="60%" />
 
 3. Les creará un archivo con un **_YAML_**, que tendrá la información general del documento y un **_chunk_** 
 
-```{r, echo=FALSE, out.width="60%"}
-    knitr::include_graphics("../www-learn-R-uah/static/img/example/02practico/open_rmark_file.png", error = FALSE)
-```
+<img src="../www-learn-R-uah/static/img/example/02practico/open_rmark_file.png" width="60%" />
 
 4. Ya pueden comenzar a escribir sus informes en RMarkdown
 
