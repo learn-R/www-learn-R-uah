@@ -1,7 +1,7 @@
 ---
-title: "Bienvenido/a a R, RStudio y tidyverse"
+title: "RStudio, tidyverse y RMarkdown"
 linktitle: "2: RMarkdown"
-date: "2020-01-13"
+date: "2020-01-16"
 menu:
   example:
     parent: Ejemplos
@@ -22,7 +22,7 @@ Recuerden que los archivos asociados a este práctico se pueden decargar acá:
 
 ## Rprojects
 
-- [<i class="fas fa-file-archive"></i> `01-class.zip`](../../projects/02-class/02practico.zip) 
+- [<i class="fas fa-file-archive"></i> `02-class.zip`](../../projects/02-class/02practico.zip) 
 
 ## 1. Markdown y RMarkdown
 
@@ -58,19 +58,19 @@ Dentro de la creación de archivos en RMarkdown, hay algunos conceptos claves qu
 
 ## 2. Chunks
 
-Los chunks lucen así:
+Los chunks se ven así así:
 
-    ````markdown
     ```{r}
-    # Code goes here
-    ```
+    # El codigo va aquí
+    
     ````
 
-## 2.1 Anadir Chunks
+
+## 2.1 Añadir Chunks
 
 Hay tres formas de insertar chunks:
 
-1. Pulsar `⌘⌥I` en macOS o `control + alt + I` en Windows.
+1. Pulsar `⌘⌥I` en macOS o `cCntrol + aAt + I` en Windows.
 
 2. Pulsa el botón "Insert" en la parte superior de la ventana del editor
 
@@ -80,17 +80,18 @@ Hay tres formas de insertar chunks:
 
 ## 2.2 Nombrar chunks
 
-Se puede añadir nombres a los chunks para hacer más facil la navegación por el documento. Si haces clic en el pequeño menú desplegable en la parte inferior de tu editor en RStudio, puedes ver una tabla de contenidos que muestra todos los títulos y chunks. Si nombras los chunks, aparecerán en la lista. Si no incluyes un nombre, el chunk seguirá apareciendo, pero no sabrás lo que hace.
+Se puede añadir nombres a los chunks para hacer más fácil la navegación por el documento. Si haces clic en el pequeño menú desplegable en la parte inferior de tu editor en RStudio, puedes ver una tabla de contenidos que muestra todos los títulos y chunks. Si nombras los chunks, aparecerán en la lista. Si no incluyes un nombre, el chunk seguirá apareciendo, pero no sabrás lo que hace.
 
 <img src="/img/reference/chunk-toc.png" width="40%" />
 
-Para añadir un nombre, inclúyelo inmediatamente después de la `{r` en la primera línea del chunk. Los nombres no pueden contener espacios, pero sí guiones bajos y guiones. **Todos los nombres de chunk de tu documento deben ser únicos.
+Para añadir un nombre, inclúyelo inmediatamente después de la `{r` en la primera línea del chunk. Los nombres no pueden contener espacios, pero sí guiones bajos y guiones.
 
-````markdown
-```r ''````{r nombre-de-este-chunk}
-# El código va aquí
-```
-````
+Importante: **Todos los nombres de chunk de tu documento deben ser únicos.**
+
+    ```{r nombre-chunk}
+    # El codigo va aquí
+    
+    ````
 
 ## 2.3 Opciones de chunks
 
@@ -98,18 +99,22 @@ Hay un montón de opciones diferentes que puedes establecer para cada chunk. Pue
 
 Las opciones van dentro de la sección `{r}` del chunk:
 
-````markdown
-```r ''````{r nombre-de-este-chunk, warning=FALSE, message=FALSE}
-# El código va aquí
-```
-````
-
+    ```{r nombre-chunk, message = F, echo = F}
+    # El codigo va aquí
+    
+    ````
+    
 Las opciones de chunk más comunes son estas:
 
 - `fig.width=5` y `fig.height=3` (*o el número que quieras*): Establece las dimensiones de las figuras
+
 - `echo=FALSE`: El código no se muestra en el documento final, pero los resultados si
+
+
 - `message=FALSE`: Se omiten los mensajes que genera R (como todas las notas que aparecen después de cargar un paquete)
+
 - `warning=FALSE`: Se omiten las advertencias que genera R
+
 - `include=FALSE`: El chunk se sigue ejecutando, pero el código y los resultados no se incluyen en el documento final
 
 También puedes configurar las opciones del chunk haciendo clic en el pequeño icono del engranaje en la esquina superior derecha de cualquier chunk:
@@ -121,14 +126,16 @@ También puedes configurar las opciones del chunk haciendo clic en el pequeño i
 
 ### 3.1 YAML 
 
-Los formatos de salida se ven en el encabezado (**YAML**) del documento, acá puedes especificar en qué formato quieres que te entregue tu archivo. DE esta forma puedes especificar qué tipo de documento creas cuando _"Kniteas"_ o _"tejes"_ 
+Los formatos de salida se ven en el encabezado (**YAML**) del documento, aquí puedes especificar en qué formato quieres que te entregue tu archivo. De esta forma puedes especificar qué tipo de documento creas cuando _"Kniteas"_  (es como _"tejer"_, *construir*) 
 
 ```yaml
+---
 title: "Mi documento"
 output:
   html_document: default
   pdf_document: default
   word_document: default
+---
 ```
 
 También puedes hacer clic en la flecha hacia abajo del botón "Knit" para elegir la salida *y* generar el YAML apropiado. Si hace clic en el icono del engranaje junto al botón "Knit" y elige "Output options" (opciones de salida), puede cambiar la configuración para cada tipo de salida en específico, como las dimensiones de las figuras por defecto o si se incluye o no un índice.
@@ -139,33 +146,41 @@ El primer tipo de salida que aparece en `output:` será el que se genere al puls
 
 ### 3.2 Salidas de formato
 
-El encabezado o YAML es importante, especialmente cuando tienes configuraciones anidadas bajo cada tipo de salida. Así es como una sección `output` suele verse:
+El encabezado o YAML es importante, especialmente cuando tienes configuraciones anidadas bajo cada tipo de salida. Cuando uno ya está más avanzado así es como una sección `output` suele verse:
 
 
 ```yaml
 ---
-title: "My document"
-author: "My name"
-date: "January 13, 2020"
+title: "Mi tesis"
+author: "Valentina Andrade"
+date: "16 Agosto 2021"
 output: 
-  html_document: 
-    toc: yes
-    fig_caption: yes
-    fig_height: 8
-    fig_width: 10
+  html_document:
+    theme: cerulean
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    number_sections: true
   pdf_document: 
-    latex_engine: xelatex  # More modern PDF typesetting engine
-    toc: yes
+    latex_engine: xelatex  # Para hacer pdf
+    toc: true
   word_document: 
-    toc: yes
-    fig_caption: yes
-    fig_height: 4
-    fig_width: 5
+    toc: true
 ---
 ```
 
-Es en el **YAML** o **encabezado** del documento, se puede modificar el nombre (title) del documento, el autor, la fecha y las opciones de salida para html, pdf, MsWord, entre otros. 
+Es en el **YAML** o **encabezado** del documento, se puede modificar:
 
+- `title` y `subtitle`: es el título y subtítulo. Como cualquier carácter en R lo mejor es poner entre comillas su contenido
+
+- `author`: nombre del autor/a
+
+- `date`: fecha, puede ser escrita como ustedes quieran
+
+- `output`: opciones de salida (html, pdf, doc, ¡incluso ppt!)
+  - `toc`: "Table of contents" o en español, índice. El término `depth` indica "profundidad" para ver cuántos títulos mostrar y `float` para ver si se desliza automáticamente
+
+Si quieres ver más opciones, [temas para tu documento puedes ver aquí](https://bookdown.org/yihui/rmarkdown/html-document.html)
 
 ### 4. Formatos básicos de Markdown
 
@@ -222,65 +237,62 @@ _**Cursiva y negrita**_
 
 ````
 
-Tambien se pueden agregar imágenes con chunks
+También se pueden agregar imágenes con chunks
 
-````
-<img src="ruta de la carpeta/imagen.png" width="60%" />
-````
 
-<img src="../www-learn-R-uah/static/img/example/02practico/logo.png" width="60%" />
+```r
+    knitr::include_graphics("ruta de la carpeta/imagen.png", error = FALSE)
+```
+
+¡Mira aquí un ejemplo!
+
+<img src="/img/example/02practico/logo.png" width="30%" />
 
 #### Citas
 
-````
->  Puedes dejar una línea como cita o
+>  Puedes escribir una cita
 
-Recuerda que también
+¿Cómo? Antes de la oración poniendo un `>`
 
-> Puede ser un párrafo completo
->
-> Solo asegurate de poner > en cada espacio
-
-````
-> ¡inténtalo!
 
 #### Listas
 
-````
-1. Puedes tener una lista numerando así
-1. Porque automáticamente se numerara 
-1. Así misma
+Puedes tener una lista numerada: 
 
-Recuerda que
+```
+1. También puedes numerar con un orden predeterminado
 
-1. Tambien puedes numerar con un orden predeterminado
-2. Sólo asegurate de llevarlo de forma ordenada
+2. Sólo asegúrate de llevarlo de forma ordenada
+
 3. Para no tener una numeración repetida
 
-No olvides que
+```
 
+Y aparecerá así
+1. También puedes numerar con un orden predeterminado
+
+2. Sólo asegúrate de llevarlo de forma ordenada
+
+3. Para no tener una numeración repetida
+
+
+También puedes hacer listas sin numeración
+
+```
 * Además puedes listar cosas desordenadas
-  * Inclusive ser más específic-
-  * Luego podras volver
+  * Inclusive ser más específico/a
+  * Luego podrás volver
 * Al formato anterior
 
-````
+```
+¡Y así las vemos!
+
+* Además puedes listar cosas desordenadas
+  * Inclusive ser más específico/a
+  * Luego podrás volver
+* Al formato anterior
 
 
-#### Lineas horizontales
-
-Para esto hay dos opciones
-
-````
-Opción 1
-
--
-
-Opción 2
-
-***
-
-````
 
 #### Ecuaciones
 
@@ -349,7 +361,7 @@ Usualmente para cargar paquetes lo hacemos de la siguiente manera:
   library(paquete)
 ```
 
-Pero en esta ocasion utilizaremos un paquete llamado **pacman**, este facilita y agiliza la lectura de los paquetes a utilizar en R. DE esta forma lo instalamos 1 única vez así:
+Pero en esta ocasión utilizaremos un paquete llamado **pacman**, este facilita y agiliza la lectura de los paquetes a utilizar en R. De esta forma lo instalamos 1 única vez así:
 
 
 ```r
@@ -370,28 +382,28 @@ pacman::p_load(rmarkdown,
 
 1. Una vez cargados los paquetes deben dirigirse en File > New File > R Markdown
 
-<img src="../www-learn-R-uah/static/example/02practico/open_rmark_file.png" width="60%" />
+![](/img/example/02practico/open_rmark_file.png)<!-- -->
 
 2. Luego deben darle un título, poner su nombre y especificar un _formato de salida_ ya sea en **HTML**, **PDF** o **Word**
 
-<img src="../www-learn-R-uah/static/img/example/02practico/open_rmark_file2.png" width="60%" />
+![](/img/example/02practico/open_rmark_file2.png)<!-- -->
 
 3. Les creará un archivo con un **_YAML_**, que tendrá la información general del documento y un **_chunk_** 
 
-<img src="../www-learn-R-uah/static/img/example/02practico/open_rmark_file.png" width="60%" />
+![](/img/example/02practico/open_rmark_file.png)<!-- -->
 
 4. Ya pueden comenzar a escribir sus informes en RMarkdown
 
 
 ## 6. Actividad del práctico
 
-La actividad tendra relación con la entrega de la **Tarea 1**. Esta actividad consiste en la creación de un RMarkdown que contenga lo siguiente:
+La actividad tendrá relación con la entrega de la **Tarea 1**. Esta actividad consiste en la creación de un RMarkdown que contenga lo siguiente:
 
 * Un encabezado (YAML) con el título: "Práctico 2". También deben incorporar su nombre y fecha
 
-* Este encabezado debe tener una salida (output), pueden elegir entre html o pdf
+* Este encabezado debe tener una salida (output), deben elegit `html_output`
 
-* En el código deben incorporar un chunk, en este deben llamar al grafico01 que se encuentra en el zip
+* En el documento  deben incorporarla imagen `grafico01` (que está en el .zip asociado a la clase)
 
 * Finalmente, deben crear una tabla simple.
 
