@@ -106,7 +106,7 @@ instructor:
   github: valentinaandrade
   office: "valentinaandrade.netlify.app/"
   contact_policy: >-
-    El canal de contacto de preferencia es [Slack](http://learn-r-uah.slack.com/), y en segunda instancia, email.
+    El canal de contacto de preferencia es [Slack](https://join.slack.com/t/learn-r-uah/shared_invite/zt-1q10jmt1v-i4yEhN8Q6aIWGMXYx2NiVw), y en segunda instancia, email.
   appointment_url: https://calendly.com/valentinaandrade/
 
 ayudante1: 
@@ -128,7 +128,7 @@ course:
   dates: "Práctico: Martes 18.00-19.20"
   github: "valentinaandrade"
   copyrightYear: "2021. Web developed by Andrew Heiss and custom by"
-  slack: "http://learn-r-uah.slack.com/"
+  slack: "https://join.slack.com/t/learn-r-uah/shared_invite/zt-1q10jmt1v-i4yEhN8Q6aIWGMXYx2NiVw"
 
 university: 
   name: Universidad Alberto Hurtado
