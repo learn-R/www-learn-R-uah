@@ -129,7 +129,7 @@ El software que se utilizará principalmente será R y su interfaz RStudio. Ahor
 
 <i class="fab fa-slack"></i> [Guía de uso de slack](https://slack.com/intl/es-cl/help/articles/360059928654-C%C3%B3mo-usar-Slack--tu-gu%C3%ADa-de-inicio-r%C3%A1pido)
 
-<i class="fab fa-slack"></i> [Unirse a Slack de curso](https://join.slack.com/t/learn-r-uah/shared_invite/zt-15cyy0t68-VjEeEwq_9vji3_dVdwr3Ug)
+<i class="fab fa-slack"></i> [Unirse a Slack de curso](https://join.slack.com/t/learn-r-uah/shared_invite/zt-1q10jmt1v-i4yEhN8Q6aIWGMXYx2NiVw)
 
 **4. GitHub** <i class="fab fa-github"></i>
 
@@ -146,6 +146,8 @@ Las evaluaciones del curso se componen de **tareas** (70% de la nota final) y la
 **1. Tareas** (*70% de la nota final*): consisten en evaluaciones parciales temáticas que buscan poner en práctica los aprendizajes expuestos en la sesión de clases y herramientas reforzadas en los prácticos. **El promedio de notas las de tareas será calculado solo con las cuatro mejores entregas** a partir de la Tarea 1 (*25% c/u*)[^1]. La evaluación es **individual** o en **parejas** (la misma durante todo el semestre).
 
 **2. Investigación final** (*30% de la nota final*): consiste en una evaluación final que aplica los conocimientos y herramientas entregadas a lo largo de curso, a un proyecto de investigación de elección por el/la estudiante. La evaluación es **individual**.
+
+**3. Consideraciones de asistencia**: consiste en criterios de evaluación según el porcentaje de asistencia a las clases y prácticos, los cuales consisten en la **eliminación de la nota de menor valor para quienes tiene un 80% de asistencia**, mientras que para quienes tengan **menos de 60% deberán presentar su examen de forma oral**.
 
 [^1]: Es decir, a lo largo del semestre deberá entregar 6 tareas: 5 calificadas (Tarea 1 a Tarea 5) y 1 no (Tarea 0). De las 5 tareas restantes, solo las 4 mejores serán consideradas en su promedio de las tareas.
 
