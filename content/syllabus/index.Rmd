@@ -157,7 +157,7 @@ El calendario de actividades se puede revisar con detención en la [pestaña pla
 | Evaluación    | Formato       | Fecha |  Ponderación Nota Final   |
 | ------------- |:-------------:| -----:| -------------------:|
 | Tarea         | 4 tareas[^1]   | *Hasta Viernes de la semana informada* | 70% (25% c/u)|
-| Investigación | Única entrega | 22 de noviembre  | 30% |
+| Investigación | Única entrega | 27 de Julio  | 30% |
 
 
 

@@ -20,7 +20,7 @@ design:
     text_color_light: true
 
 cta_note:
-  label: Profesora Valentina Andrade • II° Semestre 2021<br>Sociología • Universidad Alberto Hurtado
+  label: Profesora Valentina Andrade • I° Semestre 2023<br>Sociología • Universidad Alberto Hurtado
 ---
 
 Introducción al procesamiento, análisis y visualización para **Ciencias Sociales**
