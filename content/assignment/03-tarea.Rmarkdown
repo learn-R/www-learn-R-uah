@@ -2,7 +2,7 @@
 title: "Tarea 3. Muestras complejas"
 linktitle: "3: Muestras complejas"
 date: "2021-10-01"
-due_date: "2022-11-07"
+due_date: "2023-05-26"
 due_time: "23:59 PM"
 menu:
   assignment:
@@ -14,7 +14,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-Esta tarea debe ser resuelta en GitHub Class Room. Para acceder a la <i class="fas fa-external-link-square-alt"></i>  [Tarea N°3 hacer click aquí](https://classroom.github.com/a/sh7Oqadk). Si aún tienes dudas de cómo interactuar con [GitHub Class Roomm revisa el práctico](https://learn-r-uah.netlify.app/example/01-practico/)
+Esta tarea debe ser resuelta en GitHub Class Room. Para acceder a la <i class="fas fa-external-link-square-alt"></i>  [Tarea N°3 hacer click aquí](https://classroom.github.com/a/2Lg137Eu). Si aún tienes dudas de cómo interactuar con [GitHub Class Roomm revisa el práctico](https://learn-r-uah.netlify.app/example/01-practico/)
 
 ## Objetivo
 

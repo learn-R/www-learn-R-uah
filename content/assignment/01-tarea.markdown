@@ -1,8 +1,8 @@
 ---
 title: "Tarea 1. Procesamiento de datos en R"
 linktitle: "1: Procesamiento de datos en R"
-date: "2021-09-08"
-due_date: "2022-09-26"
+date: "2021-04-11"
+due_date: "2023-04-11"
 due_time: "11:59 PM"
 menu:
   assignment:
@@ -14,7 +14,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-Esta tarea debe ser resuelta en GitHub Class Room. Para acceder a la <i class="fas fa-external-link-square-alt"></i>  [Tarea N°1 hacer click aquí](https://classroom.github.com/a/uLbXEXPF). Si aún tienes dudas de cómo interactuar con [GitHub Class Roomm revisa el práctico](https://learn-r-uah.netlify.app/example/01-practico/)
+Esta tarea debe ser resuelta en GitHub Class Room. Para acceder a la <i class="fas fa-external-link-square-alt"></i>  [Tarea N°1 hacer click aquí](https://classroom.github.com/a/aN6-FqTA). Si aún tienes dudas de cómo interactuar con [GitHub Class Roomm revisa el práctico](https://learn-r-uah.netlify.app/example/01-practico/)
 
 ## Objetivo
 

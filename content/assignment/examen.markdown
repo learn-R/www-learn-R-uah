@@ -1,8 +1,8 @@
 ---
 title: "Examen. Proyecto de investigación final"
 linktitle: "Examen: Proyecto final"
-date: "2021-11-08"
-due_date: "2022-11-21"
+date: "2021-07-08"
+due_date: "2023-07-27"
 due_time: "23:59 PM"
 menu:
   assignment:
@@ -46,7 +46,7 @@ Para ello pueden elegir uno de los siguientes datos (aquellos que tienen un aste
 
 Para todas las encuestas **deben elegir la última versión disponible**
 
-Una vez definidos sus datos, pueden inscribirse con estos hasta el viernes 24 de junio en el [siguiente link](https://docs.google.com/spreadsheets/d/1o_zXJVkQ9C7odalXsREdU2-pT8H5ETN0oKrBplQtJrk/edit?usp=sharing)
+Una vez definidos sus datos, pueden inscribirse con estos hasta el viernes 16 de junio en el [siguiente link](https://docs.google.com/spreadsheets/d/1o_zXJVkQ9C7odalXsREdU2-pT8H5ETN0oKrBplQtJrk/edit?usp=sharing)
 
 ## Análisis
 
@@ -82,7 +82,7 @@ Para reportar estos análisis deben hacer al menos **2 tablas y 2 gráficos.**
   
 ## Proyecto
 
-1. Para acceder a la tarea [Deben aceptar el repositorio en el link de GitHub Class Room](https://classroom.github.com/a/crXZ_wAu)
+1. Para acceder a la tarea [Deben aceptar el repositorio en el link de GitHub Class Room](https://classroom.github.com/a/FD1_UTr8)
 2. Deben hacer un README.md explicando aspectos generales del repositorio
 
 # Criterios de evaluación
