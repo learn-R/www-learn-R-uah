@@ -121,13 +121,13 @@ En caso de elegir lo segundo, se nos solicitará directamente en qué carpeta (y
     knitr::include_graphics("/img/example/new-proj4.png", error = FALSE)
 ```
 
-¡Listo! ahora sólo debemos ir a nuestra carpeta y buscar el proyecto que hemos creado. Es un archivo de extensión .Rproj, cuyo ícono es una R inscrita en un cubo. 
+¡Listo! ahora sólo debemos ir a nuestra carpeta y buscar el proyecto que hemos creado. Es un archivo de extensión .Rproj, cuyo icono es una R inscrita en un cubo. 
 
 ```{r echo=FALSE, warning=FALSE, out.width="60%"}
     knitr::include_graphics("/img/example/new-proj5.png", error = FALSE)
 ```
 
-Es fundamental que, de aquí en adelante, siempre que vayamos a trabajar en alguna tarea con R, **creemos el nuevo proyecto y lo abramos para empezar a trabajar**. Ello setearé nuestro directorio de trabajo directamente en la carpeta donde se encuentra el archivo .Rproj, lo cual nos permitirá trabajar colaborativamente con mayor facilidad (¡algo **fundamental** en el curso!). Además, cada vez que vayamos a retomar nuestro trabajo en algún proyecto, debemos **siempre abrir el proyecto antes que cualquier cosa**, para lo cual debemos hacer doble click sobre su ícono. 
+Es fundamental que, de aquí en adelante, siempre que vayamos a trabajar en alguna tarea con R, **creemos el nuevo proyecto y lo abramos para empezar a trabajar**. Ello seteará nuestro directorio de trabajo directamente en la carpeta donde se encuentra el archivo .Rproj, lo cual nos permitirá trabajar colaborativamente con mayor facilidad (¡algo **fundamental** en el curso!). Además, cada vez que vayamos a retomar nuestro trabajo en algún proyecto, debemos **siempre abrir el proyecto antes que cualquier cosa**, para lo cual debemos hacer doble click sobre su icono. 
 
 ## 3. GitHub
 

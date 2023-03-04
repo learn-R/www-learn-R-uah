@@ -65,7 +65,9 @@ Si incorporan un README.md con la explicación de dónde sacaron los datos e inf
 
 Si logran cargar los datos mediante link **Y**, explica cómo hacerlo en el canal #tareas (0.2 décimas)
 
-## Pauta
+## Pauta general
+
+Los elementos de la pauta se aplican según la tarea que corresponda.
 
 1. RMarkdown, este ítem evalúa aspectos propios de los archivos .Rmd, desde su estructura hasta su correcto funcionamiento. Es necesario considerar:
 
