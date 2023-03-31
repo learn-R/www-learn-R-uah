@@ -1,0 +1,32 @@
+---
+title: "Colaborar con GitHub"
+author: "Carolina Carrillo"
+date: "2023-03-31"
+menu:
+  resource:
+    parent: Material complementario
+type: docs
+weight: 5
+toc: true
+---
+
+Este material busca ser un apoyo introductorio a la lógica de Git y GitHub, profundizando en los contenidos de la [primera sesión](https://learn-r-uah.netlify.app/content/01-content/) del curso para que puedas aprovechar las herramientas que tiene GitHub para trabajar colaborativamente. La presentación se basa en [Git for Humans](https://speakerdeck.com/alicebartlett/git-for-humans), un conjunto de diapositivas creadas por _Alice Bartlett_ en 2016.
+
+
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFeiKR_48Q&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+
+
+También puedes encontrar el video de la presentación en el [canal de YouTube del curso](https://www.youtube.com/@learnr4481).
+
+
+## Otros recursos que te recomendamos revisar
+
+* Un libro amistoso (pero lamentablemente en inglés) es [Happy Git and GitHub for the useR](https://happygitwithr.com/index.html) por [Jennifer Bryan](https://github.com/jennybc).
+* [Oh My Git!](https://ohmygit.org/) es un juego interactivo, gratuito y de código abierto para aprender Git.
+* Además GitHub tiene una serie de [documentos en español](https://docs.github.com/es) y [guías](https://githubtraining.github.io/training-manual/#/) didácticas para principiantes en inglés.
