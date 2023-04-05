@@ -81,7 +81,7 @@ head(datos, 5)
 
 Podemos ver diversas variables, tanto numéricas como con números etiquetados (¡esto último es un *clásico* cuando trabajamos con datos en .dta y .sav!)
 
-## 4. Un aspecto clave antes de comenzar: los operadores
+## 4. Un aspecto clave antes de comenzar: los operadores 
 
 Previo a trabajar con la base de datos, debemos repasar el concepto de **operadores**. Estos símbolos no son de uso exclusivo en R ¡probablemente los conoces desde tus cursos de matemática! Ahora bien, no todos tienen el mismo significado que en otros softwares.
 
