@@ -5,7 +5,7 @@
     <link>/resource/</link>
       <atom:link href="/resource/index.xml" rel="self" type="application/rss+xml" />
     <description>Recursos adicionales</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><lastBuildDate>Fri, 13 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><lastBuildDate>Fri, 31 Mar 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/media/logo_hu02bc8dfe7cae86b2ee03430b67caeaf2_22353_300x300_fit_lanczos_2.png</url>
       <title>Recursos adicionales</title>
@@ -894,6 +894,41 @@ los pasos a seguir&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://github.com/learn-R/taller-zotero/raw/main/input/img/flujo-zotero.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;4-video-tutorial-en-youtube&#34;&gt;4. Video tutorial en Youtube&lt;/h1&gt;
 &lt;p&gt;Recuerden que el &lt;a href=&#34;https://youtu.be/w-qGJH2uswk&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;video de asociado a este tutorial&lt;/a&gt; y muchos más podrán encontrarlos en el &lt;a href=&#34;https://www.youtube.com/channel/UCqBUeqBttVjS6h8fawK8sWg&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;canal de youtube del curso&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Colaborar con GitHub</title>
+      <link>/resource/collab-github/</link>
+      <pubDate>Fri, 31 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>/resource/collab-github/</guid>
+      <description>
+
+
+&lt;div id=&#34;objetivo-del-material&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Objetivo del material&lt;/h1&gt;
+&lt;p&gt;Este material busca ser un apoyo introductorio a la lógica de Git y GitHub, profundizando en los contenidos de la &lt;a href=&#34;https://learn-r-uah.netlify.app/content/01-content/&#34;&gt;primera sesión&lt;/a&gt; del curso para que puedas aprovechar las herramientas que tiene GitHub para trabajar colaborativamente. La presentación se basa en &lt;a href=&#34;https://speakerdeck.com/alicebartlett/git-for-humans&#34;&gt;Git for Humans&lt;/a&gt;, un conjunto de diapositivas creadas por &lt;em&gt;Alice Bartlett&lt;/em&gt; en 2016.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;diapositivas&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;1. Diapositivas&lt;/h1&gt;
+&lt;div style=&#34;position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;&#34;&gt;
+&lt;p&gt;&lt;iframe loading=&#34;lazy&#34; style=&#34;position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;&#34;
+    src=&#34;https:&amp;#x2F;&amp;#x2F;www.canva.com&amp;#x2F;design&amp;#x2F;DAFeiKR_48Q&amp;#x2F;view?embed&#34; allowfullscreen=&#34;allowfullscreen&#34; allow=&#34;fullscreen&#34;&gt;
+&lt;/iframe&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a href=&#34;/docs/slides_collab_github.pdf&#34;&gt;Descargar pdf&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;También puedes encontrar el video de la presentación en el &lt;a href=&#34;https://www.youtube.com/@learnr4481&#34;&gt;canal de YouTube del curso&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;otros-recursos-que-te-recomendamos-revisar&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;2. Otros recursos que te recomendamos revisar&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Un libro amistoso (pero lamentablemente en inglés) es &lt;a href=&#34;https://happygitwithr.com/index.html&#34;&gt;Happy Git and GitHub for the useR&lt;/a&gt; por &lt;a href=&#34;https://github.com/jennybc&#34;&gt;Jennifer Bryan&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ohmygit.org/&#34;&gt;Oh My Git!&lt;/a&gt; es un juego interactivo, gratuito y de código abierto para aprender Git.&lt;/li&gt;
+&lt;li&gt;Además GitHub tiene una serie de &lt;a href=&#34;https://docs.github.com/es&#34;&gt;documentos en español&lt;/a&gt; y &lt;a href=&#34;https://githubtraining.github.io/training-manual/#/&#34;&gt;guías&lt;/a&gt; didácticas para principiantes en inglés.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 </description>
     </item>
     
