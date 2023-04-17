@@ -72,26 +72,26 @@ A continuación, utilizaremos la función `head()` del paquete `base`, para revi
 
 
 ```
-## # A tibble: 5 x 650
-##          folio     o id_persona id_vivienda  region provincia     comuna    zona
-##          <dbl> <dbl>      <dbl>       <dbl> <dbl+l> <dbl+lbl>  <dbl+lbl> <dbl+l>
-## 1 110110010101     1          5  1101100101 1 [Reg~ 11 [Iqui~ 1101 [Iqu~ 1 [Urb~
-## 2 110110010101     2          6  1101100101 1 [Reg~ 11 [Iqui~ 1101 [Iqu~ 1 [Urb~
-## 3 110110010201     2         31  1101100102 1 [Reg~ 11 [Iqui~ 1101 [Iqu~ 1 [Urb~
-## 4 110110010201     1         32  1101100102 1 [Reg~ 11 [Iqui~ 1101 [Iqu~ 1 [Urb~
-## 5 110110010201     3         30  1101100102 1 [Reg~ 11 [Iqui~ 1101 [Iqu~ 1 [Urb~
-## # ... with 642 more variables: area <dbl+lbl>, segmento <dbl>, estrato <dbl>,
+## # A tibble: 5 × 650
+##          folio     o id_persona id_vivienda region  provincia comuna     zona   
+##          <dbl> <dbl>      <dbl>       <dbl> <dbl+l> <dbl+lbl> <dbl+lbl>  <dbl+l>
+## 1 110110010101     1          5  1101100101 1 [Reg… 11 [Iqui… 1101 [Iqu… 1 [Urb…
+## 2 110110010101     2          6  1101100101 1 [Reg… 11 [Iqui… 1101 [Iqu… 1 [Urb…
+## 3 110110010201     2         31  1101100102 1 [Reg… 11 [Iqui… 1101 [Iqu… 1 [Urb…
+## 4 110110010201     1         32  1101100102 1 [Reg… 11 [Iqui… 1101 [Iqu… 1 [Urb…
+## 5 110110010201     3         30  1101100102 1 [Reg… 11 [Iqui… 1101 [Iqu… 1 [Urb…
+## # ℹ 642 more variables: area <dbl+lbl>, segmento <dbl>, estrato <dbl>,
 ## #   cod_upm <dbl>, hogar <dbl>, p6_p_con <dbl+lbl>, expr <dbl>, expp <dbl>,
 ## #   expc <dbl>, varstrat <dbl>, varunit <dbl>, fecha_entrev <date>,
 ## #   metodologia_entrev <dbl+lbl>, tot_hog <dbl>, numviv <dbl>,
 ## #   informante_idoneo <dbl+lbl>, tel1 <dbl+lbl>, tel2 <dbl+lbl>,
 ## #   tel3 <dbl+lbl>, tel4 <dbl+lbl>, tel5 <dbl+lbl>, tel6 <dbl+lbl>,
-## #   tel7 <dbl+lbl>, tel8 <dbl+lbl>, p0a <dbl+lbl>, p0b <dbl+lbl>, ...
+## #   tel7 <dbl+lbl>, tel8 <dbl+lbl>, p0a <dbl+lbl>, p0b <dbl+lbl>, …
 ```
 
 Podemos ver diversas variables, tanto numéricas como con números etiquetados (¡esto último es un *clásico* cuando trabajamos con datos en .dta y .sav!)
 
-## 4. Un aspecto clave antes de comenzar: los operadoresAspectos claves antes de comenzar 
+## 4. Un aspecto clave antes de comenzar: los operadores 
 
 Previo a trabajar con la base de datos, debemos repasar el concepto de **operadores**. Estos símbolos no son de uso exclusivo en R ¡probablemente los conoces desde tus cursos de matemática! Ahora bien, no todos tienen el mismo significado que en otros softwares.
 
@@ -398,12 +398,11 @@ filter(datos_proc, ytoth == max(ytoth))
 ```
 
 ```
-## # A tibble: 1 x 13
-##         folio  edad    sexo    prev ocupacion tot_per  ytoth y26d_hog y26d_total
-##         <dbl> <dbl> <dbl+l> <dbl+l> <dbl+lbl>   <dbl>  <dbl> <dbl+lb>  <dbl+lbl>
-## 1     7.31e11    41 1 [Hom~ 1 [Sis~    1 [Sí]       1 2.25e8   2 [No]         NA
-## # ... with 4 more variables: o2 <dbl+lbl>, o3 <dbl+lbl>, o4 <dbl+lbl>,
-## #   o6 <dbl+lbl>
+## # A tibble: 1 × 13
+##         folio  edad sexo    prev    ocupacion tot_per  ytoth y26d_hog y26d_total
+##         <dbl> <dbl> <dbl+l> <dbl+l> <dbl+lbl>   <dbl>  <dbl> <dbl+lb> <dbl+lbl> 
+## 1     7.31e11    41 1 [Hom… 1 [Sis… 1 [Sí]          1 2.25e8 2 [No]   NA        
+## # ℹ 4 more variables: o2 <dbl+lbl>, o3 <dbl+lbl>, o4 <dbl+lbl>, o6 <dbl+lbl>
 ```
 
 ¡Gana \$225.200.000, es Hombre y tiene 41 años! (y vive solo...)
@@ -424,8 +423,8 @@ filter(datos_proc, sexo == "Mujer")
 
 ```
 ## Error in `filter()`:
-## ! Problem while computing `..1 = sexo == "Mujer"`.
-## Caused by error in `stop_vctrs()`:
+## ℹ In argument: `sexo == "Mujer"`.
+## Caused by error in `vec_equal()`:
 ## ! Can't combine `..1` <character> and `..2` <double>.
 ```
 
@@ -544,7 +543,7 @@ Podemos visualizar la base resultante a partir de `view_df()` de `sjPlot`
 
 ```r
 sjPlot::view_df(datos_proc, 
-                encoding = "UTF-8")
+                encoding = "latin1")
 ```
 
 <table style="border-collapse:collapse; border:none;">
@@ -555,7 +554,7 @@ sjPlot::view_df(datos_proc,
 <tr>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">1</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">folio</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">IdentificaciÃ³n hogar (comuna area seg viv hogar)</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">Identificación hogar (comuna area seg viv hogar)</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;" colspan="2"><em>range: NA-NA</em></td>
 </tr>
 <tr>
@@ -574,9 +573,9 @@ sjPlot::view_df(datos_proc,
 <tr>
 <td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">4</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">ocupacion</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">o1. La semana pasada, Â¿trabajÃ³ al menos una hora?</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">o1. La semana pasada, ¿trabajó al menos una hora?</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">1<br>2</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">SÃ­<br>No</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">Sí<br>No</td>
 </tr>
 <tr>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">5</td>
@@ -593,37 +592,37 @@ sjPlot::view_df(datos_proc,
 <tr>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">7</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">ife</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">y26d_hog. Ãšltimos 12 meses, Â¿alguien recibiÃ³<br>Ingreso Familiar de Emergencia?</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">y26d_hog. Últimos 12 meses, ¿alguien recibió<br>Ingreso Familiar de Emergencia?</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">1<br>2<br>9</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">SÃ­<br>No<br>No sabe</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">Sí<br>No<br>No sabe</td>
 </tr>
 <tr>
 <td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">8</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">o2</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">o2. Aunque no trabajÃ³ la semana pasada, Â¿realizÃ³<br>alguna actividad?</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">o2. Aunque no trabajó la semana pasada, ¿realizó<br>alguna actividad?</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">1<br>2</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">SÃ­<br>No</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">Sí<br>No</td>
 </tr>
 <tr>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">9</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">o3</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">o3. Aunque no trabajÃ³, Â¿tenÃ­a algÃºn empleo del<br>cual estuvo ausente temporalmente</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">o3. Aunque no trabajó, ¿tenía algún empleo del<br>cual estuvo ausente temporalmente</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">1<br>2</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">SÃ­<br>No</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">Sí<br>No</td>
 </tr>
 <tr>
 <td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">10</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">o4</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">o4. Â¿Ha trabajado alguna vez?</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">o4. ¿Ha trabajado alguna vez?</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">1<br>2</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">SÃ­<br>No</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">Sí<br>No</td>
 </tr>
 <tr>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">11</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">o6</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">o6. Â¿BuscÃ³ trabajo remunerado o cuenta propia en<br>las Ãºltimas cuatro semanas?</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">o6. ¿Buscó trabajo remunerado o cuenta propia en<br>las últimas cuatro semanas?</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">1<br>2</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">SÃ­<br>No</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">Sí<br>No</td>
 </tr>
 
 </table>
@@ -678,10 +677,10 @@ bind_columnas <- bind_cols(proc_1, proc_2)
 
 ```
 ## New names:
-## * folio -> folio...1
-## * sexo -> sexo...2
-## * folio -> folio...5
-## * sexo -> sexo...6
+## • `folio` -> `folio...1`
+## • `sexo` -> `sexo...2`
+## • `folio` -> `folio...5`
+## • `sexo` -> `sexo...6`
 ```
 
 ```r
@@ -689,15 +688,15 @@ head(bind_columnas)
 ```
 
 ```
-## # A tibble: 6 x 9
-##      folio...1 sexo...2 ocupacion  ytoth folio...5 sexo...6  edad tot_per    ife
+## # A tibble: 6 × 9
+##      folio...1 sexo...2 ocupacion  ytoth folio...5 sexo...6  edad tot_per ife   
 ##          <dbl> <fct>    <dbl+lbl>  <dbl>     <dbl> <fct>    <dbl>   <dbl> <dbl+>
-## 1 110110010101 Mujer       2 [No] 3.91e5   1.10e11 Mujer       50       5 2 [No]
-## 2 110110010201 Hombre      1 [Sí] 9.48e5   1.10e11 Mujer       79       5 2 [No]
-## 3 110110010201 Mujer       2 [No] 9.48e5   1.10e11 Hombre      53       5 2 [No]
-## 4 110110010301 Hombre      1 [Sí] 3.00e6   1.10e11 Mujer       70       1 2 [No]
-## 5 110110010301 Hombre      2 [No] 3.00e6   1.10e11 Hombre      16       5 2 [No]
-## 6 110110010301 Mujer       2 [No] 3.00e6   1.10e11 Mujer       46       5 2 [No]
+## 1 110110010101 Mujer    2 [No]    3.91e5   1.10e11 Mujer       50       5 2 [No]
+## 2 110110010201 Hombre   1 [Sí]    9.48e5   1.10e11 Mujer       79       5 2 [No]
+## 3 110110010201 Mujer    2 [No]    9.48e5   1.10e11 Hombre      53       5 2 [No]
+## 4 110110010301 Hombre   1 [Sí]    3.00e6   1.10e11 Mujer       70       1 2 [No]
+## 5 110110010301 Hombre   2 [No]    3.00e6   1.10e11 Hombre      16       5 2 [No]
+## 6 110110010301 Mujer    2 [No]    3.00e6   1.10e11 Mujer       46       5 2 [No]
 ```
 
 Vemos que simplemente pegó  `a` y `b`. Eso implica que tenemos columnas repetidas (a saber, folio y sexo). Cuando estemos seguras/os de que hay columnas repetidas entre dos dataframes que queramos unir, emplearemos `merge()` mientras que, si estos no comparten ninguna columna, recurrimos a `bing_cols()`.
@@ -714,15 +713,15 @@ head(bind_filas)
 ```
 
 ```
-## # A tibble: 6 x 7
-##          folio sexo   ocupacion   ytoth  edad tot_per       ife
+## # A tibble: 6 × 7
+##          folio sexo   ocupacion   ytoth  edad tot_per ife      
 ##          <dbl> <fct>  <dbl+lbl>   <dbl> <dbl>   <dbl> <dbl+lbl>
-## 1 110110010101 Mujer     2 [No]  390833    NA      NA        NA
-## 2 110110010201 Hombre    1 [Sí]  947583    NA      NA        NA
-## 3 110110010201 Mujer     2 [No]  947583    NA      NA        NA
-## 4 110110010301 Hombre    1 [Sí] 3004167    NA      NA        NA
-## 5 110110010301 Hombre    2 [No] 3004167    NA      NA        NA
-## 6 110110010301 Mujer     2 [No] 3004167    NA      NA        NA
+## 1 110110010101 Mujer  2 [No]     390833    NA      NA NA       
+## 2 110110010201 Hombre 1 [Sí]     947583    NA      NA NA       
+## 3 110110010201 Mujer  2 [No]     947583    NA      NA NA       
+## 4 110110010301 Hombre 1 [Sí]    3004167    NA      NA NA       
+## 5 110110010301 Hombre 2 [No]    3004167    NA      NA NA       
+## 6 110110010301 Mujer  2 [No]    3004167    NA      NA NA
 ```
 
 `bind_rows()` nos permite pegar filas, independientemente si ambos dataframes comparten las mismas columnas. En caso de que ambos dataframes no compartan alguna columna, esta función rellenará con valores nulos (`NA`). En este caso, la unión es perfecta en tanto proc_1 y proc_2 se conformaron a partir del mismo data frame. 

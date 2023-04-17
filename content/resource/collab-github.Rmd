@@ -25,7 +25,7 @@ Este material busca ser un apoyo introductorio a la lógica de Git y GitHub, pro
   </iframe>
 </div>
 
-[Descargar pdf](/docs/slides_collab_github.pdf).
+![Descargar pdf](/docs/slides_collab_github.pdf).
 
 También puedes encontrar el video de la presentación en el [canal de YouTube del curso](https://www.youtube.com/@learnr4481).
 
