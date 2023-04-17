@@ -110,9 +110,9 @@ instructor:
   appointment_url: https://calendly.com/valentinaandrade/
 
 ayudante1: 
-  name: Dafne Jaime Vargas
-  email: dafne.jaime@ug.uchile.cl
-  appointment_url: https://calendly.com/dafne-jaime-vargas/
+  name: Charo Astorga Pinto
+  email: rosarioastorgap@gmail.com
+  appointment_url: https://calendly.com/charoastorgap/ 
 
 ayudante2: 
   name: Carolina Carrillo Devia
@@ -123,6 +123,11 @@ ayudante3:
   name: Nicolas Godoy
   email: nicolas.godoy.m@ug.uchile.cl
   appointment_url: https://calendly.com/nicolas-godoy-m/
+  
+ayudante4: 
+  name: Dafne Jaime Vargas
+  email: dafne.jaime@ug.uchile.cl
+  appointment_url: https://calendly.com/dafne-jaime-vargas/
 
 course:
   number: "2255"
