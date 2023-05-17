@@ -101,37 +101,48 @@ lessons:
   #   bottomborder: True
 
   - title: '<span class="content-title">Unidad 4. Análisis estadístico inferencial en R</span>'
-    date: "23 de Mayo - 6 de Junio"
-    date_start: "23 Mayo"
-    date_end: "6 Junio"
+    date: "16 de Mayo - 13 de Junio"
+    date_start: "16 Mayo"
+    date_end: "13 Junio"
     bg: 2
 
   - title: '4.1 Muestras complejas y precisión de inferencia estadística'
     session: "Sesión 9"
-    date: "23 Mayo"
+    date: "16 Mayo"
     content: "09-content"
     example: "09-practico"
     assignment: "03-tarea"
     bg: 2
     bottomborder: True
     
-  # - title: 'Sesión Apoyo Tarea N°3'
-  #   date: "30 Mayo"
-  #   content: "03-support"
-  #   bg: 2
-  #   bottomborder: True
-    
+  - title: 'Sesión Apoyo Tarea N°3'
+     date: "23 Mayo"
+     bg: 2
+     bottomborder: True
 
   - title: '4.2 Regresiones **lineales y logísticas**, predictores categóricos y representación gráfica'
     session: "Sesión 10"
-    date: "6 Junio"
+    date: "30 Mayo"
     content: "10-content"
     example: "10-practico"
     bg: 2
     bottomborder: True
 
+  - title: 'Sesión Apoyo Tarea N°4'
+     date: "6 Junio"
+     bg: 2
+     bottomborder: True
+     
+  - title: '(Extra) Calidad de modelos y otras técnicas de estimación'
+    session: "Sesión 11"
+    date: "13 Junio"
+    content: "11-content"
+    example: "11-practico"
+    bg: 2
+    bottomborder: True
+
   - title: '<i class="fas fa-dice-six"></i> **Entrega final**'
-    date: "27 Julio"
+    date: "27 Junio"
     assignment: "final-project"
     bg: 3
     bottomborder: True
@@ -170,7 +181,7 @@ lessons:
     bottomborder: True
 
   - title: '<i class="fas fa-dice-six"></i> **Entrega investigación final**'
-    date: "27 Julio"
+    date: "27 Junio"
     assignment: "final-project"
     bg: 3
     bottomborder: True
