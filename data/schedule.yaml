@@ -115,10 +115,10 @@ lessons:
     bg: 2
     bottomborder: True
     
-  - title: 'Sesión Apoyo Tarea N°3'
-     date: "23 Mayo"
-     bg: 2
-     bottomborder: True
+#  - title: 'Sesión Apoyo Tarea N°3'
+#     date: "23 Mayo"
+#     bg: 2
+#     bottomborder: True
 
   - title: '4.2 Regresiones **lineales y logísticas**, predictores categóricos y representación gráfica'
     session: "Sesión 10"
@@ -128,10 +128,10 @@ lessons:
     bg: 2
     bottomborder: True
 
-  - title: 'Sesión Apoyo Tarea N°4'
-     date: "6 Junio"
-     bg: 2
-     bottomborder: True
+#  - title: 'Sesión Apoyo Tarea N°4'
+#    date: "6 Junio"
+#     bg: 2
+#     bottomborder: True
      
   - title: '(Extra) Calidad de modelos y otras técnicas de estimación'
     session: "Sesión 11"
