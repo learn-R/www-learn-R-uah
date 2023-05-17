@@ -111,14 +111,12 @@ lessons:
     date: "16 Mayo"
     content: "09-content"
     example: "09-practico"
+    bg: 2
+
+  - title: 'Sesión Apoyo Tarea N°3'
+    date: "23 Mayo"
     assignment: "03-tarea"
     bg: 2
-    bottomborder: True
-    
-#  - title: 'Sesión Apoyo Tarea N°3'
-#     date: "23 Mayo"
-#     bg: 2
-#     bottomborder: True
 
   - title: '4.2 Regresiones **lineales y logísticas**, predictores categóricos y representación gráfica'
     session: "Sesión 10"
@@ -126,13 +124,12 @@ lessons:
     content: "10-content"
     example: "10-practico"
     bg: 2
-    bottomborder: True
+    
+  - title: 'Sesión Apoyo Tarea N°4'
+    date: "6 Junio"
+    assignment: "04-tarea"
+    bg: 2
 
-#  - title: 'Sesión Apoyo Tarea N°4'
-#    date: "6 Junio"
-#     bg: 2
-#     bottomborder: True
-     
   - title: '(Extra) Calidad de modelos y otras técnicas de estimación'
     session: "Sesión 11"
     date: "13 Junio"
@@ -158,25 +155,25 @@ lessons:
  
   - title: '<i class="fas fa-dice-two"></i> **Tarea 1: Procesamiento de datos**'
     date: "11 Abril"
-    assignment: "02-tarea"
+    assignment: "01-tarea"
     bg: 3
     bottomborder: True
 
   - title: '<i class="fas fa-dice-two"></i> **Tarea 2: Análisis descriptivo**'
     date: "9 Mayo"
-    assignment: "03-tarea"
+    assignment: "02-tarea"
     bg: 3
     bottomborder: True
 
   - title: '<i class="fas fa-dice-two"></i> **Tarea 3: Muestras complejas**'
     date: "23 Mayo"
-    assignment: "04-tarea"
+    assignment: "03-tarea"
     bg: 3
     bottomborder: True
 
   - title: '<i class="fas fa-dice-two"></i> **Tarea 4: Regresiones en R**'
     date: "6 Junio"
-    assignment: "05-tarea"
+    assignment: "04-tarea"
     bg: 3
     bottomborder: True
 
