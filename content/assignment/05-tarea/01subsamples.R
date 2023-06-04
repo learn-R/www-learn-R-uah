@@ -26,8 +26,8 @@ dato_resuelta <- datos %>%
 set.seed(12072018)
 
 # Magister data -----------------------------------------------------------
-uah <- unlist(googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1iAPSj6IbwuyRXTIdqimcjRFd1TteK437L2WiCIh0m24/edit?usp=sharing","asistencia") %>% 
-  select(Apellido))
+uah <- unlist(googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1odspx3HEz4xcd4wG0LYe_fyR19RHpBnHzSuWKFryy6g/edit?usp=sharing","equipos_tarea4") %>% 
+  select(Equipo))
 uah <- iconv(uah, to='ASCII//TRANSLIT')
 
 for (i in 1:length(uah)) {
