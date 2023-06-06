@@ -102,9 +102,9 @@ g.	Utiliza la ecuación estimada para calcular el cumplimiento de las medidas de
 
 ### III. Modelo logístico
 
-*Interpretación del output*: ¿Predicen la percepción de salarios, la discriminación y el sexo una actitud **favorable** hacia los sindicatos? Lleva a cabo los siguientes pasos:
+*Interpretación del output*: ¿Predicen la percepción de riesgo, el trabajar y la edad, el *cumplimiento frecuente de las medidas de cuidado*? Lleva a cabo los siguientes pasos:  
 
-a.	Construye múltiples modelos logísticos con la variable *dummy* actitud hacia los sindicatos [1 punto c/u]
+a.	Construye múltiples modelos logísticos con la variable *dummy* de cumplimiento de las medidas de cuidado [1 punto c/u]
 
   - Modelo nulo
   - Modelo 3 con edad
@@ -119,7 +119,7 @@ b.	Representa los modelos en una tabla única con coeficientes exponenciados [6 
 
 c.	Interpreta los coeficientes de regresión para el modelo con todas las variables independientes en términos de la dirección y fuerza de la asociación. Describe los efectos aún si los efectos no sean significativos. [6 puntos]
 
-d. Realiza un gráfico de valores predichos con el modelo 6 para el cumplimiento de las medidas de cuidado según edad[9 puntos]
+d. Realiza un gráfico de valores predichos con el modelo 6 para el cumplimiento de las medidas de cuidado según edad [9 puntos]
 
 e. Compare la estimación del modelo 6 con R base y modelo 6 utilizando diseño complejo de encuestas. Reporte ambos modelo y reflexione sobre la importancia del uso de ciertos paquetes y argumentos para la estimación de modelos [9 puntos]
 

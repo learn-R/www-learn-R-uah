@@ -153,7 +153,7 @@ lessons:
     bg: 3
     bottomborder: True
  
-  - title: '<i class="fas fa-dice-two"></i> **Tarea 1: Procesamiento de datos**'
+  - title: '<i class="fas fa-dice-one"></i> **Tarea 1: Procesamiento de datos**'
     date: "11 Abril"
     assignment: "01-tarea"
     bg: 3
@@ -165,19 +165,19 @@ lessons:
     bg: 3
     bottomborder: True
 
-  - title: '<i class="fas fa-dice-two"></i> **Tarea 3: Muestras complejas**'
+  - title: '<i class="fas fa-dice-three"></i> **Tarea 3: Muestras complejas**'
     date: "23 Mayo"
     assignment: "03-tarea"
     bg: 3
     bottomborder: True
 
-  - title: '<i class="fas fa-dice-two"></i> **Tarea 4: Regresiones en R**'
+  - title: '<i class="fas fa-dice-four"></i> **Tarea 4: Regresiones en R**'
     date: "6 Junio"
     assignment: "04-tarea"
     bg: 3
     bottomborder: True
 
-  - title: '<i class="fas fa-dice-six"></i> **Entrega investigación final**'
+  - title: '<i class="fas fa-dice-five"></i> **Entrega investigación final**'
     date: "27 Junio"
     assignment: "final-project"
     bg: 3
