@@ -1,6 +1,6 @@
 ---
-title: "Tarea 5. Análisis de regresión múltiple"
-linktitle: '5: Análisis de regresión múltiple'
+title: "Tarea 4. Análisis de regresión"
+linktitle: '4: Análisis de regresión'
 date: "2021-10-11"
 due_date: "2021-10-29"
 due_time: 23:59 PM
@@ -14,9 +14,9 @@ editor_options:
   chunk_output_type: console
 ---
 
-Esta tarea debe ser resuelta en GitHub Class Room. Para acceder a la <i class="fas fa-external-link-square-alt"></i>  [Tarea N°5 hacer click aquí](). Si aún tienes dudas de cómo interactuar con [GitHub Class Roomm revisa el práctico](https://learn-r-uah.netlify.app/example/01-practico/)
+Esta tarea debe ser resuelta en GitHub Class Room. Para acceder a la <i class="fas fa-external-link-square-alt"></i>  [Tarea N°4 hacer click aquí](). Si aún tienes dudas de cómo interactuar con [GitHub Class Roomm revisa el práctico](https://learn-r-uah.netlify.app/example/01-practico/)
 
-## Objetivo tarea N°5
+## Objetivo tarea N°4
 
 El objetivo de esta tarea consiste en realizar un análisis de regresión lineal y logística utilizando R. Para ello debe utilizar los datos según según sus apellidos [(eg. 'Andrade.sav') los cuales podrán encontrar en el siguiente repositorio](https://github.com/learn-R/www-learn-R-uah/tree/master/content/assignment/05-tarea/bases/originales). Estas bases contienen una muestra aleatoria de 1000 casos de la encuesta MOVID-IMPACT (2020) del módulo “Orientaciones del Trabajo”. <br><br>
 
