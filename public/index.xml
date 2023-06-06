@@ -918,7 +918,7 @@ los pasos a seguir&lt;/p&gt;
     src=&#34;https:&amp;#x2F;&amp;#x2F;www.canva.com&amp;#x2F;design&amp;#x2F;DAFeiKR_48Q&amp;#x2F;view?embed&#34; allowfullscreen=&#34;allowfullscreen&#34; allow=&#34;fullscreen&#34;&gt;
 &lt;/iframe&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;a href=&#34;/docs/slides_collab_github.pdf&#34;&gt;Descargar pdf&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;embed src=&#34;/docs/slides_collab_github.pdf&#34; /&gt;.&lt;/p&gt;
 &lt;p&gt;También puedes encontrar el video de la presentación en el &lt;a href=&#34;https://www.youtube.com/@learnr4481&#34;&gt;canal de YouTube del curso&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;otros-recursos-que-te-recomendamos-revisar&#34; class=&#34;section level1&#34;&gt;
@@ -11148,23 +11148,23 @@ Este punto será esencial para lo que más adelante veremos como condición de s
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;En el panel &lt;strong&gt;Environment&lt;/strong&gt;, visualizamos los nuevos objetos, que poseen 185.437 observaciones (o filas) y 650 variables (columnas).&lt;/p&gt;
 &lt;h2 id=&#34;3-explorar-datos&#34;&gt;3. Explorar datos&lt;/h2&gt;
 &lt;p&gt;A continuación, utilizaremos la función &lt;code&gt;head()&lt;/code&gt; del paquete &lt;code&gt;base&lt;/code&gt;, para revisar las primeras cinco filas del set de datos.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 5 x 650
-##          folio     o id_persona id_vivienda  region provincia     comuna    zona
-##          &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;dbl+l&amp;gt; &amp;lt;dbl+lbl&amp;gt;  &amp;lt;dbl+lbl&amp;gt; &amp;lt;dbl+l&amp;gt;
-## 1 110110010101     1          5  1101100101 1 [Reg~ 11 [Iqui~ 1101 [Iqu~ 1 [Urb~
-## 2 110110010101     2          6  1101100101 1 [Reg~ 11 [Iqui~ 1101 [Iqu~ 1 [Urb~
-## 3 110110010201     2         31  1101100102 1 [Reg~ 11 [Iqui~ 1101 [Iqu~ 1 [Urb~
-## 4 110110010201     1         32  1101100102 1 [Reg~ 11 [Iqui~ 1101 [Iqu~ 1 [Urb~
-## 5 110110010201     3         30  1101100102 1 [Reg~ 11 [Iqui~ 1101 [Iqu~ 1 [Urb~
-## # ... with 642 more variables: area &amp;lt;dbl+lbl&amp;gt;, segmento &amp;lt;dbl&amp;gt;, estrato &amp;lt;dbl&amp;gt;,
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 5 × 650
+##          folio     o id_persona id_vivienda region  provincia comuna     zona   
+##          &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;dbl+l&amp;gt; &amp;lt;dbl+lbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;  &amp;lt;dbl+l&amp;gt;
+## 1 110110010101     1          5  1101100101 1 [Reg… 11 [Iqui… 1101 [Iqu… 1 [Urb…
+## 2 110110010101     2          6  1101100101 1 [Reg… 11 [Iqui… 1101 [Iqu… 1 [Urb…
+## 3 110110010201     2         31  1101100102 1 [Reg… 11 [Iqui… 1101 [Iqu… 1 [Urb…
+## 4 110110010201     1         32  1101100102 1 [Reg… 11 [Iqui… 1101 [Iqu… 1 [Urb…
+## 5 110110010201     3         30  1101100102 1 [Reg… 11 [Iqui… 1101 [Iqu… 1 [Urb…
+## # ℹ 642 more variables: area &amp;lt;dbl+lbl&amp;gt;, segmento &amp;lt;dbl&amp;gt;, estrato &amp;lt;dbl&amp;gt;,
 ## #   cod_upm &amp;lt;dbl&amp;gt;, hogar &amp;lt;dbl&amp;gt;, p6_p_con &amp;lt;dbl+lbl&amp;gt;, expr &amp;lt;dbl&amp;gt;, expp &amp;lt;dbl&amp;gt;,
 ## #   expc &amp;lt;dbl&amp;gt;, varstrat &amp;lt;dbl&amp;gt;, varunit &amp;lt;dbl&amp;gt;, fecha_entrev &amp;lt;date&amp;gt;,
 ## #   metodologia_entrev &amp;lt;dbl+lbl&amp;gt;, tot_hog &amp;lt;dbl&amp;gt;, numviv &amp;lt;dbl&amp;gt;,
 ## #   informante_idoneo &amp;lt;dbl+lbl&amp;gt;, tel1 &amp;lt;dbl+lbl&amp;gt;, tel2 &amp;lt;dbl+lbl&amp;gt;,
 ## #   tel3 &amp;lt;dbl+lbl&amp;gt;, tel4 &amp;lt;dbl+lbl&amp;gt;, tel5 &amp;lt;dbl+lbl&amp;gt;, tel6 &amp;lt;dbl+lbl&amp;gt;,
-## #   tel7 &amp;lt;dbl+lbl&amp;gt;, tel8 &amp;lt;dbl+lbl&amp;gt;, p0a &amp;lt;dbl+lbl&amp;gt;, p0b &amp;lt;dbl+lbl&amp;gt;, ...
+## #   tel7 &amp;lt;dbl+lbl&amp;gt;, tel8 &amp;lt;dbl+lbl&amp;gt;, p0a &amp;lt;dbl+lbl&amp;gt;, p0b &amp;lt;dbl+lbl&amp;gt;, …
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Podemos ver diversas variables, tanto numéricas como con números etiquetados (¡esto último es un &lt;em&gt;clásico&lt;/em&gt; cuando trabajamos con datos en .dta y .sav!)&lt;/p&gt;
-&lt;h2 id=&#34;4-un-aspecto-clave-antes-de-comenzar-los-operadoresaspectos-claves-antes-de-comenzar&#34;&gt;4. Un aspecto clave antes de comenzar: los operadoresAspectos claves antes de comenzar&lt;/h2&gt;
+&lt;h2 id=&#34;4-un-aspecto-clave-antes-de-comenzar-los-operadores&#34;&gt;4. Un aspecto clave antes de comenzar: los operadores&lt;/h2&gt;
 &lt;p&gt;Previo a trabajar con la base de datos, debemos repasar el concepto de &lt;strong&gt;operadores&lt;/strong&gt;. Estos símbolos no son de uso exclusivo en R ¡probablemente los conoces desde tus cursos de matemática! Ahora bien, no todos tienen el mismo significado que en otros softwares.&lt;/p&gt;
 &lt;p&gt;Los &lt;strong&gt;operadores&lt;/strong&gt; serán símbolos que permitirán, en los distintos procedimientos de procesamiento, simplificar procesos. Por ejemplo, serán útilizados cuando filtremos nuestros datos para personas de ciertas categorías, cuando calculemos variables nuevas (de manera aritmética o condicional) o, simplemente, cuando queramos hacer procesos &amp;ldquo;concatenados&amp;rdquo;.&lt;/p&gt;
 &lt;h4 id=&#34;operadores-relacionales&#34;&gt;Operadores relacionales&lt;/h4&gt;
@@ -11396,12 +11396,11 @@ variable1 &amp;gt;= 3
 &lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(datos_proc, edad &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt; tot_per &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;¿Y si quiero filtrar para saber el valor máximo de ingresos (&lt;code&gt;ytoth&lt;/code&gt;)?&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(datos_proc, ytoth &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;max&lt;/span&gt;(ytoth))
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 1 x 13
-##         folio  edad    sexo    prev ocupacion tot_per  ytoth y26d_hog y26d_total
-##         &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl+l&amp;gt; &amp;lt;dbl+l&amp;gt; &amp;lt;dbl+lbl&amp;gt;   &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl+lb&amp;gt;  &amp;lt;dbl+lbl&amp;gt;
-## 1     7.31e11    41 1 [Hom~ 1 [Sis~    1 [Sí]       1 2.25e8   2 [No]         NA
-## # ... with 4 more variables: o2 &amp;lt;dbl+lbl&amp;gt;, o3 &amp;lt;dbl+lbl&amp;gt;, o4 &amp;lt;dbl+lbl&amp;gt;,
-## #   o6 &amp;lt;dbl+lbl&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 1 × 13
+##         folio  edad sexo    prev    ocupacion tot_per  ytoth y26d_hog y26d_total
+##         &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl+l&amp;gt; &amp;lt;dbl+l&amp;gt; &amp;lt;dbl+lbl&amp;gt;   &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl+lb&amp;gt; &amp;lt;dbl+lbl&amp;gt; 
+## 1     7.31e11    41 1 [Hom… 1 [Sis… 1 [Sí]          1 2.25e8 2 [No]   NA        
+## # ℹ 4 more variables: o2 &amp;lt;dbl+lbl&amp;gt;, o3 &amp;lt;dbl+lbl&amp;gt;, o4 &amp;lt;dbl+lbl&amp;gt;, o6 &amp;lt;dbl+lbl&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;¡Gana $225.200.000, es Hombre y tiene 41 años! (y vive solo&amp;hellip;)&lt;/p&gt;
 &lt;h4 id=&#34;filter-con-caracteres&#34;&gt;&lt;code&gt;filter()&lt;/code&gt; con caracteres&lt;/h4&gt;
 &lt;p&gt;Si queremos filtrar por la variable &lt;code&gt;sexo&lt;/code&gt; solo a las mujeres, tengo dos opciones: o solo selecciono a las mujeres (&lt;code&gt;==&lt;/code&gt;) o excluyo a los hombres (&lt;code&gt;!=&lt;/code&gt;).&lt;/p&gt;
@@ -11409,8 +11408,8 @@ variable1 &amp;gt;= 3
 &lt;p&gt;Por ello, con el siguiente código aparecerá un error.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(datos_proc, sexo &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Mujer&amp;#34;&lt;/span&gt;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## Error in `filter()`:
-## ! Problem while computing `..1 = sexo == &amp;#34;Mujer&amp;#34;`.
-## Caused by error in `stop_vctrs()`:
+## ℹ In argument: `sexo == &amp;#34;Mujer&amp;#34;`.
+## Caused by error in `vec_equal()`:
 ## ! Can&amp;#39;t combine `..1` &amp;lt;character&amp;gt; and `..2` &amp;lt;double&amp;gt;.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Una función &lt;strong&gt;muy muy útil&lt;/strong&gt; (sobre todo cuando trabajemos con regresiones) es &lt;code&gt;as_factor()&lt;/code&gt; que permite conservar los niveles pero definiendo sus categorías de respuesta en base a la etiqueta que traen (el &lt;code&gt;lbl&lt;/code&gt;)&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;sexo &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;as_factor&lt;/span&gt;(datos_proc&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;sexo)
@@ -11454,7 +11453,7 @@ variable1 &amp;gt;= 3
                &lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(folio, sexo, edad, ocupacion, ytoth, tot_per, ife &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; y26d_hog, o2, o3, o4, o6)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Podemos visualizar la base resultante a partir de &lt;code&gt;view_df()&lt;/code&gt; de &lt;code&gt;sjPlot&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;sjPlot&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;view_df&lt;/span&gt;(datos_proc, 
-                encoding &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;UTF-8&amp;#34;&lt;/span&gt;)
+                encoding &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;latin1&amp;#34;&lt;/span&gt;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table style=&#34;border-collapse:collapse; border:none;&#34;&gt;
 &lt;caption&gt;Data frame: datos_proc&lt;/caption&gt;
 &lt;tr&gt;
@@ -11463,7 +11462,7 @@ variable1 &amp;gt;= 3
 &lt;tr&gt;
 &lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;1&lt;/td&gt;
 &lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;folio&lt;/td&gt;
-&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;IdentificaciÃ³n hogar (comuna area seg viv hogar)&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;Identificación hogar (comuna area seg viv hogar)&lt;/td&gt;
 &lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34; colspan=&#34;2&#34;&gt;&lt;em&gt;range: NA-NA&lt;/em&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -11482,9 +11481,9 @@ variable1 &amp;gt;= 3
 &lt;tr&gt;
 &lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;4&lt;/td&gt;
 &lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;ocupacion&lt;/td&gt;
-&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;o1. La semana pasada, Â¿trabajÃ³ al menos una hora?&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;o1. La semana pasada, ¿trabajó al menos una hora?&lt;/td&gt;
 &lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;1&lt;br&gt;2&lt;/td&gt;
-&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;SÃ­&lt;br&gt;No&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;Sí&lt;br&gt;No&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;5&lt;/td&gt;
@@ -11501,37 +11500,37 @@ variable1 &amp;gt;= 3
 &lt;tr&gt;
 &lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;7&lt;/td&gt;
 &lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;ife&lt;/td&gt;
-&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;y26d_hog. Ãšltimos 12 meses, Â¿alguien recibiÃ³&lt;br&gt;Ingreso Familiar de Emergencia?&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;y26d_hog. Últimos 12 meses, ¿alguien recibió&lt;br&gt;Ingreso Familiar de Emergencia?&lt;/td&gt;
 &lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;1&lt;br&gt;2&lt;br&gt;9&lt;/td&gt;
-&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;SÃ­&lt;br&gt;No&lt;br&gt;No sabe&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;Sí&lt;br&gt;No&lt;br&gt;No sabe&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;8&lt;/td&gt;
 &lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;o2&lt;/td&gt;
-&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;o2. Aunque no trabajÃ³ la semana pasada, Â¿realizÃ³&lt;br&gt;alguna actividad?&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;o2. Aunque no trabajó la semana pasada, ¿realizó&lt;br&gt;alguna actividad?&lt;/td&gt;
 &lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;1&lt;br&gt;2&lt;/td&gt;
-&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;SÃ­&lt;br&gt;No&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;Sí&lt;br&gt;No&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;9&lt;/td&gt;
 &lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;o3&lt;/td&gt;
-&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;o3. Aunque no trabajÃ³, Â¿tenÃ­a algÃºn empleo del&lt;br&gt;cual estuvo ausente temporalmente&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;o3. Aunque no trabajó, ¿tenía algún empleo del&lt;br&gt;cual estuvo ausente temporalmente&lt;/td&gt;
 &lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;1&lt;br&gt;2&lt;/td&gt;
-&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;SÃ­&lt;br&gt;No&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;Sí&lt;br&gt;No&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;10&lt;/td&gt;
 &lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;o4&lt;/td&gt;
-&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;o4. Â¿Ha trabajado alguna vez?&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;o4. ¿Ha trabajado alguna vez?&lt;/td&gt;
 &lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;1&lt;br&gt;2&lt;/td&gt;
-&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;SÃ­&lt;br&gt;No&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;Sí&lt;br&gt;No&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;11&lt;/td&gt;
 &lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;o6&lt;/td&gt;
-&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;o6. Â¿BuscÃ³ trabajo remunerado o cuenta propia en&lt;br&gt;las Ãºltimas cuatro semanas?&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;o6. ¿Buscó trabajo remunerado o cuenta propia en&lt;br&gt;las últimas cuatro semanas?&lt;/td&gt;
 &lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;1&lt;br&gt;2&lt;/td&gt;
-&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;SÃ­&lt;br&gt;No&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;Sí&lt;br&gt;No&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;9-unir-datos&#34;&gt;9. Unir datos&lt;/h2&gt;
@@ -11560,35 +11559,35 @@ proc_2 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; proc_2[9
 &lt;p&gt;Otra cosa que podemos hacer es, simplemente, pegar una columna de un dataframe a otro. Para ello recurrimos a la función &lt;code&gt;bind_cols()&lt;/code&gt; de &lt;code&gt;dplyr&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;bind_columnas &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;bind_cols&lt;/span&gt;(proc_1, proc_2)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## New names:
-## * folio -&amp;gt; folio...1
-## * sexo -&amp;gt; sexo...2
-## * folio -&amp;gt; folio...5
-## * sexo -&amp;gt; sexo...6
+## • `folio` -&amp;gt; `folio...1`
+## • `sexo` -&amp;gt; `sexo...2`
+## • `folio` -&amp;gt; `folio...5`
+## • `sexo` -&amp;gt; `sexo...6`
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;head&lt;/span&gt;(bind_columnas)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 6 x 9
-##      folio...1 sexo...2 ocupacion  ytoth folio...5 sexo...6  edad tot_per    ife
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 6 × 9
+##      folio...1 sexo...2 ocupacion  ytoth folio...5 sexo...6  edad tot_per ife   
 ##          &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;    &amp;lt;dbl+lbl&amp;gt;  &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;    &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;dbl+&amp;gt;
-## 1 110110010101 Mujer       2 [No] 3.91e5   1.10e11 Mujer       50       5 2 [No]
-## 2 110110010201 Hombre      1 [Sí] 9.48e5   1.10e11 Mujer       79       5 2 [No]
-## 3 110110010201 Mujer       2 [No] 9.48e5   1.10e11 Hombre      53       5 2 [No]
-## 4 110110010301 Hombre      1 [Sí] 3.00e6   1.10e11 Mujer       70       1 2 [No]
-## 5 110110010301 Hombre      2 [No] 3.00e6   1.10e11 Hombre      16       5 2 [No]
-## 6 110110010301 Mujer       2 [No] 3.00e6   1.10e11 Mujer       46       5 2 [No]
+## 1 110110010101 Mujer    2 [No]    3.91e5   1.10e11 Mujer       50       5 2 [No]
+## 2 110110010201 Hombre   1 [Sí]    9.48e5   1.10e11 Mujer       79       5 2 [No]
+## 3 110110010201 Mujer    2 [No]    9.48e5   1.10e11 Hombre      53       5 2 [No]
+## 4 110110010301 Hombre   1 [Sí]    3.00e6   1.10e11 Mujer       70       1 2 [No]
+## 5 110110010301 Hombre   2 [No]    3.00e6   1.10e11 Hombre      16       5 2 [No]
+## 6 110110010301 Mujer    2 [No]    3.00e6   1.10e11 Mujer       46       5 2 [No]
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Vemos que simplemente pegó  &lt;code&gt;a&lt;/code&gt; y &lt;code&gt;b&lt;/code&gt;. Eso implica que tenemos columnas repetidas (a saber, folio y sexo). Cuando estemos seguras/os de que hay columnas repetidas entre dos dataframes que queramos unir, emplearemos &lt;code&gt;merge()&lt;/code&gt; mientras que, si estos no comparten ninguna columna, recurrimos a &lt;code&gt;bing_cols()&lt;/code&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;c-bind_rows&#34;&gt;c) &lt;code&gt;bind_rows()&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;También podemos unir dos dataframes a partir de sus filas, con la función &lt;code&gt;bind_rows()&lt;/code&gt; de &lt;code&gt;dplyr&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;bind_filas &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;bind_rows&lt;/span&gt;(proc_1, proc_2)
 
 &lt;span style=&#34;color:#a6e22e&#34;&gt;head&lt;/span&gt;(bind_filas)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 6 x 7
-##          folio sexo   ocupacion   ytoth  edad tot_per       ife
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 6 × 7
+##          folio sexo   ocupacion   ytoth  edad tot_per ife      
 ##          &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;  &amp;lt;dbl+lbl&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;
-## 1 110110010101 Mujer     2 [No]  390833    NA      NA        NA
-## 2 110110010201 Hombre    1 [Sí]  947583    NA      NA        NA
-## 3 110110010201 Mujer     2 [No]  947583    NA      NA        NA
-## 4 110110010301 Hombre    1 [Sí] 3004167    NA      NA        NA
-## 5 110110010301 Hombre    2 [No] 3004167    NA      NA        NA
-## 6 110110010301 Mujer     2 [No] 3004167    NA      NA        NA
+## 1 110110010101 Mujer  2 [No]     390833    NA      NA NA       
+## 2 110110010201 Hombre 1 [Sí]     947583    NA      NA NA       
+## 3 110110010201 Mujer  2 [No]     947583    NA      NA NA       
+## 4 110110010301 Hombre 1 [Sí]    3004167    NA      NA NA       
+## 5 110110010301 Hombre 2 [No]    3004167    NA      NA NA       
+## 6 110110010301 Mujer  2 [No]    3004167    NA      NA NA
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;bind_rows()&lt;/code&gt; nos permite pegar filas, independientemente si ambos dataframes comparten las mismas columnas. En caso de que ambos dataframes no compartan alguna columna, esta función rellenará con valores nulos (&lt;code&gt;NA&lt;/code&gt;). En este caso, la unión es perfecta en tanto proc_1 y proc_2 se conformaron a partir del mismo data frame.&lt;/p&gt;
 &lt;h2 id=&#34;10-guardar-base-procesada&#34;&gt;10. Guardar base procesada&lt;/h2&gt;
 &lt;p&gt;Para guardar la base de datos procesada, debes dirigir la ruta desde tu RProject. En este caso, guardaremos datos_proc&lt;/p&gt;
@@ -11969,7 +11968,7 @@ proc_2 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; proc_2[9
         &lt;tr
             class=&#34; schedule-bg-2&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
-                &lt;strong&gt;23 de Mayo - 6 de Junio&lt;/strong&gt;&lt;/td&gt;
+                &lt;strong&gt;16 de Mayo - 13 de Junio&lt;/strong&gt;&lt;/td&gt;
             &lt;td style=&#34;width:56%;text-align:left&#34;&gt;&lt;span class=&#34;content-title&#34;&gt;Unidad 4. Análisis estadístico inferencial en R&lt;/span&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
@@ -11989,9 +11988,9 @@ proc_2 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; proc_2[9
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; section-bottom schedule-bg-2&#34;&gt;
+            class=&#34; schedule-bg-2&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
-                &lt;strong&gt;23 Mayo&lt;/strong&gt;&lt;br&gt;
+                &lt;strong&gt;16 Mayo&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Sesión 9)&lt;/small&gt;&lt;/td&gt;
             &lt;td style=&#34;width:56%;text-align:left&#34;&gt;4.1 Muestras complejas y precisión de inferencia estadística&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
@@ -12000,6 +11999,28 @@ proc_2 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; proc_2[9
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/example/09-practico/&#34;&gt;
                     &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-tools fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr
+            class=&#34; schedule-bg-2&#34;&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
+                &lt;strong&gt;23 Mayo&lt;/strong&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:56%;text-align:left&#34;&gt;Sesión Apoyo Tarea N°3&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/assignment/03-tarea/&#34;&gt;
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
@@ -12009,9 +12030,9 @@ proc_2 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; proc_2[9
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; section-bottom schedule-bg-2&#34;&gt;
+            class=&#34; schedule-bg-2&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
-                &lt;strong&gt;6 Junio&lt;/strong&gt;&lt;br&gt;
+                &lt;strong&gt;30 Mayo&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Sesión 10)&lt;/small&gt;&lt;/td&gt;
             &lt;td style=&#34;width:56%;text-align:left&#34;&gt;4.2 Regresiones &lt;strong&gt;lineales y logísticas&lt;/strong&gt;, predictores categóricos y representación gráfica&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
@@ -12030,9 +12051,51 @@ proc_2 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; proc_2[9
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
+            class=&#34; schedule-bg-2&#34;&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
+                &lt;strong&gt;6 Junio&lt;/strong&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:56%;text-align:left&#34;&gt;Sesión Apoyo Tarea N°4&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
+                    href=&#34;/assignment/04-tarea/&#34;&gt;
+                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-tools fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr
+            class=&#34; section-bottom schedule-bg-2&#34;&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
+                &lt;strong&gt;13 Junio&lt;/strong&gt;&lt;br&gt;
+                &lt;small&gt;(Sesión 11)&lt;/small&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:56%;text-align:left&#34;&gt;(Extra) Calidad de modelos y otras técnicas de estimación&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
+                    href=&#34;/content/11-content/&#34;&gt;
+                    &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
+                    href=&#34;/example/11-practico/&#34;&gt;
+                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-tools fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr
             class=&#34; section-bottom schedule-bg-3&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
-                &lt;strong&gt;27 Julio&lt;/strong&gt;&lt;/td&gt;
+                &lt;strong&gt;27 Junio&lt;/strong&gt;&lt;/td&gt;
             &lt;td style=&#34;width:56%;text-align:left&#34;&gt;&lt;i class=&#34;fas fa-dice-six&#34;&gt;&lt;/i&gt; &lt;strong&gt;Entrega final&lt;/strong&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
@@ -12086,7 +12149,7 @@ proc_2 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; proc_2[9
             class=&#34; section-bottom schedule-bg-3&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;11 Abril&lt;/strong&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:56%;text-align:left&#34;&gt;&lt;i class=&#34;fas fa-dice-two&#34;&gt;&lt;/i&gt; &lt;strong&gt;Tarea 1: Procesamiento de datos&lt;/strong&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:56%;text-align:left&#34;&gt;&lt;i class=&#34;fas fa-dice-one&#34;&gt;&lt;/i&gt; &lt;strong&gt;Tarea 1: Procesamiento de datos&lt;/strong&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
@@ -12096,7 +12159,7 @@ proc_2 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; proc_2[9
                     &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
             &lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;/assignment/02-tarea/&#34;&gt;
+                    href=&#34;/assignment/01-tarea/&#34;&gt;
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
@@ -12117,7 +12180,7 @@ proc_2 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; proc_2[9
                     &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
             &lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;/assignment/03-tarea/&#34;&gt;
+                    href=&#34;/assignment/02-tarea/&#34;&gt;
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
@@ -12128,7 +12191,28 @@ proc_2 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; proc_2[9
             class=&#34; section-bottom schedule-bg-3&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;23 Mayo&lt;/strong&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:56%;text-align:left&#34;&gt;&lt;i class=&#34;fas fa-dice-two&#34;&gt;&lt;/i&gt; &lt;strong&gt;Tarea 3: Muestras complejas&lt;/strong&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:56%;text-align:left&#34;&gt;&lt;i class=&#34;fas fa-dice-three&#34;&gt;&lt;/i&gt; &lt;strong&gt;Tarea 3: Muestras complejas&lt;/strong&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
+                    href=&#34;/assignment/03-tarea/&#34;&gt;
+                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-tools fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr
+            class=&#34; section-bottom schedule-bg-3&#34;&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
+                &lt;strong&gt;6 Junio&lt;/strong&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:56%;text-align:left&#34;&gt;&lt;i class=&#34;fas fa-dice-four&#34;&gt;&lt;/i&gt; &lt;strong&gt;Tarea 4: Regresiones en R&lt;/strong&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
@@ -12148,29 +12232,8 @@ proc_2 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; proc_2[9
         &lt;tr
             class=&#34; section-bottom schedule-bg-3&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
-                &lt;strong&gt;6 Junio&lt;/strong&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:56%;text-align:left&#34;&gt;&lt;i class=&#34;fas fa-dice-two&#34;&gt;&lt;/i&gt; &lt;strong&gt;Tarea 4: Regresiones en R&lt;/strong&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;/assignment/05-tarea/&#34;&gt;
-                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-tools fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr
-            class=&#34; section-bottom schedule-bg-3&#34;&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
-                &lt;strong&gt;27 Julio&lt;/strong&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:56%;text-align:left&#34;&gt;&lt;i class=&#34;fas fa-dice-six&#34;&gt;&lt;/i&gt; &lt;strong&gt;Entrega investigación final&lt;/strong&gt;&lt;/td&gt;
+                &lt;strong&gt;27 Junio&lt;/strong&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:56%;text-align:left&#34;&gt;&lt;i class=&#34;fas fa-dice-five&#34;&gt;&lt;/i&gt; &lt;strong&gt;Entrega investigación final&lt;/strong&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
@@ -12254,9 +12317,9 @@ Puedes descargar el programa apretando el siguiente botón:
     &lt;div class=&#34;col-md-4&#34;&gt;
         &lt;h3&gt;Ayudantes&lt;/h3&gt;
         &lt;ul class=&#34;icon-list&#34;&gt;
-            &lt;li&gt;&lt;i class=&#34;fas fa-user&#34;&gt;&lt;/i&gt; &lt;a href=&#34;&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; Dafne Jaime Vargas&lt;/a&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;i class=&#34;fas fa-envelope&#34;&gt;&lt;/i&gt; &lt;a href=&#34;mailto:dafne.jaime@ug.uchile.cl&#34;&gt; dafne.jaime@ug.uchile.cl&lt;/a&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;i class=&#34;fas fa-calendar-check&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://calendly.com/dafne-jaime-vargas/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; Agendar reunión&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;i class=&#34;fas fa-user&#34;&gt;&lt;/i&gt; &lt;a href=&#34;&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; Charo Astorga Pinto&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;i class=&#34;fas fa-envelope&#34;&gt;&lt;/i&gt; &lt;a href=&#34;mailto:rosarioastorgap@gmail.com&#34;&gt; rosarioastorgap@gmail.com&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;i class=&#34;fas fa-calendar-check&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://calendly.com/charoastorgap/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; Agendar reunión&lt;/a&gt;&lt;/li&gt;
             &lt;li&gt;&lt;i class=&#34;fas fa-user&#34;&gt;&lt;/i&gt; &lt;a href=&#34;&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; Carolina Carrillo Devia&lt;/a&gt;&lt;/li&gt;
             &lt;li&gt;&lt;i class=&#34;fas fa-envelope&#34;&gt;&lt;/i&gt; &lt;a href=&#34;mailto:carolina.carrillo@ug.uchile.cl&#34;&gt; carolina.carrillo@ug.uchile.cl&lt;/a&gt;&lt;/li&gt;
             &lt;li&gt;&lt;i class=&#34;fas fa-calendar-check&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://calendly.com/carolina-carrillo/reu-ayudantia&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; Agendar reunión&lt;/a&gt;&lt;/li&gt;

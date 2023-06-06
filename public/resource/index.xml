@@ -918,7 +918,7 @@ los pasos a seguir&lt;/p&gt;
     src=&#34;https:&amp;#x2F;&amp;#x2F;www.canva.com&amp;#x2F;design&amp;#x2F;DAFeiKR_48Q&amp;#x2F;view?embed&#34; allowfullscreen=&#34;allowfullscreen&#34; allow=&#34;fullscreen&#34;&gt;
 &lt;/iframe&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;a href=&#34;/docs/slides_collab_github.pdf&#34;&gt;Descargar pdf&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;embed src=&#34;/docs/slides_collab_github.pdf&#34; /&gt;.&lt;/p&gt;
 &lt;p&gt;También puedes encontrar el video de la presentación en el &lt;a href=&#34;https://www.youtube.com/@learnr4481&#34;&gt;canal de YouTube del curso&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;otros-recursos-que-te-recomendamos-revisar&#34; class=&#34;section level1&#34;&gt;

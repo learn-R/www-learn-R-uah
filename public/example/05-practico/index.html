@@ -746,7 +746,7 @@
     <li><a href="#1-cargar-librerías">1. Cargar librerías</a></li>
     <li><a href="#2-importar-bases-de-datos">2. Importar bases de datos</a></li>
     <li><a href="#3-explorar-datos">3. Explorar datos</a></li>
-    <li><a href="#4-un-aspecto-clave-antes-de-comenzar-los-operadoresaspectos-claves-antes-de-comenzar">4. Un aspecto clave antes de comenzar: los operadoresAspectos claves antes de comenzar</a>
+    <li><a href="#4-un-aspecto-clave-antes-de-comenzar-los-operadores">4. Un aspecto clave antes de comenzar: los operadores</a>
       <ul>
         <li>
           <ul>
@@ -853,23 +853,23 @@
 </code></pre></div><p>En el panel <strong>Environment</strong>, visualizamos los nuevos objetos, que poseen 185.437 observaciones (o filas) y 650 variables (columnas).</p>
 <h2 id="3-explorar-datos">3. Explorar datos</h2>
 <p>A continuación, utilizaremos la función <code>head()</code> del paquete <code>base</code>, para revisar las primeras cinco filas del set de datos.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 5 x 650
-##          folio     o id_persona id_vivienda  region provincia     comuna    zona
-##          &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl+l&gt; &lt;dbl+lbl&gt;  &lt;dbl+lbl&gt; &lt;dbl+l&gt;
-## 1 110110010101     1          5  1101100101 1 [Reg~ 11 [Iqui~ 1101 [Iqu~ 1 [Urb~
-## 2 110110010101     2          6  1101100101 1 [Reg~ 11 [Iqui~ 1101 [Iqu~ 1 [Urb~
-## 3 110110010201     2         31  1101100102 1 [Reg~ 11 [Iqui~ 1101 [Iqu~ 1 [Urb~
-## 4 110110010201     1         32  1101100102 1 [Reg~ 11 [Iqui~ 1101 [Iqu~ 1 [Urb~
-## 5 110110010201     3         30  1101100102 1 [Reg~ 11 [Iqui~ 1101 [Iqu~ 1 [Urb~
-## # ... with 642 more variables: area &lt;dbl+lbl&gt;, segmento &lt;dbl&gt;, estrato &lt;dbl&gt;,
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 5 × 650
+##          folio     o id_persona id_vivienda region  provincia comuna     zona   
+##          &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl+l&gt; &lt;dbl+lbl&gt; &lt;dbl+lbl&gt;  &lt;dbl+l&gt;
+## 1 110110010101     1          5  1101100101 1 [Reg… 11 [Iqui… 1101 [Iqu… 1 [Urb…
+## 2 110110010101     2          6  1101100101 1 [Reg… 11 [Iqui… 1101 [Iqu… 1 [Urb…
+## 3 110110010201     2         31  1101100102 1 [Reg… 11 [Iqui… 1101 [Iqu… 1 [Urb…
+## 4 110110010201     1         32  1101100102 1 [Reg… 11 [Iqui… 1101 [Iqu… 1 [Urb…
+## 5 110110010201     3         30  1101100102 1 [Reg… 11 [Iqui… 1101 [Iqu… 1 [Urb…
+## # ℹ 642 more variables: area &lt;dbl+lbl&gt;, segmento &lt;dbl&gt;, estrato &lt;dbl&gt;,
 ## #   cod_upm &lt;dbl&gt;, hogar &lt;dbl&gt;, p6_p_con &lt;dbl+lbl&gt;, expr &lt;dbl&gt;, expp &lt;dbl&gt;,
 ## #   expc &lt;dbl&gt;, varstrat &lt;dbl&gt;, varunit &lt;dbl&gt;, fecha_entrev &lt;date&gt;,
 ## #   metodologia_entrev &lt;dbl+lbl&gt;, tot_hog &lt;dbl&gt;, numviv &lt;dbl&gt;,
 ## #   informante_idoneo &lt;dbl+lbl&gt;, tel1 &lt;dbl+lbl&gt;, tel2 &lt;dbl+lbl&gt;,
 ## #   tel3 &lt;dbl+lbl&gt;, tel4 &lt;dbl+lbl&gt;, tel5 &lt;dbl+lbl&gt;, tel6 &lt;dbl+lbl&gt;,
-## #   tel7 &lt;dbl+lbl&gt;, tel8 &lt;dbl+lbl&gt;, p0a &lt;dbl+lbl&gt;, p0b &lt;dbl+lbl&gt;, ...
+## #   tel7 &lt;dbl+lbl&gt;, tel8 &lt;dbl+lbl&gt;, p0a &lt;dbl+lbl&gt;, p0b &lt;dbl+lbl&gt;, …
 </code></pre></div><p>Podemos ver diversas variables, tanto numéricas como con números etiquetados (¡esto último es un <em>clásico</em> cuando trabajamos con datos en .dta y .sav!)</p>
-<h2 id="4-un-aspecto-clave-antes-de-comenzar-los-operadoresaspectos-claves-antes-de-comenzar">4. Un aspecto clave antes de comenzar: los operadoresAspectos claves antes de comenzar</h2>
+<h2 id="4-un-aspecto-clave-antes-de-comenzar-los-operadores">4. Un aspecto clave antes de comenzar: los operadores</h2>
 <p>Previo a trabajar con la base de datos, debemos repasar el concepto de <strong>operadores</strong>. Estos símbolos no son de uso exclusivo en R ¡probablemente los conoces desde tus cursos de matemática! Ahora bien, no todos tienen el mismo significado que en otros softwares.</p>
 <p>Los <strong>operadores</strong> serán símbolos que permitirán, en los distintos procedimientos de procesamiento, simplificar procesos. Por ejemplo, serán útilizados cuando filtremos nuestros datos para personas de ciertas categorías, cuando calculemos variables nuevas (de manera aritmética o condicional) o, simplemente, cuando queramos hacer procesos &ldquo;concatenados&rdquo;.</p>
 <h4 id="operadores-relacionales">Operadores relacionales</h4>
@@ -1101,12 +1101,11 @@ variable1 &gt;= 3
 <span style="color:#a6e22e">filter</span>(datos_proc, edad <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">15</span> <span style="color:#f92672">&amp;</span> tot_per <span style="color:#f92672">&lt;</span><span style="color:#ae81ff">7</span>)
 </code></pre></div><p>¿Y si quiero filtrar para saber el valor máximo de ingresos (<code>ytoth</code>)?</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">filter</span>(datos_proc, ytoth <span style="color:#f92672">==</span> <span style="color:#a6e22e">max</span>(ytoth))
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 1 x 13
-##         folio  edad    sexo    prev ocupacion tot_per  ytoth y26d_hog y26d_total
-##         &lt;dbl&gt; &lt;dbl&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+lbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;
-## 1     7.31e11    41 1 [Hom~ 1 [Sis~    1 [Sí]       1 2.25e8   2 [No]         NA
-## # ... with 4 more variables: o2 &lt;dbl+lbl&gt;, o3 &lt;dbl+lbl&gt;, o4 &lt;dbl+lbl&gt;,
-## #   o6 &lt;dbl+lbl&gt;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 1 × 13
+##         folio  edad sexo    prev    ocupacion tot_per  ytoth y26d_hog y26d_total
+##         &lt;dbl&gt; &lt;dbl&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+lbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl+lb&gt; &lt;dbl+lbl&gt; 
+## 1     7.31e11    41 1 [Hom… 1 [Sis… 1 [Sí]          1 2.25e8 2 [No]   NA        
+## # ℹ 4 more variables: o2 &lt;dbl+lbl&gt;, o3 &lt;dbl+lbl&gt;, o4 &lt;dbl+lbl&gt;, o6 &lt;dbl+lbl&gt;
 </code></pre></div><p>¡Gana $225.200.000, es Hombre y tiene 41 años! (y vive solo&hellip;)</p>
 <h4 id="filter-con-caracteres"><code>filter()</code> con caracteres</h4>
 <p>Si queremos filtrar por la variable <code>sexo</code> solo a las mujeres, tengo dos opciones: o solo selecciono a las mujeres (<code>==</code>) o excluyo a los hombres (<code>!=</code>).</p>
@@ -1114,8 +1113,8 @@ variable1 &gt;= 3
 <p>Por ello, con el siguiente código aparecerá un error.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">filter</span>(datos_proc, sexo <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Mujer&#34;</span>)
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## Error in `filter()`:
-## ! Problem while computing `..1 = sexo == &#34;Mujer&#34;`.
-## Caused by error in `stop_vctrs()`:
+## ℹ In argument: `sexo == &#34;Mujer&#34;`.
+## Caused by error in `vec_equal()`:
 ## ! Can&#39;t combine `..1` &lt;character&gt; and `..2` &lt;double&gt;.
 </code></pre></div><p>Una función <strong>muy muy útil</strong> (sobre todo cuando trabajemos con regresiones) es <code>as_factor()</code> que permite conservar los niveles pero definiendo sus categorías de respuesta en base a la etiqueta que traen (el <code>lbl</code>)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc<span style="color:#f92672">$</span>sexo <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as_factor</span>(datos_proc<span style="color:#f92672">$</span>sexo)
@@ -1159,7 +1158,7 @@ variable1 &gt;= 3
                <span style="color:#a6e22e">select</span>(folio, sexo, edad, ocupacion, ytoth, tot_per, ife <span style="color:#f92672">=</span> y26d_hog, o2, o3, o4, o6)
 </code></pre></div><p>Podemos visualizar la base resultante a partir de <code>view_df()</code> de <code>sjPlot</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">sjPlot<span style="color:#f92672">::</span><span style="color:#a6e22e">view_df</span>(datos_proc, 
-                encoding <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;UTF-8&#34;</span>)
+                encoding <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;latin1&#34;</span>)
 </code></pre></div><table style="border-collapse:collapse; border:none;">
 <caption>Data frame: datos_proc</caption>
 <tr>
@@ -1168,7 +1167,7 @@ variable1 &gt;= 3
 <tr>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">1</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">folio</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">IdentificaciÃ³n hogar (comuna area seg viv hogar)</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">Identificación hogar (comuna area seg viv hogar)</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;" colspan="2"><em>range: NA-NA</em></td>
 </tr>
 <tr>
@@ -1187,9 +1186,9 @@ variable1 &gt;= 3
 <tr>
 <td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">4</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">ocupacion</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">o1. La semana pasada, Â¿trabajÃ³ al menos una hora?</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">o1. La semana pasada, ¿trabajó al menos una hora?</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">1<br>2</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">SÃ­<br>No</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">Sí<br>No</td>
 </tr>
 <tr>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">5</td>
@@ -1206,37 +1205,37 @@ variable1 &gt;= 3
 <tr>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">7</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">ife</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">y26d_hog. Ãšltimos 12 meses, Â¿alguien recibiÃ³<br>Ingreso Familiar de Emergencia?</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">y26d_hog. Últimos 12 meses, ¿alguien recibió<br>Ingreso Familiar de Emergencia?</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">1<br>2<br>9</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">SÃ­<br>No<br>No sabe</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">Sí<br>No<br>No sabe</td>
 </tr>
 <tr>
 <td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">8</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">o2</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">o2. Aunque no trabajÃ³ la semana pasada, Â¿realizÃ³<br>alguna actividad?</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">o2. Aunque no trabajó la semana pasada, ¿realizó<br>alguna actividad?</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">1<br>2</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">SÃ­<br>No</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">Sí<br>No</td>
 </tr>
 <tr>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">9</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">o3</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">o3. Aunque no trabajÃ³, Â¿tenÃ­a algÃºn empleo del<br>cual estuvo ausente temporalmente</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">o3. Aunque no trabajó, ¿tenía algún empleo del<br>cual estuvo ausente temporalmente</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">1<br>2</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">SÃ­<br>No</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">Sí<br>No</td>
 </tr>
 <tr>
 <td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">10</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">o4</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">o4. Â¿Ha trabajado alguna vez?</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">o4. ¿Ha trabajado alguna vez?</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">1<br>2</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">SÃ­<br>No</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">Sí<br>No</td>
 </tr>
 <tr>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">11</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">o6</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">o6. Â¿BuscÃ³ trabajo remunerado o cuenta propia en<br>las Ãºltimas cuatro semanas?</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">o6. ¿Buscó trabajo remunerado o cuenta propia en<br>las últimas cuatro semanas?</td>
 <td style="padding:0.2cm; text-align:left; vertical-align:top;">1<br>2</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">SÃ­<br>No</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">Sí<br>No</td>
 </tr>
 </table>
 <h2 id="9-unir-datos">9. Unir datos</h2>
@@ -1265,35 +1264,35 @@ proc_2 <span style="color:#f92672">&lt;-</span> proc_2[909<span style="color:#f9
 <p>Otra cosa que podemos hacer es, simplemente, pegar una columna de un dataframe a otro. Para ello recurrimos a la función <code>bind_cols()</code> de <code>dplyr</code>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">bind_columnas <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">bind_cols</span>(proc_1, proc_2)
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## New names:
-## * folio -&gt; folio...1
-## * sexo -&gt; sexo...2
-## * folio -&gt; folio...5
-## * sexo -&gt; sexo...6
+## • `folio` -&gt; `folio...1`
+## • `sexo` -&gt; `sexo...2`
+## • `folio` -&gt; `folio...5`
+## • `sexo` -&gt; `sexo...6`
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">head</span>(bind_columnas)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 6 x 9
-##      folio...1 sexo...2 ocupacion  ytoth folio...5 sexo...6  edad tot_per    ife
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 6 × 9
+##      folio...1 sexo...2 ocupacion  ytoth folio...5 sexo...6  edad tot_per ife   
 ##          &lt;dbl&gt; &lt;fct&gt;    &lt;dbl+lbl&gt;  &lt;dbl&gt;     &lt;dbl&gt; &lt;fct&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl+&gt;
-## 1 110110010101 Mujer       2 [No] 3.91e5   1.10e11 Mujer       50       5 2 [No]
-## 2 110110010201 Hombre      1 [Sí] 9.48e5   1.10e11 Mujer       79       5 2 [No]
-## 3 110110010201 Mujer       2 [No] 9.48e5   1.10e11 Hombre      53       5 2 [No]
-## 4 110110010301 Hombre      1 [Sí] 3.00e6   1.10e11 Mujer       70       1 2 [No]
-## 5 110110010301 Hombre      2 [No] 3.00e6   1.10e11 Hombre      16       5 2 [No]
-## 6 110110010301 Mujer       2 [No] 3.00e6   1.10e11 Mujer       46       5 2 [No]
+## 1 110110010101 Mujer    2 [No]    3.91e5   1.10e11 Mujer       50       5 2 [No]
+## 2 110110010201 Hombre   1 [Sí]    9.48e5   1.10e11 Mujer       79       5 2 [No]
+## 3 110110010201 Mujer    2 [No]    9.48e5   1.10e11 Hombre      53       5 2 [No]
+## 4 110110010301 Hombre   1 [Sí]    3.00e6   1.10e11 Mujer       70       1 2 [No]
+## 5 110110010301 Hombre   2 [No]    3.00e6   1.10e11 Hombre      16       5 2 [No]
+## 6 110110010301 Mujer    2 [No]    3.00e6   1.10e11 Mujer       46       5 2 [No]
 </code></pre></div><p>Vemos que simplemente pegó  <code>a</code> y <code>b</code>. Eso implica que tenemos columnas repetidas (a saber, folio y sexo). Cuando estemos seguras/os de que hay columnas repetidas entre dos dataframes que queramos unir, emplearemos <code>merge()</code> mientras que, si estos no comparten ninguna columna, recurrimos a <code>bing_cols()</code>.</p>
 <h3 id="c-bind_rows">c) <code>bind_rows()</code></h3>
 <p>También podemos unir dos dataframes a partir de sus filas, con la función <code>bind_rows()</code> de <code>dplyr</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">bind_filas <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">bind_rows</span>(proc_1, proc_2)
 
 <span style="color:#a6e22e">head</span>(bind_filas)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 6 x 7
-##          folio sexo   ocupacion   ytoth  edad tot_per       ife
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 6 × 7
+##          folio sexo   ocupacion   ytoth  edad tot_per ife      
 ##          &lt;dbl&gt; &lt;fct&gt;  &lt;dbl+lbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl+lbl&gt;
-## 1 110110010101 Mujer     2 [No]  390833    NA      NA        NA
-## 2 110110010201 Hombre    1 [Sí]  947583    NA      NA        NA
-## 3 110110010201 Mujer     2 [No]  947583    NA      NA        NA
-## 4 110110010301 Hombre    1 [Sí] 3004167    NA      NA        NA
-## 5 110110010301 Hombre    2 [No] 3004167    NA      NA        NA
-## 6 110110010301 Mujer     2 [No] 3004167    NA      NA        NA
+## 1 110110010101 Mujer  2 [No]     390833    NA      NA NA       
+## 2 110110010201 Hombre 1 [Sí]     947583    NA      NA NA       
+## 3 110110010201 Mujer  2 [No]     947583    NA      NA NA       
+## 4 110110010301 Hombre 1 [Sí]    3004167    NA      NA NA       
+## 5 110110010301 Hombre 2 [No]    3004167    NA      NA NA       
+## 6 110110010301 Mujer  2 [No]    3004167    NA      NA NA
 </code></pre></div><p><code>bind_rows()</code> nos permite pegar filas, independientemente si ambos dataframes comparten las mismas columnas. En caso de que ambos dataframes no compartan alguna columna, esta función rellenará con valores nulos (<code>NA</code>). En este caso, la unión es perfecta en tanto proc_1 y proc_2 se conformaron a partir del mismo data frame.</p>
 <h2 id="10-guardar-base-procesada">10. Guardar base procesada</h2>
 <p>Para guardar la base de datos procesada, debes dirigir la ruta desde tu RProject. En este caso, guardaremos datos_proc</p>

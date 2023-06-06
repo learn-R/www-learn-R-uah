@@ -24,14 +24,14 @@ La pregunta de investigación que buscamos contestar en esta tarea es **“¿Qu�
 
 Para responder a esta pregunta, nos basamos en la investigación de *Gerber et al (2021)* que indica que tanto factores psicosociales como sociodemográficos son relevantes para predecir la adherencia a las medidas de cuidado contra el COVID-19.  Desde esta investigación, planteamos las siguientes dos hipótesis:
 
-- $H_1$: A mayor percepción de riesgo contra el COVID-19, mayor frecuencia de cumplimiento de la distancia física
+- `\(H_1\)`: A mayor percepción de riesgo contra el COVID-19, mayor frecuencia de cumplimiento de la distancia física
 
-- $H_2$: Las personas que trabajan presentan menor posibilidad de mantener distancia física. 
+- `\(H_2\)`: Las personas que trabajan presentan menor posibilidad de mantener distancia física. 
 
 
-- $H_3$: Las mujeres presentarán mayor frecuencia de mantener distancia física que los hombres
+- `\(H_3\)`: Las mujeres presentarán mayor frecuencia de mantener distancia física que los hombres
 
-- $H_4$: Los adultos mayores presentarán mayor frecuencia de mantener distancia física para cuidarse del COVID-19 que los jóvenes.
+- `\(H_4\)`: Los adultos mayores presentarán mayor frecuencia de mantener distancia física para cuidarse del COVID-19 que los jóvenes.
 
 Considera las siguientes variables:
 
@@ -93,7 +93,7 @@ f.	¿Qué porcentaje de la varianza en la actitud hacia los sindicatos es explic
 
 
 
-*Formato*: puede ir escribiendo los $R^2$ y $F$ con `inline code de R` o hacer una tabla.
+*Formato*: puede ir escribiendo los `\(R^2\)` y `\(F\)` con `inline code de R` o hacer una tabla.
 
 g.	Utiliza la ecuación estimada para calcular el cumplimiento de las medidas de cuidado *esperada* para quiénes trabajan y para quienes no lo hacen. Puedes presentar los resultados en una tabla o en un gráfico. [9 puntos]
 
